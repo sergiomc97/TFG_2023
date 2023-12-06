@@ -1,0 +1,325 @@
+﻿<UserControl x:Class="mainWin.Vistas.UserControlMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:mainWin.Vistas"
+             Background="White"
+             mc:Ignorable="d"
+             Loaded="UserControl_Loaded">
+    <Grid Grid.Column="0"
+          Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ToggleButton x:Name="toggleButton"
+                      Style="{StaticResource NoHoverToggleButtonStyle}"
+                      Background="#331A1A1A"
+                      BorderThickness="0"
+                      Grid.Row="0"
+                      Width="200"
+                      Height="60"
+                      Padding="5">
+            <StackPanel Orientation="Horizontal"
+                        Margin="10">
+                <fa:ImageAwesome Icon="Dropbox"
+                                 x:Name="icon"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Center"
+                                 Height="50"
+                                 Width="20" />
+            </StackPanel>
+        </ToggleButton>
+
+        <StackPanel x:Name="menuList"
+                    Grid.Row="1"
+                    Background="Transparent"
+                    Width="200"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Left">
+            <Border Style="{StaticResource HoverBorderStyle3}"
+                    Padding="10"
+                    MouseLeftButtonDown="Button_Click_1">
+                <Button x:Name="btn1"
+                        BorderThickness="1"
+                        Width="200"
+                        HorizontalContentAlignment="Left"
+                        Style="{StaticResource IconButtonStyle4}">
+                    <StackPanel Orientation="Horizontal">
+                        <Border x:Name="borderHome"
+                                Padding="2" />
+                        <fa:ImageAwesome Icon="Home"
+                                         HorizontalAlignment="Left"
+                                         VerticalAlignment="Center"
+                                         Height="50"
+                                         Width="25"
+                                         Foreground="Gray"
+                                         Margin="5" />
+                        <TextBlock Text="Inicio"
+                                   HorizontalAlignment="Right"
+                                   FontSize="{DynamicResource BaseFontSize}"
+                                   VerticalAlignment="Center"
+                                   Margin="15,0,0,0" />
+                    </StackPanel>
+                </Button>
+            </Border>
+            <!--l
+            Style="{StaticResource HoverBorderStyle3}"
+             Style="{StaticResource IconButtonStyle4}"
+            -->
+            <Border MouseLeftButtonDown="Button_Click_2"
+                    Style="{StaticResource HoverBorderStyle3}"
+                    Padding="10">
+                <Button x:Name="btn2"
+                        Width="200"
+                        BorderThickness="1"
+                        Click="Button_Click_2"
+                        Style="{StaticResource IconButtonStyle4}"
+                        HorizontalContentAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <Border x:Name="borderOrdenes"
+                                Padding="2" />
+                        <fa:ImageAwesome Icon="Book"
+                                         HorizontalAlignment="Left"
+                                         VerticalAlignment="Center"
+                                         Height="50"
+                                         Width="25"
+                                         Foreground="Gray"
+                                         Margin="5" />
+                        <TextBlock Text="Órdenes"
+                                   HorizontalAlignment="Right"
+                                   FontSize="{DynamicResource BaseFontSize}"
+                                   VerticalAlignment="Center"
+                                   Margin="15,0,0,0" />
+                    </StackPanel>
+                </Button>
+            </Border>
+            <Border Style="{StaticResource HoverBorderStyle3}"
+                    MouseLeftButtonDown="Button_Click_3"
+                    Padding="10">
+                <Button x:Name="btn3"
+                        Width="200"
+                        BorderThickness="1"
+                        HorizontalContentAlignment="Left"
+                        Style="{StaticResource IconButtonStyle4}">
+                    <StackPanel Orientation="Horizontal">
+                        <Border x:Name="borderInventario"
+                                Background="Transparent"
+                                Padding="2" />
+                        <fa:ImageAwesome Icon="Archive"
+                                         HorizontalAlignment="Left"
+                                         VerticalAlignment="Center"
+                                         Height="50"
+                                         Width="25"
+                                         Foreground="Gray"
+                                         Margin="5" />
+                        <TextBlock Text="Inventario"
+                                   HorizontalAlignment="Right"
+                                   FontSize="{DynamicResource BaseFontSize}"
+                                   VerticalAlignment="Center"
+                                   Margin="15,0,0,0" />
+                    </StackPanel>
+                </Button>
+            </Border>
+            <Border Style="{StaticResource HoverBorderStyle3}"
+                    MouseLeftButtonDown="Button_Click_4"
+                    Padding="10">
+                <Button x:Name="btn4"
+                        Width="200"
+                        BorderThickness="1"
+                        HorizontalContentAlignment="Left"
+                        Style="{StaticResource IconButtonStyle4}">
+                    <StackPanel Orientation="Horizontal">
+                        <Border x:Name="borderClientes"
+                                Background="Transparent"
+                                Padding="2" />
+                        <fa:ImageAwesome Icon="Users"
+                                         HorizontalAlignment="Left"
+                                         VerticalAlignment="Center"
+                                         Height="50"
+                                         Width="25"
+                                         Foreground="Gray"
+                                         Margin="5" />
+                        <TextBlock Text="Clientes"
+                                   HorizontalAlignment="Right"
+                                   FontSize="{DynamicResource BaseFontSize}"
+                                   VerticalAlignment="Center"
+                                   Margin="15,0,0,0" />
+                    </StackPanel>
+                </Button>
+            </Border>
+            <Border Style="{StaticResource HoverBorderStyle3}"
+                    MouseLeftButtonDown="Button_Click_5"
+                    Padding="10">
+                <Button x:Name="btn5"
+                        Width="200"
+                        BorderThickness="1"
+                        HorizontalContentAlignment="Left"
+                        Style="{StaticResource IconButtonStyle4}">
+                    <StackPanel Orientation="Horizontal">
+                        <Border x:Name="borderprove"
+                                Background="Transparent"
+                                Padding="2" />
+                        <fa:ImageAwesome Icon="truck"
+                                         HorizontalAlignment="Left"
+                                         VerticalAlignment="Center"
+                                         Height="50"
+                                         Width="25"
+                                         Foreground="Gray"
+                                         Margin="5" />
+                        <TextBlock Text="Proveedores"
+                                   HorizontalAlignment="Right"
+                                   FontSize="{DynamicResource BaseFontSize}"
+                                   VerticalAlignment="Center"
+                                   Margin="15,0,0,0" />
+                    </StackPanel>
+                </Button>
+            </Border>
+            <Border Style="{StaticResource HoverBorderStyle3}"
+                    MouseLeftButtonDown="Button_Click_6"
+                    Padding="10">
+                <Button BorderThickness="1"
+                        x:Name="btn6"
+                        Width="200"
+                        HorizontalContentAlignment="Left"
+                        Style="{StaticResource IconButtonStyle4}">
+                    <StackPanel Orientation="Horizontal">
+                        <Border x:Name="borderServ"
+                                Background="Transparent"
+                                Padding="2" />
+                        <fa:ImageAwesome Icon="Stethoscope"
+                                         HorizontalAlignment="Left"
+                                         VerticalAlignment="Center"
+                                         Height="50"
+                                         Width="25"
+                                         Foreground="Gray"
+                                         Margin="5" />
+                        <TextBlock Text="Servicios"
+                                   HorizontalAlignment="Right"
+                                   FontSize="{DynamicResource BaseFontSize}"
+                                   VerticalAlignment="Center"
+                                   Margin="15,0,0,0" />
+                    </StackPanel>
+                </Button>
+            </Border>
+            <Border Style="{StaticResource HoverBorderStyle3}"
+                    MouseLeftButtonDown="Button_Click_7"
+                    Padding="10">
+                <Button BorderThickness="1"
+                        x:Name="btn7"
+                        Width="200"
+                        HorizontalContentAlignment="Left"
+                        Style="{StaticResource IconButtonStyle4}">
+                    <StackPanel Orientation="Horizontal">
+                        <Border x:Name="borderEst"
+                                Background="Transparent"
+                                Padding="2" />
+                        <fa:ImageAwesome Icon="History"
+                                         HorizontalAlignment="Left"
+                                         VerticalAlignment="Center"
+                                         Height="50"
+                                         Width="25"
+                                         Foreground="Gray"
+                                         Margin="5" />
+                        <TextBlock Text="Estadisticas"
+                                   HorizontalAlignment="Right"
+                                   FontSize="{DynamicResource BaseFontSize}"
+                                   VerticalAlignment="Center"
+                                   Margin="15,0,0,0" />
+                    </StackPanel>
+                </Button>
+            </Border>
+            <Border Style="{StaticResource HoverBorderStyle3}"
+                    MouseLeftButtonDown="Button_Click_8"
+                    Padding="10">
+                <Button BorderThickness="1"
+                        x:Name="btn8"
+                        Width="200"
+                        HorizontalContentAlignment="Left"
+                        Style="{StaticResource IconButtonStyle4}">
+                    <StackPanel Orientation="Horizontal">
+                        <Border x:Name="borderCitas"
+                                Background="Transparent"
+                                Padding="2" />
+                        <fa:ImageAwesome Icon="calendar"
+                                         HorizontalAlignment="Left"
+                                         VerticalAlignment="Center"
+                                         Height="50"
+                                         Width="25"
+                                         Foreground="Gray"
+                                         Margin="5" />
+                        <TextBlock Text="Citas"
+                                   HorizontalAlignment="Right"
+                                   FontSize="{DynamicResource BaseFontSize}"
+                                   VerticalAlignment="Center"
+                                   Margin="15,0,0,0" />
+                    </StackPanel>
+                </Button>
+            </Border>
+            <Border Style="{StaticResource HoverBorderStyle3}"
+                    MouseLeftButtonDown="Button_Click_9"
+                    x:Name="btn9"
+                    Visibility="Collapsed"
+                    Padding="10">
+                <Button BorderThickness="1"
+                        
+                        Width="200"
+                        HorizontalContentAlignment="Left"
+                        Style="{StaticResource IconButtonStyle4}">
+                    <StackPanel Orientation="Horizontal">
+                        <Border x:Name="borderConfig"
+                                Background="Transparent"
+                                Padding="2" />
+                        <fa:ImageAwesome Icon="Gear"
+                                         HorizontalAlignment="Left"
+                                         VerticalAlignment="Center"
+                                         Height="50"
+                                         Width="25"
+                                         Foreground="Gray"
+                                         Margin="5" />
+                        <TextBlock Text="Configuración"
+                                   HorizontalAlignment="Right"
+                                   FontSize="{DynamicResource BaseFontSize}"
+                                   VerticalAlignment="Center"
+                                   Margin="15,0,0,0" />
+                    </StackPanel>
+                </Button>
+            </Border>
+
+
+
+
+
+            <!-- Establece el ancho inicial del ItemsControl -->
+            <!--<ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <ContentControl>
+
+                        <Button Click="Button_Click_4"
+                                Padding="10"
+                                BorderThickness="1"
+                                Style="{StaticResource NoHoverButtonStyle}">
+                            <StackPanel Margin="10"
+                                        x:Name="stackpanel"
+                                        Orientation="Horizontal">
+                                <fa:ImageAwesome Icon="{Binding Icon}"
+                                                 HorizontalAlignment="Left"
+                                                 VerticalAlignment="Center"
+                                                 Height="{DynamicResource DobleFontSize}"
+                                                 Width="20"
+                                                 Margin="5" />
+                                <TextBlock Text="{Binding Description}"
+                                           HorizontalAlignment="Right"
+                                           FontSize="{DynamicResource DobleFontSize}"
+                                           VerticalAlignment="Center"
+                                           Margin="5" />
+                            </StackPanel>
+                        </Button>
+                    </ContentControl>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>-->
+        </StackPanel>
+    </Grid>
+</UserControl>

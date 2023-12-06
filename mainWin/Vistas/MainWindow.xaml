@@ -1,0 +1,303 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MainWindow"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Height="720"
+        Width="1080"
+        mc:Ignorable="d">
+
+    <Window.Resources>
+        <Style x:Key="animate"
+               TargetType="Grid">
+            <Style.Triggers>
+                <!-- Trigger para animar la expansión y contracción, y cambio de color del Foreground -->
+                <Trigger Property="Visibility"
+                         Value="Visible">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Width"
+                                                 From="0"
+                                                 To="500"
+                                                 Duration="0:0:0.2" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Width"
+                                                 From="500"
+                                                 To="0"
+                                                 Duration="0:0:0.2" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+
+    </Window.Resources>
+    <!--        WindowStyle="None"
+        AllowsTransparency="True"-->
+    <Grid Background="Transparent">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+
+
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="2"
+                Padding="20"
+                Grid.RowSpan="12"
+                Grid.Column="1"
+                Background="#3fb4c6"
+                BorderBrush="White"
+                CornerRadius="10,0,0,10">
+            <Grid x:Name="inciosesion"
+                  Style="{StaticResource animate}"
+                  Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Centrar el contenido en el Grid -->
+                <Grid VerticalAlignment="Center"
+                      HorizontalAlignment="Center">
+
+                    <!-- StackPanel para apilar verticalmente -->
+                    <StackPanel>
+
+                        <!-- Agregar TextBlock Grande -->
+                        <TextBlock Text="Ya tienes cuenta?"
+                                   Foreground="#dfdddc"
+                                   Margin="20"
+                                   FontSize="60" />
+
+                        <!-- Agregar TextBlock Largo Más Pequeño -->
+                        <TextBlock Text="Texto largo más pequeño que aparece debajo del texto grande."
+                                   FontSize="14"
+                                   Margin="20"
+                                   Foreground="#dfdddc"
+                                   TextWrapping="Wrap" />
+
+                        <!-- Agregar Botón -->
+                        <Button Content="Iniciar Sesion"
+                                FontSize="16"
+                                Margin="20"
+                                Foreground="#dfdddc"
+                                BorderBrush="#dfdddc"
+                                Background="#953fb4c6"
+                                x:Name="iniciarsesion"
+                                Width="120"
+                                Height="40"
+                                Click="iniciarsesion_Click" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+
+
+        </Border>
+        <Border Grid.Row="2"
+                Grid.RowSpan="12"
+                Padding="20"
+                Grid.Column="3"
+                Background="#3fb4c6"
+                BorderBrush="White"
+                CornerRadius="0,10,10,0"
+                x:Name="BorderReg">
+            <Grid x:Name="registro"
+                  Style="{StaticResource animate}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Centrar el contenido en el Grid -->
+                <Grid VerticalAlignment="Center"
+                      HorizontalAlignment="Center">
+
+                    <!-- StackPanel para apilar verticalmente -->
+                    <StackPanel>
+
+                        <!-- Agregar TextBlock Grande -->
+                        <TextBlock Text="Registrarse"
+                                   Foreground="#dfdddc"
+                                   Margin="20"
+                                   FontSize="60" />
+
+                        <!-- Agregar TextBlock Largo Más Pequeño -->
+                        <TextBlock Text="Texto largo más pequeño que aparece debajo del texto grande."
+                                   FontSize="14"
+                                   Margin="20"
+                                   Foreground="#dfdddc"
+                                   TextWrapping="Wrap" />
+
+                        <!-- Agregar Botón -->
+                        <Button Content="Registrarse"
+                                x:Name="registrarse"
+                                FontSize="16"
+                                Margin="20"
+                                Foreground="#dfdddc"
+                                BorderBrush="#dfdddc"
+                                Background="#953fb4c6"
+                                Width="120"
+                                Height="40"
+                                Click="registrarse_Click" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+
+        </Border>
+
+        <Grid  Grid.Row="1"
+               Grid.RowSpan="14"
+               Grid.Column="2"
+               x:Name="central"
+               Background="White">
+            <Grid.Effect>
+                <DropShadowEffect  BlurRadius="50"
+                                   Color="Black"></DropShadowEffect>
+            </Grid.Effect>
+            <Grid x:Name="gridCentroRegistro"
+                  Visibility="Collapsed">
+                <TextBlock Text="Registro"
+                           FontSize="32"
+                           Foreground="Gray"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="30,20,0,40" />
+
+
+                <StackPanel HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Width="400">
+
+
+                    <TextBox Style="{StaticResource loginTextBox}"
+                             x:Name="regUser"
+                             Text="Usuario"
+                             GotFocus="regUser_GotFocus" />
+
+
+                    <TextBox  Style="{StaticResource loginTextBox}"
+                              x:Name="regnom"
+                              Text="Nombre"
+                              GotFocus="regnom_GotFocus" />
+
+
+                    <TextBox Text="Email"
+                             x:Name="regmail"
+                             Style="{StaticResource loginTextBox}"
+                             GotFocus="regmail_GotFocus" />
+
+
+                    <PasswordBox  Style="{StaticResource loginTextBox2}"
+                                  x:Name="regPass" />
+
+
+                    <Button Content="Registrar"
+                            Height="50"
+                            x:Name="registrar"
+                            Width="100"
+                            HorizontalAlignment="Right"
+                            Margin="40"
+                            Background="#3fb4c6"
+                            Foreground="White"
+                            BorderBrush="#3fb4c6"
+                            Click="registrar_Click" />
+                </StackPanel>
+            </Grid>
+            <Grid x:Name="gridCentroInicio">
+                <TextBlock Text="Iniciar Sesion"
+                           FontSize="32"
+                           Foreground="Gray"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           Margin="30,20,0,40" />
+
+
+                <StackPanel HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Width="400">
+
+
+                    <TextBox Style="{StaticResource loginTextBox}"
+                             x:Name="textuserIni"
+                             Text="Usuario"
+                             GotFocus="textuserIni_GotFocus" />
+
+                    <PasswordBox x:Name="textpassIni"
+                                 Style="{StaticResource loginTextBox2}" />
+
+
+                    <Button Content="Iniciar Sesion"
+                            Height="40"
+                            Width="100"
+                            x:Name="btnInicioSesion"
+                            HorizontalAlignment="Left"
+                            Margin="40"
+                            Background="#3fb4c6"
+                            Foreground="White"
+                            BorderBrush="#3fb4c6"
+                            Click="btnInicioSesion_Click" />
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right"
+                            Margin="40"
+                            VerticalAlignment="Bottom"
+                            MouseLeftButtonDown="StackPanel_MouseLeftButtonDown">
+                    <fa:ImageAwesome Icon="Gear"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center"
+                                     Height="50"
+                                     Width="40"
+                                     Foreground="Gray"
+                                     Margin="5" />
+
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+
+
+
+
+    </Grid>
+</Window>

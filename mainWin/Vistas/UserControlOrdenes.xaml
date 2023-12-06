@@ -1,0 +1,270 @@
+﻿<UserControl x:Class="mainWin.Vistas.UserControlOrdenes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:mainWin.Vistas"
+             xmlns:fa="http://schemas.fontawesome.io/icons/"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!--Style="{StaticResource MinimalDataGridStyle}"-->
+        <Border Margin="10"
+                CornerRadius="10"
+                Background="White">
+            <DataGrid x:Name="grid"
+                      AutoGenerateColumns="False"
+                      Background="White"
+                      Width="Auto"
+                      Height="Auto"
+                      HorizontalScrollBarVisibility="Disabled"
+                      ItemsSource="{Binding}"
+                      RowStyle="{StaticResource TarjetaStyle}"
+                      ColumnHeaderStyle="{StaticResource MinimalDataGridHeaderStyle}"
+                      Style="{StaticResource MinimalDataGridStyle}"
+                      FontFamily="Segoe ui"
+                      MouseDoubleClick="OnDataGridDoubleClick"
+                      SelectionMode="Extended"
+                      SelectionUnit="FullRow">
+
+                <DataGrid.Columns>
+                    <!-- Número de Parte -->
+                    <DataGridTemplateColumn
+                                            Width="100">
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock Text="Nº Parte"
+                                       FontSize="{DynamicResource MidFontSize}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center" />
+
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding IdOrden}"
+                                           FontSize="15"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!-- Fecha -->
+                    <DataGridTemplateColumn
+                                            Width="100">
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock Text="Fecha"
+                                       FontSize="{DynamicResource MidFontSize}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center" />
+
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Fecha, StringFormat={}{0:dd/MM/yyyy}}"
+                                           VerticalAlignment="Center"
+                                           FontSize="15"
+                                           HorizontalAlignment="Center" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!-- Estado -->
+                    <DataGridTemplateColumn
+                                            Width="150">
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock Text="Estado"
+                                       FontSize="{DynamicResource MidFontSize}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center" />
+
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Estado.Estado1}"
+                                           FontSize="15"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!-- Modelo -->
+                    <DataGridTemplateColumn
+                                            Width="200">
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock Text="Modelo"
+                                       FontSize="{DynamicResource MidFontSize}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center" />
+
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Modelo}"
+                                           FontSize="15"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!-- Asignado a -->
+                    <DataGridTemplateColumn
+                                            Width="200">
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock Text="Asignado a"
+                                       FontSize="{DynamicResource MidFontSize}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center" />
+
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Asignado.Nombre}"
+                                           FontSize="15"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!-- Cliente -->
+                    <DataGridTemplateColumn
+                                            Width="200">
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock Text="Cliente:"
+                                       FontSize="{DynamicResource MidFontSize}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Stretch" />
+
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ClienteStr}"
+                                           FontSize="15"
+                                           VerticalAlignment="Center"
+                                           Margin="0,0,0,0"
+                                           HorizontalAlignment="Stretch" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!-- Teléfono -->
+                    <DataGridTemplateColumn
+                                            Width="150">
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock Text="Telefono:"
+                                       FontSize="{DynamicResource MidFontSize}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center" />
+
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Telefono}"
+                                           FontSize="15"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn
+                                            Width="200">
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock Text="Averia:"
+                                       FontSize="{DynamicResource MidFontSize}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center" />
+
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Averia}"
+                                           ToolTip="{Binding Averia}"
+                                           FontSize="15"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Left"
+                                           Margin="0,0,50,0"
+                                           TextWrapping="NoWrap" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+
+                    <DataGridTemplateColumn Header=""
+                                            Width="auto">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border>
+                                    <Button Background="Transparent"
+                                            Width="40"
+                                            Height="25"
+                                            VerticalAlignment="Center"
+                                            BorderBrush="Transparent"
+                                            Click="Button_Click">
+                                        <fa:ImageAwesome Icon="whatsapp"
+                                                         Foreground="Gray"
+ />
+                                    </Button>
+                                </Border>
+
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header=""
+                                            Width="100">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Border>
+                                    <Button Background="Transparent"
+                                            x:Name="delete"
+                                            Width="40"
+                                            Height="25"
+                                            VerticalAlignment="Center"
+                                            BorderBrush="Transparent"
+                                            Click="delete_Click">
+
+                                        <fa:ImageAwesome Icon="trash"
+                                                         Foreground="Gray"
+/>
+                                    </Button>
+                                </Border>
+
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected"
+                                     Value="True">
+                                <Setter Property="Background"
+                                        Value="white" />
+                                <Setter Property="BorderBrush"
+                                        Value="Transparent" />
+                                <Setter Property="Foreground"
+                                        Value="Black" />
+
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle>
+            </DataGrid>
+        </Border>
+
+    </Grid>
+</UserControl>

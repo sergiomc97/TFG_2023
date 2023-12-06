@@ -1,0 +1,308 @@
+﻿<Page x:Class="mainWin.Principal"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:uc="clr-namespace:mainWin.Vistas"
+      xmlns:local="clr-namespace:mainWin.Vistas"
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+      mc:Ignorable="d"
+      d:DesignHeight="820"
+      d:DesignWidth="1502"
+      Title="MainWindow">
+
+
+
+    <Grid Loaded="Grid_Loaded" >
+
+        <Grid x:Name="principal">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <!-- ... MENU LATERAL ... -->
+            <Grid Grid.Column="0"
+                  Background="#c7e3eb"
+                  Style="{StaticResource gridExpand}"
+                  Width="60"
+                  x:Name="control">
+                  
+                
+            </Grid>
+
+            <!-- ... GRID PRINCIPAL ... -->
+            <Grid Background="#c7e3eb"
+                  Grid.Column="1"
+                  x:Name="contenedorPrincipal">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!-- GRID TARJETAS-->
+                <!-- Tarjeta usuario-->
+                <Border Background="#331A1A1A"
+                        BorderBrush="Transparent">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <fa:ImageAwesome Icon="BellOutline"
+                                             Grid.Column="0"
+                                             HorizontalAlignment="Center"
+                                             Foreground="white"
+                                             x:Name="noti"
+                                             Height="60"
+                                             Width="23" />
+                            <TextBlock Text="{Binding DebugInfoModel.cont}"
+                                       VerticalAlignment="Center"
+                                       Grid.Column="0"
+                                       Foreground="#fe6701"
+                                       FontSize="20"
+                                       Margin="20,0,0,0" />
+                            
+                            <TextBlock
+                                       Text="{Binding DebugInfoModel.Msg}"
+                                       Grid.Column="1"
+                                        Grid.Row="0"
+                                       VerticalAlignment="Center"
+                                       Foreground="White"
+                                       FontSize="{DynamicResource BaseFontSize}"
+                                       Margin="30,0,0,0" />
+
+                            <fa:ImageAwesome Icon="UserOutline"
+                                             Grid.Column="2"
+                                             Foreground="White"
+                                             Height="60"
+                                             Width="20" />
+
+
+                            <TextBlock x:Name="username"
+                                       Grid.Column="3"
+                                       VerticalAlignment="Center"
+                                       Foreground="White"
+                                       FontSize="{DynamicResource BaseFontSize}"
+                                       Margin="30,0,0,0" />
+
+                        </Grid>
+                    </Grid>
+
+                </Border>
+
+                <Grid  Grid.Row="1"
+                       Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+
+                    <Grid Margin="10"
+                          Grid.Row="0"
+                          Grid.Column="0">
+                        <!-- Tarjeta1-->
+                        <Button Style="{StaticResource RoundButtonStyle}"
+                                MouseEnter="Button_MouseEnter"
+                                x:Name="porpresupu"
+                                MouseLeave="Button_MouseLeave"
+                                Click="Button_Click_2">
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconMaterial Kind="AccountArrowLeftOutline"
+                                                            Height="{DynamicResource DobleFontSize}"
+                                                            x:Name="ico0"
+                                                            Margin="10" />
+                                <TextBlock x:Name="numPresupu"
+                                           FontSize="{DynamicResource BaseFontSize}"
+                                           Margin="10" />
+                                <TextBlock Text="Por presupuestar"
+                                           FontSize="{DynamicResource BaseFontSize}"
+                                           Margin="10" />
+
+
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                    <Grid Margin="10"
+                          Grid.Row="0"
+                          Grid.Column="1">
+
+                        <!-- Tarjeta2-->
+                        <Button Style="{StaticResource RoundButtonStyle}"
+                                MouseEnter="Button_MouseEnter1"
+                                x:Name="enproceso"
+                                MouseLeave="Button_MouseLeave1"
+                                Click="enproceso_Click">
+
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconJamIcons  x:Name="ico1"
+                                                             Kind="Chronometer"
+                                                             Height="{DynamicResource DobleFontSize}"
+                                                             Margin="10" />
+                                <TextBlock x:Name="numProceso"
+                                           FontSize="{DynamicResource BaseFontSize}"
+                                           Margin="10" />
+
+                                <TextBlock Text="En proceso"
+                                           FontSize="{DynamicResource BaseFontSize}"
+                                           Margin="10" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                    <Grid Margin="10"
+                          Grid.Row="0"
+                          Grid.Column="2">
+                        <!-- Tarjeta3-->
+                        <Button Style="{StaticResource RoundButtonStyle}"
+                                MouseEnter="Button_MouseEnter2"
+                                x:Name="porentregar"
+                                MouseLeave="Button_MouseLeave2"
+                                Click="porentregar_Click">
+
+                            <StackPanel Orientation="Horizontal">
+                                <iconPacks:PackIconBootstrapIcons Kind="BoxSeam"
+                                                                  Height="{DynamicResource DobleFontSize}"
+                                                                  x:Name="ico2"
+                                                                  Width="20"
+                                                                  Margin="10" />
+                                <TextBlock x:Name="numEntregar"
+                                           FontSize="{DynamicResource BaseFontSize}"
+                                           Margin="10" />
+                                <TextBlock Text="Por entregar"
+                                           FontSize="{DynamicResource BaseFontSize}"
+                                           Margin="10" />
+                            </StackPanel>
+                        </Button>
+
+                    </Grid>
+                    <Grid Margin="10"
+                          Grid.RowSpan="2"
+                          Grid.Row="1"
+                          Grid.Column="0">
+                        <!-- Tarjeta4-->
+                        <Button Style="{StaticResource RoundButtonStyle}"
+                                Click="Button_Click_1">
+                            <Grid>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Text="Pendientes"
+                                           Grid.Row="0"
+                                           FontSize="{DynamicResource DobleFontSize}" />
+
+                                <TextBlock Text="0"
+                                           x:Name="NumPend"
+                                           Grid.Row="2"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Top"
+                                           FontSize="{DynamicResource DobleDobleFontSize}" />
+
+
+                            </Grid>
+                        </Button>
+                    </Grid>
+                    <Grid Margin="10"
+                          Grid.Row="1"
+                          Grid.RowSpan="2"
+                          Grid.ColumnSpan="2"
+                          Grid.Column="1">
+                        <!-- Tarjeta5-->
+                        <Border Background="White"
+                                BorderBrush="Transparent"
+                                BorderThickness="0"
+                                CornerRadius="0"
+                                Padding="10">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="10"
+                                                  ShadowDepth="5"
+                                                  Opacity="0.1" />
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Citas con clientes:"
+                                           Grid.Row="0"
+                                           HorizontalAlignment="Left"
+                                           FontSize="{DynamicResource BaseFontSize}" />
+
+                                <Grid x:Name="contenedorCitas"
+                                      Grid.Row="1" />
+                            </Grid>
+
+
+                        </Border>
+                    </Grid>
+
+                </Grid>
+                <Grid Margin="10"
+                      Grid.Row="2">
+                    <!-- Tarjeta grande-->
+                    <Border Background="White"
+                            BorderBrush="Transparent"
+                            BorderThickness="0"
+                            CornerRadius="0"
+                            Padding="10">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="10"
+                                              ShadowDepth="5"
+                                              Opacity="0.1" />
+                        </Border.Effect>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Partes con fecha limite esta semana:"
+                                       Grid.Row="0"
+                                       HorizontalAlignment="Left"
+                                       FontSize="{DynamicResource BaseFontSize}" />
+
+                            <Grid x:Name="contenedor"
+                                  Grid.Row="1" />
+                        </Grid>
+
+
+                    </Border>
+                    <!-- Tarjeta grande-->
+
+                </Grid>
+            </Grid>
+
+
+        </Grid>
+    </Grid>
+</Page>
