@@ -12,6 +12,7 @@ namespace mainWin.Controladores {
         private Thread monitoringThread;
         private FactusolController dataLoader;
         string conn;
+        private bool parar = true;
 
         public DatabaseMonitor(string dbFilePath, string conn) {
             this.dbFilePath = dbFilePath;
@@ -24,9 +25,12 @@ namespace mainWin.Controladores {
             monitoringThread = new Thread(MonitoringThreadMethod);
             monitoringThread.Start();
         }
+        public void detener() {
+            parar= false;
+        }
 
         private void MonitoringThreadMethod() {
-            while (true) {
+            while (parar) {
                 DateTime currentModified = File.GetLastWriteTime(dbFilePath);
                 if (currentModified > lastModified) {
                     Debug.WriteLine("################### El archivo de la base de datos ha sido modificado. Actualizando los datos... ###################");

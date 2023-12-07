@@ -39,7 +39,8 @@
 
                 <!-- Barra superior -->
                 <Border Grid.Row="0"
-                        Background="#FFAE74"
+                        Height="60"
+                        Background="#a4c8cf"
                         Padding="10">
                     <Grid>
                         <Grid.ColumnDefinitions>

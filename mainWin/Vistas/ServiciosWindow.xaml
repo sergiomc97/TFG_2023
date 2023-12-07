@@ -25,6 +25,7 @@
         </Grid>
         <Grid x:Name="expandedContent"
               Grid.Column="1"
+              
               Background="#E0E0E0">
 
             <!--... -->
@@ -39,7 +40,8 @@
 
                 <!-- Barra superior -->
                 <Border Grid.Row="0"
-                        Background="#FFAE74"
+                        Height="60"
+                        Background="#d8a874"
                         Padding="10">
                     <Grid>
                         <Grid.ColumnDefinitions>

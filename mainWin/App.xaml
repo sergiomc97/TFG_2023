@@ -181,7 +181,7 @@
             <Setter Property="BorderBrush"
                     Value="#80A0A0A0" />
             <Setter Property="Margin"
-                    Value="10,10,10,20" />
+                    Value="10,10,10,20" /> 
             <Setter Property="Padding"
                     Value="10" />
             <Setter Property="HorizontalContentAlignment"
@@ -334,7 +334,7 @@
                 <Setter.Value>
                     <DropShadowEffect BlurRadius="10"
                                       ShadowDepth="1"
-                                      Opacity="0.1" />
+                                      Opacity="0.4" />
                 </Setter.Value>
             </Setter>
             <Setter Property="Template">

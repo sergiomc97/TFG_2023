@@ -39,6 +39,7 @@
 
                 <!-- Barra superior -->
                 <Border Grid.Row="0"
+                        Height="60"
                         Background="#FFAE74"
                         Padding="10">
                     <Grid>
@@ -67,32 +68,120 @@
                         CornerRadius="10"
                         Background="White">
                     <Grid>
+                        <Grid.RowDefinitions>
 
-                        <StackPanel Grid.Row="1"
-                                    Margin="10">
-                            <!--contenido-->
-                            <!-- Botón para abrir el diálogo de selección de archivo -->
-                            <!-- TextBox para mostrar la ruta del archivo seleccionado -->
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0"
+                              HorizontalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+
+                            </Grid.ColumnDefinitions>
                             <TextBox x:Name="txtRutaArchivo"
                                      Text="Seleccionar base de datos"
                                      IsReadOnly="True"
+                                     Grid.Column="0"
                                      Style="{StaticResource loginTextBox}"
-                                     HorizontalAlignment="Stretch"
-                                     VerticalAlignment="Top"
-                                     Margin="10,40,10,10" />
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Center" />
 
                             <Button Content="Seleccionar Archivo"
                                     Height="40"
+                                    Grid.Column="1"
                                     Width="150"
                                     Click="SeleccionarArchivo_Click"
-                                    HorizontalAlignment="Center"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
                                     Background="#3fb4c6"
                                     Foreground="White"
                                     BorderBrush="#3fb4c6" />
 
 
-                        </StackPanel>
-                        <StackPanel Margin="10" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                        </Grid>
+                        <Grid Grid.Row="1"
+                              HorizontalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Asignar el usuario:"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       FontSize="15"
+                                       FontWeight="Light" />
+                            <ComboBox x:Name="combo"
+                                      Grid.Column="1"
+                                      Width="100"
+                                      VerticalAlignment="Center"
+                                      Style="{DynamicResource ComboBoxStyle1}" />
+                            <TextBlock Text="Al empleado:"
+                                       Grid.Column="2"
+                                       VerticalAlignment="Center"
+                                       FontSize="15"
+                                       FontWeight="Light" />
+                            <ComboBox x:Name="combo2"
+                                      Grid.Column="3"
+                                      Width="100"
+                                      VerticalAlignment="Center"
+                                      Style="{DynamicResource ComboBoxStyle1}" />
+
+                            <Button Content="Asignar"
+                                    Grid.Column="4"
+                                    Height="40"
+                                    x:Name="asign"
+                                    Width="150"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    Background="#3fb4c6"
+                                    Foreground="White"
+                                    BorderBrush="#3fb4c6"
+                                    Click="asign_Click" />
+
+
+                        </Grid>
+                        <Grid Grid.Row="2"
+                              HorizontalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Cargar datos de factusol:"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       FontSize="15"
+                                       FontWeight="Light" />
+
+                            <Button Content="Cargar"
+                                    Grid.Column="1"
+                                    Height="40"
+                                    Width="150"
+                                    x:Name="cargar"
+                                    Margin="40,0,0,0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Center"
+                                    Background="#3fb4c6"
+                                    Foreground="White"
+                                    BorderBrush="#3fb4c6"
+                                    Click="cargar_Click" />
+
+
+                        </Grid>
+                        <StackPanel Margin="10"
+                                    VerticalAlignment="Bottom"
+                                    Grid.Row="3"
+                                    HorizontalAlignment="Right">
                             <Button Style="{StaticResource RoundButtonStyle}"
                                     x:Name="SaveButton"
                                     BorderBrush="#3fb4c6"

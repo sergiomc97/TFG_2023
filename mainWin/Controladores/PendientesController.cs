@@ -1,4 +1,5 @@
 ﻿using mainWin.Modelos;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,17 +10,13 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace mainWin.Controladores
 {
-    public class PendientesController: Utilidades<Pendiente>  {
+    public class PendientesController : Utilidades<Pendiente> {
         private readonly bdContext _context;
-        private bdContext context;
 
         public PendientesController() {
             _context = bdContextSingleton.Instance;
         }
 
-        public PendientesController(bdContext context) {
-            this.context = context;
-        }
 
         public ObservableCollection<Pendiente> AñadirTarjetas() {
 
@@ -46,9 +43,10 @@ namespace mainWin.Controladores
                     await _context.SaveChangesAsync();
                 }
             }
-            catch (Exception ex) {
-                // Manejo de excepciones si es necesario
-                MessageBox.Show(ex.Message);
+            catch (DbUpdateConcurrencyException ex) {
+
+               MessageBox.Show($"Error de concurrencia: {ex.Message}");
+
             }
         }
 
@@ -57,21 +55,25 @@ namespace mainWin.Controladores
         }
 
         public void actualizarestado(Pendiente p) {
-            
+
             _context.SaveChanges();
         }
 
         public int ContarPendientesIncompletos() {
             return _context.Pendientes.Count(p => (bool)!p.Completado);
-            
+
         }
         public void NewPendiente(Pendiente p) {
+            try {
+                _context.Attach(p);
+                _context.Entry(p).State = EntityState.Added;
+                _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException ex) {
 
-            _context.Attach(p);
-            _context.Entry(p).State = Microsoft.EntityFrameworkCore.EntityState.Added;
-            _context.SaveChanges();
+                Console.WriteLine($"Error de concurrencia: {ex.Message}");
 
-
+            }
         }
     }
 }

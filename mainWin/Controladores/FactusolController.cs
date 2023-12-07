@@ -141,28 +141,21 @@ namespace mainWin.Controladores {
 
 
             try {
-                //CompExiste<Proveedore>(proveedores);
-                //Debug.WriteLine("################### CompExiste proveedores ###################");
-                //CompExiste<Cliente>(clientes);
-                //Debug.WriteLine("################### CompExiste clientes ###################");
-                //CompExiste<Categoria>(categorias);
-                //Debug.WriteLine("################### CompExiste categorias ###################");
-                //CompExiste_long(articulos);
-                //Debug.WriteLine("################### CompExiste articulos ###################");
-                //CompExiste<Empleado>(empleados);
-                //Debug.WriteLine("################### CompExiste empleados ###################");
-                //CompExiste_Ordenes(ordenes);
-                //Debug.WriteLine("################### CompExiste ordenes ###################");
-                //CompExiste<Marca>(marcas);
-                //Debug.WriteLine("################### CompExiste marcas ###################");
-                Task.Run(() => CompExiste<Proveedore>(proveedores)); //--> ok
-                Task.Run(() => CompExiste<Cliente>(clientes));  //--> ok
-                Task.Run(() => CompExiste<Categoria>(categorias));// --> ok
-                Task.Run(() => CompExiste_long(articulos));
-                Task.Run(() => CompExiste<Empleado>(empleados));// --> ok
-                Task.Run(() => CompExiste_Ordenes(ordenes));
-                Task.Run(() => CompExiste<Marca>(marcas));
-                //Debug.WriteLine("################### PARECE QUE VA BIEN ###################");
+                CompExiste<Proveedore>(proveedores);
+                Debug.WriteLine("################### CompExiste proveedores ###################");
+                CompExiste<Cliente>(clientes);
+                Debug.WriteLine("################### CompExiste clientes ###################");
+                CompExiste<Categoria>(categorias);
+                Debug.WriteLine("################### CompExiste categorias ###################");
+                CompExiste_long(articulos);
+                Debug.WriteLine("################### CompExiste articulos ###################");
+                CompExiste<Empleado>(empleados);
+                Debug.WriteLine("################### CompExiste empleados ###################");
+                CompExiste_Ordenes(ordenes);
+                Debug.WriteLine("################### CompExiste ordenes ###################");
+                CompExiste<Marca>(marcas);
+                Debug.WriteLine("################### CompExiste marcas ###################");
+
 
 
 

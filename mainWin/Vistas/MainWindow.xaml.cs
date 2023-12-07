@@ -1,7 +1,7 @@
 ﻿using mainWin.Controladores;
 using mainWin.Modelos;
 using mainWin.Vistas;
-using Microsoft.AspNetCore.Hosting.Server;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media;
@@ -16,6 +16,7 @@ namespace WpfApp1 {
         bdContext _context;
         EmpleadosController empleadosController;
         UsuariosController usuariosController;
+        List<Usuario> listaDeUsers;
         public string connString { get; set; }
 
 
@@ -27,26 +28,32 @@ namespace WpfApp1 {
                   $" port=3306;" +
                   "database = app1;" +
                   "Allow Zero Datetime=True;CHARSET=latin1";
+            Loaded += MainWindow_Loaded;
+          
         }
-
-
-        private void btnInicioSesion_Click(object sender, RoutedEventArgs e) {
+        private async void MainWindow_Loaded(object sender, RoutedEventArgs e) {
             t = new bdContextSingleton(connString);
             _context = bdContextSingleton.Instance;
             usuariosController = new UsuariosController();
             empleadosController = new EmpleadosController();
+            listaDeUsers = await usuariosController.LoadUsers();
+
+
+        }
+
+            private void btnInicioSesion_Click(object sender, RoutedEventArgs e) {
+
 
             string usernameText = textuserIni.Text;
             string passwordText = textpassIni.Password;
 
             if (usernameText != string.Empty && passwordText != string.Empty) {
-                Usuario user = usuariosController.getusers().FirstOrDefault(u => u.Nick == usernameText);
-
+                Usuario? user = listaDeUsers.SingleOrDefault(u => u.Nick == usernameText);
                 if (user != null && usuariosController.VerifyPassword(user, passwordText, user.PasswordHash, user.Salt)) {
 
                     Configuracion? configuracionUsuario = _context.Usuarios
                                     .Where(u => u.Iduser == user.Iduser)
-                                    .Select(u => u.Configuracions.FirstOrDefault())
+                                    .Select(u => u.Configuracions.SingleOrDefault())
                                     .FirstOrDefault();
 
 
@@ -76,11 +83,11 @@ namespace WpfApp1 {
         }
 
         private void registrar_Click(object sender, RoutedEventArgs e) {
-            Usuario? user = usuariosController.getusers().FirstOrDefault(u => u.Nick == regUser.Text);
+            Usuario? user = usuariosController.getusers().SingleOrDefault(u => u.Nick == regUser.Text);
 
             if (user == null) {
 
-                Empleado? emp = empleadosController.getEmpleados().FirstOrDefault(u => u.Email == regmail.Text);
+                Empleado? emp = empleadosController.getEmpleados().SingleOrDefault(u => u.Email == regmail.Text);
 
                 if (emp != null) {
 

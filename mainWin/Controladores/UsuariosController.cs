@@ -1,17 +1,13 @@
 ﻿using mainWin.Modelos;
-using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Security.Cryptography;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
 namespace mainWin.Controladores {
     public class UsuariosController {
         private readonly bdContext _context;
-        private bdContext context;
 
         public Usuario UsuarioAutenticado { get; private set; }
 
@@ -23,7 +19,9 @@ namespace mainWin.Controladores {
 
             return _context.Usuarios.ToList();
         }
-
+        public async Task<List<Usuario>> LoadUsers() {
+            return await Task.Run(() =>  _context.Usuarios.ToList());
+        }
         public void AddUsers(Usuario u) {
 
             _context.Attach(u);

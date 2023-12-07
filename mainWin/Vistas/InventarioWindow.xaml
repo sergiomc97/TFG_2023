@@ -39,7 +39,8 @@
 
                 <!-- Barra superior -->
                 <Border Grid.Row="0"
-                        Background="#FFAE74"
+                        Height="60"
+                        Background="#cad3c7"
                         Padding="10">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -70,12 +71,12 @@
                     <DataGrid  Margin="10"
                                Background="White"
                                AutoGenerateColumns="False"
-                              ItemsSource="{Binding}"
-                              RowStyle="{StaticResource TarjetaStyle}"
-                              ColumnHeaderStyle="{StaticResource MinimalDataGridHeaderStyle}"
-                              Style="{StaticResource MinimalDataGridStyle}"
-                              SelectionMode="Extended"
-                              SelectionUnit="FullRow">
+                               ItemsSource="{Binding}"
+                               RowStyle="{StaticResource TarjetaStyle}"
+                               ColumnHeaderStyle="{StaticResource MinimalDataGridHeaderStyle}"
+                               Style="{StaticResource MinimalDataGridStyle}"
+                               SelectionMode="Extended"
+                               SelectionUnit="FullRow">
                         <DataGrid.Columns>
                             <DataGridTemplateColumn Width="150">
                                 <DataGridTemplateColumn.Header>

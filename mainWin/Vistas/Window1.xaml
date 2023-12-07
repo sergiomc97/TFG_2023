@@ -6,6 +6,7 @@
                   mc:Ignorable="d"
                   ShowsNavigationUI="False"
                   WindowState="Maximized"
-                  SizeChanged="NavigationWindow_SizeChanged">
+                  SizeChanged="NavigationWindow_SizeChanged"
+                  Closed="NavigationWindow_Closed">
 
 </NavigationWindow>

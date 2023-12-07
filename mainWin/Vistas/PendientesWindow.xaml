@@ -206,7 +206,8 @@
                                                 Click="BtnNuevo_Click" />
                                     </Border>
                                     <Border Grid.Column="1"
-                                            Style="{StaticResource HoverBorderStyle}">
+                                            Style="{StaticResource HoverBorderStyle}"
+                                            MouseLeftButtonDown="Border_MouseLeftButtonDown_1">
                                         <Button x:Name="BtnRefrescar"
                                                 Style="{StaticResource IconButtonStyle2}"
                                                 Content="&#xE72C;" />

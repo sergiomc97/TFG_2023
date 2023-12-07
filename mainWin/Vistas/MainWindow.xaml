@@ -100,23 +100,19 @@
                 <Grid VerticalAlignment="Center"
                       HorizontalAlignment="Center">
 
-                    <!-- StackPanel para apilar verticalmente -->
                     <StackPanel>
 
-                        <!-- Agregar TextBlock Grande -->
                         <TextBlock Text="Ya tienes cuenta?"
                                    Foreground="#dfdddc"
                                    Margin="20"
                                    FontSize="60" />
 
-                        <!-- Agregar TextBlock Largo Más Pequeño -->
-                        <TextBlock Text="Texto largo más pequeño que aparece debajo del texto grande."
+                        <TextBlock Text="El taller te espera. Inicia sesión y retoma el control de tus reparaciones informáticas."
                                    FontSize="14"
                                    Margin="20"
                                    Foreground="#dfdddc"
                                    TextWrapping="Wrap" />
 
-                        <!-- Agregar Botón -->
                         <Button Content="Iniciar Sesion"
                                 FontSize="16"
                                 Margin="20"
@@ -154,23 +150,20 @@
                 <Grid VerticalAlignment="Center"
                       HorizontalAlignment="Center">
 
-                    <!-- StackPanel para apilar verticalmente -->
+
                     <StackPanel>
 
-                        <!-- Agregar TextBlock Grande -->
                         <TextBlock Text="Registrarse"
                                    Foreground="#dfdddc"
                                    Margin="20"
                                    FontSize="60" />
 
-                        <!-- Agregar TextBlock Largo Más Pequeño -->
-                        <TextBlock Text="Texto largo más pequeño que aparece debajo del texto grande."
+                        <TextBlock Text="Transforma tus reparaciones. Regístrate y gestiona tus órdenes de trabajo informáticas con facilidad."
                                    FontSize="14"
                                    Margin="20"
                                    Foreground="#dfdddc"
                                    TextWrapping="Wrap" />
 
-                        <!-- Agregar Botón -->
                         <Button Content="Registrarse"
                                 x:Name="registrarse"
                                 FontSize="16"

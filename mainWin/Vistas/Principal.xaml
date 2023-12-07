@@ -27,12 +27,12 @@
                   Style="{StaticResource gridExpand}"
                   Width="60"
                   x:Name="control">
-                  
-                
+
+
             </Grid>
 
             <!-- ... GRID PRINCIPAL ... -->
-            <Grid Background="#c7e3eb"
+            <Grid Background="#c0e3e9"
                   Grid.Column="1"
                   x:Name="contenedorPrincipal">
                 <Grid.ColumnDefinitions>
@@ -107,6 +107,13 @@
                                        FontSize="{DynamicResource BaseFontSize}"
                                        Margin="30,0,0,0" />
 
+                            <fa:ImageAwesome Icon="PowerOff"
+                                             Grid.Column="3"
+                                             Foreground="White"
+                                             Height="60"
+                                             Width="20"
+                                             MouseLeftButtonDown="ImageAwesome_MouseLeftButtonDown" />
+
                         </Grid>
                     </Grid>
 
@@ -135,15 +142,20 @@
                                 x:Name="porpresupu"
                                 MouseLeave="Button_MouseLeave"
                                 Click="Button_Click_2">
+                            
                             <StackPanel Orientation="Horizontal">
-                                <iconPacks:PackIconMaterial Kind="AccountArrowLeftOutline"
-                                                            Height="{DynamicResource DobleFontSize}"
-                                                            x:Name="ico0"
-                                                            Margin="10" />
+                                <fa:ImageAwesome Icon="HandshakeOutline"
+                                                 Height="{DynamicResource DobleFontSize}"
+                                                 x:Name="ico0"
+                                                 Foreground="#ff2f4f4f"
+                                                 Margin="10"
+                                                 Width="25" />
                                 <TextBlock x:Name="numPresupu"
+                                           Foreground="#ff2f4f4f"
                                            FontSize="{DynamicResource BaseFontSize}"
                                            Margin="10" />
                                 <TextBlock Text="Por presupuestar"
+                                           Foreground="#ff2f4f4f"
                                            FontSize="{DynamicResource BaseFontSize}"
                                            Margin="10" />
 
@@ -163,15 +175,19 @@
                                 Click="enproceso_Click">
 
                             <StackPanel Orientation="Horizontal">
-                                <iconPacks:PackIconJamIcons  x:Name="ico1"
-                                                             Kind="Chronometer"
-                                                             Height="{DynamicResource DobleFontSize}"
-                                                             Margin="10" />
+                                <fa:ImageAwesome Icon="ClockOutline"
+                                                 Height="{DynamicResource DobleFontSize}"
+                                                 x:Name="ico1"
+                                                 Foreground="#ff2f4f4f"
+                                                 Margin="10"
+                                                 Width="25" />
                                 <TextBlock x:Name="numProceso"
+                                           Foreground="#ff2f4f4f"
                                            FontSize="{DynamicResource BaseFontSize}"
                                            Margin="10" />
 
                                 <TextBlock Text="En proceso"
+                                           Foreground="#ff2f4f4f"
                                            FontSize="{DynamicResource BaseFontSize}"
                                            Margin="10" />
                             </StackPanel>
@@ -188,15 +204,18 @@
                                 Click="porentregar_Click">
 
                             <StackPanel Orientation="Horizontal">
-                                <iconPacks:PackIconBootstrapIcons Kind="BoxSeam"
-                                                                  Height="{DynamicResource DobleFontSize}"
-                                                                  x:Name="ico2"
-                                                                  Width="20"
-                                                                  Margin="10" />
+                                <fa:ImageAwesome Icon="Dropbox"
+                                                 Height="{DynamicResource DobleFontSize}"
+                                                 x:Name="ico2"
+                                                 Margin="10"
+                                                 Foreground="#ff2f4f4f"
+                                                 Width="25" />
                                 <TextBlock x:Name="numEntregar"
+                                           Foreground="#ff2f4f4f"
                                            FontSize="{DynamicResource BaseFontSize}"
                                            Margin="10" />
                                 <TextBlock Text="Por entregar"
+                                           Foreground="#ff2f4f4f"
                                            FontSize="{DynamicResource BaseFontSize}"
                                            Margin="10" />
                             </StackPanel>
@@ -220,10 +239,12 @@
 
                                 <TextBlock Text="Pendientes"
                                            Grid.Row="0"
+                                           Foreground="#ff2f4f4f"
                                            FontSize="{DynamicResource DobleFontSize}" />
 
                                 <TextBlock Text="0"
                                            x:Name="NumPend"
+                                           Foreground="#ff2f4f4f"
                                            Grid.Row="2"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Top"
@@ -246,8 +267,8 @@
                                 Padding="10">
                             <Border.Effect>
                                 <DropShadowEffect BlurRadius="10"
-                                                  ShadowDepth="5"
-                                                  Opacity="0.1" />
+                                                  ShadowDepth="1"
+                                                  Opacity="0.4" />
                             </Border.Effect>
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -256,8 +277,20 @@
                                 </Grid.RowDefinitions>
                                 <TextBlock Text="Citas con clientes:"
                                            Grid.Row="0"
+                                           Foreground="#ff2f4f4f"
                                            HorizontalAlignment="Left"
                                            FontSize="{DynamicResource BaseFontSize}" />
+                                <Border MouseEnter="newCita_MouseEnter"
+                                        MouseLeave="Border_MouseLeave">
+                                <fa:ImageAwesome Icon="PlusSquareOutline"
+                                                 x:Name="newCita"
+                                                     Foreground="#ff2f4f4f"
+                                                     Height="{DynamicResource DobleFontSize}"
+                                                 Grid.Row="0"
+                                                 HorizontalAlignment="Right"
+                                                 Width="25"
+                                                 MouseLeftButtonDown="newCita_MouseLeftButtonDown" />
+                                </Border>
 
                                 <Grid x:Name="contenedorCitas"
                                       Grid.Row="1" />
@@ -278,8 +311,8 @@
                             Padding="10">
                         <Border.Effect>
                             <DropShadowEffect BlurRadius="10"
-                                              ShadowDepth="5"
-                                              Opacity="0.1" />
+                                              ShadowDepth="1"
+                                              Opacity="0.4" />
                         </Border.Effect>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -288,6 +321,7 @@
                             </Grid.RowDefinitions>
                             <TextBlock Text="Partes con fecha limite esta semana:"
                                        Grid.Row="0"
+                                       Foreground="#ff2f4f4f"
                                        HorizontalAlignment="Left"
                                        FontSize="{DynamicResource BaseFontSize}" />
 

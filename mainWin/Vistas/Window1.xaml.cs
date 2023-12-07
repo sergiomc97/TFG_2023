@@ -1,6 +1,10 @@
 ﻿using mainWin.Controladores;
 using mainWin.Modelos;
+using Microsoft.EntityFrameworkCore;
 using System;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Navigation;
@@ -25,44 +29,44 @@ namespace mainWin.Vistas {
         private ServiciosWindow s;
         UserControlMenu userControlMenu;
         string connString;
-
+        OrdenesController co;
+        CitasController ci;
+        DatabaseMonitor monitor;
 
         public Window1(string connString) {
             this.FontFamily = new FontFamily("Roboto");
             InitializeComponent();
             Loaded += MainWindow_Loaded;
-            userControlMenu = new UserControlMenu();
-            userControlMenu.miEvento += MiEventoEventHandler;
             this.connString = connString;
+            pruebaConc();
         }
 
-        private async void MainWindow_Loaded(object sender, RoutedEventArgs e) {
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e) {
+            userControlMenu = new UserControlMenu();
+            userControlMenu.miEvento += MiEventoEventHandler;
+            co = new OrdenesController();
+            ci = new CitasController();
 
-            OrdenesController co = new OrdenesController();
-            CitasController ci = new CitasController();
-
-            c = new CitasWindow(ci.GetCitas(), userControlMenu);
-            cl = new ClinetesWindow(userControlMenu);
-            conf = new ConfiguWindow(UsuarioAutenticado, userControlMenu);
-            est = new EstadisticasWindow(userControlMenu);
-            i = new InventarioWindow(userControlMenu);
-            ord = new OrdenesWindow(co.AñadirTarjetas(), userControlMenu);
             p = new Principal(userControlMenu, co, ci);
-            prov = new ProveedoresWindow(userControlMenu);
-            s = new ServiciosWindow(userControlMenu);
-
             this.Navigate(p);
+
+
             if (ConfiguracionUsuario != null) {
-                DatabaseMonitor monitor = new DatabaseMonitor(ConfiguracionUsuario.RutaFs, connString);
+                monitor = new DatabaseMonitor(ConfiguracionUsuario.RutaFs, connString);
                 monitor.StartMonitoring();
 
-            }
-            else {
-                MessageBox.Show("El usuario no posee configuracion");
             }
         }
         public void MiEventoEventHandler(Type tipoPagina) {
 
+            c = new CitasWindow(ci.GetCitas(), userControlMenu);
+            cl = new ClinetesWindow(userControlMenu);
+            conf = new ConfiguWindow(UsuarioAutenticado, userControlMenu, connString);
+            est = new EstadisticasWindow(userControlMenu);
+            i = new InventarioWindow(userControlMenu);
+            ord = new OrdenesWindow(co.AñadirTarjetas(), userControlMenu);
+            prov = new ProveedoresWindow(userControlMenu);
+            s = new ServiciosWindow(userControlMenu);
 
             if (tipoPagina == typeof(ClinetesWindow)) {
                 Navigate(cl);
@@ -113,6 +117,37 @@ namespace mainWin.Vistas {
             double midfontsize = e.NewSize.Width / 90; // Ajusta según tus necesidades
             Application.Current.Resources["MidFontSize"] = midfontsize;
         }
+        public void pruebaConc() {
 
+            //using (var contexto = new bdContext(connString)) {
+
+            //    var producto = contexto.Ordenes.FirstOrDefault(p => p.IdOrden == 1);
+
+            //    using (var otroContexto = new bdContext(connString)) {
+            //        var otroProducto = otroContexto.Ordenes.FirstOrDefault(p => p.IdOrden == 1);
+            //        otroProducto.Observaciones = "OtroNombre";
+            //        otroContexto.SaveChanges();
+            //    }
+
+
+            //    producto.Observaciones = "NuevoNombre";
+
+            //    try {
+
+            //        contexto.SaveChanges();
+            //    }
+            //    catch (DbUpdateConcurrencyException ex) {
+            //        Debug.WriteLine($"################# Excepción de concurrencia: {ex.Message} ##############################");
+
+            //    }
+            //}
+
+
+
+        }
+
+        private void NavigationWindow_Closed(object sender, EventArgs e) {
+            monitor.detener();
+        }
     }
 }

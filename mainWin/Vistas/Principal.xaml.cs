@@ -17,6 +17,7 @@ using System.IO;
 using K4os.Compression.LZ4.Streams;
 using System.Windows.Media.Animation;
 using System.ComponentModel;
+using WpfApp1;
 
 namespace mainWin {
     /// <summary>
@@ -162,6 +163,30 @@ namespace mainWin {
             else {
                 control.Children.Add(uc);
             }
+        }
+
+        private void ImageAwesome_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
+            MessageBoxResult resultado = MessageBox.Show("Se va a cerrar la sesión", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.None);
+
+            if (resultado == MessageBoxResult.Yes) {
+                MainWindow main = new MainWindow();
+                main.Show();
+                Window.GetWindow(this)?.Close();
+
+            }
+                
+        }
+
+        private void newCita_MouseEnter(object sender, MouseEventArgs e) {
+            newCita.Foreground = new BrushConverter().ConvertFrom("#ff6a00") as Brush;
+        }
+
+        private void newCita_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
+            MessageBox.Show("añadiendo cita....");
+        }
+
+        private void Border_MouseLeave(object sender, MouseEventArgs e) {
+            newCita.Foreground = new BrushConverter().ConvertFrom("#ff2f4f4f") as Brush;
         }
     }
 }

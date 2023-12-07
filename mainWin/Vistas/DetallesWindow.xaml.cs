@@ -1,17 +1,12 @@
-﻿using iText.Kernel.Pdf.Canvas.Wmf;
-using mainWin.Controladores;
+﻿using mainWin.Controladores;
 using mainWin.Modelos;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Effects;
 
 namespace mainWin.Vistas {
     /// <summary>
@@ -45,6 +40,7 @@ namespace mainWin.Vistas {
             esnuevo = true;
             ListaDeEmpleados = emp.getEmpleados();
             comboAsig.ItemsSource = ListaDeEmpleados;
+            comboAsig.SelectedIndex = 0;
             this.uc = uc;
         }
 
@@ -91,10 +87,10 @@ namespace mainWin.Vistas {
             int idEmpleado = emp.IdEmpleado;
 
             string prioridad = comboprio.SelectedIndex.ToString();
-            if (esnuevo) {
+            if (esnuevo && CamposValidos()) {
                 int.TryParse(textId.Text, out int idOrden);
                 Ordene orden = new Ordene {
-
+                    IdOrden = idOrden,
                     Fecha = DateTime.Now,
                     FechaComp = DateTime.Now.AddDays(5),
                     EstadoId= idEstado,
@@ -116,22 +112,40 @@ namespace mainWin.Vistas {
 
                 ordenesController.NewOrden(orden);
             }
-            else {
+            else if(CamposValidos()) {
                 or.EstadoId = idEstado;
                 or.AsignadoId = idEmpleado;
                 or.Prioridad = prioridad;
-                MessageBox.Show(or.ToString());
                 ordenesController.UpdateOrden(or);
             }
+            MessageBox.Show("Se han guardado los cambios");
+            NavigationService.GoBack();
 
+        }
+        private bool CamposValidos() {
+            // Verifica que todos los campos tengan contenido
+            if (string.IsNullOrWhiteSpace(textModelo.Text) ||
+                string.IsNullOrWhiteSpace(textdni.Text) ||
+                string.IsNullOrWhiteSpace(textDirec.Text) ||
+                string.IsNullOrWhiteSpace(textAveria.Text) ||
+               string.IsNullOrWhiteSpace(textTelefono.Text) ||
+                string.IsNullOrWhiteSpace(textCliente.Text)) {
+                MessageBox.Show("Has dejado algun campo vacío", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
 
+            return true; 
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e) {
             if (esnuevo) {
                 Ordene? ultimaOrden = ordenesController.AñadirTarjetas().OrderByDescending(o => o.IdOrden).FirstOrDefault();
-                int nuevaIdOrden = ultimaOrden.IdOrden + 1;
-                textId.Text = nuevaIdOrden.ToString();
+                if (ultimaOrden != null) {
+                    int nuevaIdOrden = ultimaOrden.IdOrden + 1;
+                    textId.Text = nuevaIdOrden.ToString();
+                }
+                
+               
                 textfecha.Text = DateTime.UtcNow.ToString("dd/MM/yyyy");
             }
             else {

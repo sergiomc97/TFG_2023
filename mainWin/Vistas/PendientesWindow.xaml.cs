@@ -152,6 +152,7 @@ namespace mainWin.Vistas {
 
 
                 cerrarPop();
+                LoadPendientesAsync();
             }
 
         }
@@ -220,6 +221,10 @@ namespace mainWin.Vistas {
             else {
                 control.Children.Add(uc);
             }
+        }
+
+        private void Border_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e) {
+            LoadPendientesAsync();
         }
     }
     public class BooleanToColorConverter : IValueConverter {

@@ -11,7 +11,6 @@ public partial class bdContext : DbContext
     public bdContext(string conn)
     {
         this.conn = conn;
-        MessageBox.Show(conn);
     }
 
     public bdContext(DbContextOptions<bdContext> options)

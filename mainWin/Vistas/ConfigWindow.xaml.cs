@@ -35,7 +35,7 @@ namespace WpfApp1 {
 
 
         }
-        private void SaveButton_Click(object sender, RoutedEventArgs e) {
+        public void saveParametros() {
             server = string.IsNullOrEmpty(ServidorTextBox.Text) ? "localhost" : ServidorTextBox.Text;
             username = string.IsNullOrEmpty(UsuarioTextBox.Text) ? "root" : UsuarioTextBox.Text;
             pass = string.IsNullOrEmpty(PassTextBox.Text) ? "060989" : PassTextBox.Text;
@@ -45,25 +45,23 @@ namespace WpfApp1 {
                    $" port=3306;" +
                    "database = app1;" +
                    "Allow Zero Datetime=True;CHARSET=latin1";
+
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e) {
+            saveParametros();
             this.Close();
         }
         private void ClosePopup_Click(object sender, RoutedEventArgs e) {
+            saveParametros();
             this.Close();
         }
         private void Cancelbutton_Click(object sender, RoutedEventArgs e) {
+            saveParametros();
             this.Close();
         }
         private bool conectar() {
-            server = string.IsNullOrEmpty(ServidorTextBox.Text) ? "localhost" : ServidorTextBox.Text;
-            username = string.IsNullOrEmpty(UsuarioTextBox.Text) ? "root" : UsuarioTextBox.Text;
-            pass = string.IsNullOrEmpty(PassTextBox.Text) ? "060989" : PassTextBox.Text;
-
-            connString = $"server={server};" +
-                    $" user id={username};" +
-                    $" password={pass};" +
-                    $" port=3306;" +
-                    "database = app1;" +
-                    "Allow Zero Datetime=True;CHARSET=latin1";
+            saveParametros();
             try {
 
                 conn = new MySqlConnection(connString);

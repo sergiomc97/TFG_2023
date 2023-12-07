@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace mainWin.Modelos;
 
@@ -22,6 +23,7 @@ public partial class Pendiente
     public decimal? Precio { get; set; }
 
     public int? EstadoId { get; set; }
+    [Timestamp]
 
     public DateTime? RowVersion { get; set; }
 

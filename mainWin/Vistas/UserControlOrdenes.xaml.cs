@@ -1,23 +1,9 @@
-﻿using iText.Kernel.Pdf.Canvas.Parser.Listener;
-using iText.Kernel.Pdf.Canvas.Parser;
-using iText.Kernel.Pdf;
-using mainWin.Controladores;
+﻿using mainWin.Controladores;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.PortableExecutable;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Collections;
 using mainWin.Modelos;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -60,7 +46,7 @@ namespace mainWin.Vistas {
 
                 string numeroTelefono = orden.Telefono;
 
-                string urlWhatsApp = $"https://api.whatsapp.com/send?phone={numeroTelefono}";
+                string urlWhatsApp = $"https://api.whatsapp.com/send?phone=34{numeroTelefono}";
 
 
                 try {

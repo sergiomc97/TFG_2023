@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
+using System.Windows;
+using EntityState = Microsoft.EntityFrameworkCore.EntityState;
 
 namespace mainWin.Controladores {
     public class OrdenesController {
@@ -46,8 +48,6 @@ namespace mainWin.Controladores {
             int diff = (5 + (now.DayOfWeek - firstDayOfWeek)) % 5;
             DateTime startOfWeek = now.AddDays(-1 * diff);
             DateTime endOfWeek = startOfWeek.AddDays(6);
-
-            // Realiza la consulta LINQ
             var ordenesSemanaActual = _context.Ordenes
                 .Where(o => o.FechaComp >= startOfWeek && o.FechaComp <= endOfWeek)
                 .ToList();
@@ -57,34 +57,25 @@ namespace mainWin.Controladores {
 
         public bool NewOrden(Ordene entidad) {
             try {
-                // Marcar la entidad como modificada para que Entity Framework Core realice un seguimiento de los cambios
-                _context.Entry(entidad).State = Microsoft.EntityFrameworkCore.EntityState.Added;
-
-                // Guardar cambios en la base de datos
+                _context.Entry(entidad).State = EntityState.Added;
                 _context.SaveChanges();
 
                 return true;
             }
             catch (DbUpdateConcurrencyException ex) {
-                // Manejar la excepción de concurrencia optimista
+
                 var entry = ex.Entries.Single();
-                var clientValues = (Ordene)entry.Entity;
                 var databaseEntry = entry.GetDatabaseValues();
 
                 if (databaseEntry == null) {
-                    // La entidad ha sido eliminada en la base de datos
-                    // Puedes manejar esto de acuerdo a tus requerimientos
+                    MessageBox.Show("La orden no existe");
                     return false;
                 }
                 else {
                     // La entidad ha sido modificada en la base de datos
-                    // Actualiza la entidad local con los valores de la base de datos
                     var databaseValues = (Ordene)databaseEntry.ToObject();
                     entry.OriginalValues.SetValues(databaseValues);
                     return false;
-
-                    // Puedes lanzar una excepción personalizada aquí si lo deseas
-                    // o realizar alguna otra acción apropiada
                 }
             }
 
@@ -95,34 +86,25 @@ namespace mainWin.Controladores {
 
         public bool UpdateOrden(Ordene entidad) {
             try {
-                // Marcar la entidad como modificada para que Entity Framework Core realice un seguimiento de los cambios
-                _context.Entry(entidad).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
 
-                // Guardar cambios en la base de datos
+                _context.Entry(entidad).State = EntityState.Modified;
                 _context.SaveChanges();
 
                 return true;
             }
             catch (DbUpdateConcurrencyException ex) {
-                // Manejar la excepción de concurrencia optimista
                 var entry = ex.Entries.Single();
-                var clientValues = (Ordene)entry.Entity;
                 var databaseEntry = entry.GetDatabaseValues();
 
                 if (databaseEntry == null) {
-                    // La entidad ha sido eliminada en la base de datos
-                    // Puedes manejar esto de acuerdo a tus requerimientos
+                    MessageBox.Show("La entidad ha sido eliminada en la base de datos");
                     return false;
                 }
                 else {
                     // La entidad ha sido modificada en la base de datos
-                    // Actualiza la entidad local con los valores de la base de datos
                     var databaseValues = (Ordene)databaseEntry.ToObject();
                     entry.OriginalValues.SetValues(databaseValues);
                     return false;
-
-                    // Puedes lanzar una excepción personalizada aquí si lo deseas
-                    // o realizar alguna otra acción apropiada
                 }
             }
 

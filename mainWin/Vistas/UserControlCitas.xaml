@@ -10,7 +10,7 @@
              d:DesignWidth="800">
 
 
-    <Grid >
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
@@ -43,6 +43,7 @@
                         <DataGridTemplateColumn.Header>
                             <TextBlock Text="Fecha"
                                        FontSize="{DynamicResource BaseFontSize}"
+                                       Foreground="#ff2f4f4f"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center" />
 
@@ -61,6 +62,7 @@
                     <DataGridTemplateColumn Width="100">
                         <DataGridTemplateColumn.Header>
                             <TextBlock Text="Hora"
+                                       Foreground="#ff2f4f4f"
                                        FontSize="{DynamicResource BaseFontSize}"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center" />
@@ -79,6 +81,7 @@
                     <DataGridTemplateColumn Width="350">
                         <DataGridTemplateColumn.Header>
                             <TextBlock Text="Cliente"
+                                       Foreground="#ff2f4f4f"
                                        FontSize="{DynamicResource BaseFontSize}"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center" />
@@ -97,6 +100,7 @@
                     <DataGridTemplateColumn Width="200">
                         <DataGridTemplateColumn.Header>
                             <TextBlock Text="Descripcion"
+                                       Foreground="#ff2f4f4f"
                                        FontSize="{DynamicResource BaseFontSize}"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center" />
