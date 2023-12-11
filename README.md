@@ -1,1 +1,1 @@
-![descripcion](./prueba.svg)
+![descripcion](./ProjectSchema.excalidraw)
