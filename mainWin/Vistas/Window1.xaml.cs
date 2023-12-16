@@ -52,7 +52,7 @@ namespace mainWin.Vistas {
 
 
             if (ConfiguracionUsuario != null) {
-                monitor = new DatabaseMonitor(ConfiguracionUsuario.RutaFs, connString);
+                monitor = new DatabaseMonitor(ConfiguracionUsuario.RutaFS, connString);
                 monitor.StartMonitoring();
 
             }
@@ -147,7 +147,11 @@ namespace mainWin.Vistas {
         }
 
         private void NavigationWindow_Closed(object sender, EventArgs e) {
-            monitor.detener();
+            if (monitor != null) {
+                monitor.detener();
+
+            }
+            
         }
     }
 }

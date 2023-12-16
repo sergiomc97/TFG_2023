@@ -8,19 +8,15 @@ using System.Threading.Tasks;
 namespace mainWin.Controladores {
     public class EmpleadosController {
         private readonly bdContext _context;
-        private bdContext context;
 
         public EmpleadosController() {
             _context = bdContextSingleton.Instance;
         }
 
-        public EmpleadosController(bdContext context) {
-            this.context = context;
-        }
 
         public List<Empleado> getEmpleados() {
         
-        return _context.Empleados.ToList();
+        return _context.empleados.ToList();
         
         }
     }

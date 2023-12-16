@@ -20,7 +20,7 @@ namespace mainWin.Controladores {
 
         public List<Producto> GetAll() {
 
-            return _context.Productos.Take(150).ToList();
+            return _context.productos.Take(150).ToList();
 
         }
 

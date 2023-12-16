@@ -15,7 +15,7 @@ namespace mainWin.Controladores {
 
         public List<Servicio> GetServicios() { 
         
-            return _context.Servicios.ToList();
+            return _context.servicios.ToList();
         }
 
     }

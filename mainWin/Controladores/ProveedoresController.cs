@@ -16,7 +16,7 @@ namespace mainWin.Controladores {
 
         public List<Proveedore> getProve() { 
         
-            return _context.Proveedores.ToList();
+            return _context.proveedores.ToList();
         }
      
     }

@@ -13,13 +13,13 @@ public partial class Producto
 
     public decimal? Precio { get; set; }
 
-    public int? MarcaId { get; set; }
+    public int? Marca_id { get; set; }
 
     public int? Existencias { get; set; }
 
-    public int? CategoriaId { get; set; }
+    public int? Categoria_id { get; set; }
 
-    public int? ProveedorId { get; set; }
+    public int? Proveedor_id { get; set; }
 
     public virtual Categoria? Categoria { get; set; }
 

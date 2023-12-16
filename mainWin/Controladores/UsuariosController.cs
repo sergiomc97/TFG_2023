@@ -17,10 +17,10 @@ namespace mainWin.Controladores {
 
         public List<Usuario> getusers() {
 
-            return _context.Usuarios.ToList();
+            return _context.usuarios.ToList();
         }
         public async Task<List<Usuario>> LoadUsers() {
-            return await Task.Run(() =>  _context.Usuarios.ToList());
+            return await Task.Run(() =>  _context.usuarios.ToList());
         }
         public void AddUsers(Usuario u) {
 
@@ -43,7 +43,7 @@ namespace mainWin.Controladores {
                 PasswordHash = hash,
                 Mail = m,
                 Salt = salt,
-                RolId = 2, 
+                Rol_id = 2, 
                 Empleado = e
             };
 
@@ -60,7 +60,7 @@ namespace mainWin.Controladores {
                 PasswordHash = hash,
                 Mail = m,
                 Salt = salt,
-                RolId = 2
+                Rol_id = 2
             };
 
             AddUsers(newUser);

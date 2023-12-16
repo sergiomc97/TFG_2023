@@ -21,7 +21,7 @@ namespace WpfApp1 {
         public string username { get; set; }
         public string pass { get; set; }
         public string connString { get; set; }
-
+        private static string logFilePath = "C:\\Users\\carra\\Documents\\logs\\appLog.txt"; // Ajusta la ruta según tus necesidades
 
         public ConfigWindow() {
             InitializeComponent();
@@ -34,6 +34,17 @@ namespace WpfApp1 {
 
 
 
+        }
+       
+
+        private void LogException(Exception ex) {
+            try {
+                string message = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - Error: {ex}\n";
+                File.AppendAllText(logFilePath, message);
+            }
+            catch (Exception e){
+               MessageBox.Show(e.ToString());
+            }
         }
         public void saveParametros() {
             server = string.IsNullOrEmpty(ServidorTextBox.Text) ? "localhost" : ServidorTextBox.Text;
@@ -71,7 +82,8 @@ namespace WpfApp1 {
                 return true;
 
             }
-            catch (MySqlException ex) {
+            catch (Exception ex) {
+                LogException(ex);
                 MessageBox.Show(ex.Message);
                 return false;
             }
@@ -83,7 +95,7 @@ namespace WpfApp1 {
         }
         private void generarbbdd() {
             try {
-                string script = LeerScriptDesdeArchivo("GenerarBBDD.sql");
+                string script = LeerScriptDesdeArchivo(".\\GenerarBBDD.sql");
 
                 using (MySqlConnection connection = new MySqlConnection(connString)) {
                     connection.Open();

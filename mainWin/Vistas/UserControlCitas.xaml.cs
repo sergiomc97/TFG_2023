@@ -39,11 +39,11 @@ namespace mainWin.Vistas {
             if (button.DataContext is Cita cita) {
                     try {
 
-                        Cita citaAEliminar = context.Citas.Find(cita.IdCita);
+                        Cita citaAEliminar = context.citas.Find(cita.IdCita);
 
                         if (citaAEliminar != null) {
 
-                            context.Citas.Remove(citaAEliminar);
+                            context.citas.Remove(citaAEliminar);
                             context.SaveChanges();
 
                         Tarjetas.Remove(cita);

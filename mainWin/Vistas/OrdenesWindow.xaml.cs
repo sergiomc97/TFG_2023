@@ -74,6 +74,11 @@ namespace mainWin.Vistas {
                 control.Children.Add(uz);
             }
         }
+
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
+            uc = new UserControlOrdenes(ordenes, uz);
+            contenedor.Children.Add(uc);
+        }
     }
 
 }

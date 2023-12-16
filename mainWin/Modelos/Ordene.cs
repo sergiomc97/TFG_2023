@@ -1,6 +1,4 @@
-﻿using Google.Protobuf.WellKnownTypes;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace mainWin.Modelos;
@@ -11,19 +9,19 @@ public partial class Ordene
 
     public DateTime? Fecha { get; set; }
 
-    public int? ClienteId { get; set; }
+    public int? Cliente_id { get; set; }
 
-    public int? AsignadoId { get; set; }
+    public int? Asignado_id { get; set; }
 
-    public long? ProductoId { get; set; }
+    public long? Producto_id { get; set; }
 
-    public int? EstadoId { get; set; }
+    public int? Estado_id { get; set; }
 
-    public int? ServicioId { get; set; }
+    public int? Servicio_id { get; set; }
 
-    public DateTime? FechaComp { get; set; }
+    public DateTime? Fecha_comp { get; set; }
 
-    public DateTime? FechaEnt { get; set; }
+    public DateTime? Fecha_ent { get; set; }
 
     public string? Prioridad { get; set; }
 
@@ -37,12 +35,6 @@ public partial class Ordene
 
     public string? Telefono { get; set; }
 
-    public string? ClienteStr { get; set; }
-
-    public string? CliDni { get; set; }
-
-    public string? CliDirec { get; set; }
-
     [Timestamp]
     public DateTime? RowVersion { get; set; }
 
@@ -55,11 +47,7 @@ public partial class Ordene
     public virtual Producto? Producto { get; set; }
 
     public virtual Servicio? Servicio { get; set; }
-
     public override string ToString() {
-        return $"IdOrden: {IdOrden}" +
-               $"ClienteStr: {ClienteStr}" +
-               $"Asignado: {Asignado.Nombre}" +
-               $"Estado: {Estado}";
+        return $"IdOrden: {IdOrden}, Fecha: {Fecha?.ToString("yyyy-MM-dd")}, Cliente: {Cliente?.Nombre}, Asignado: {Asignado?.Nombre}";
     }
 }

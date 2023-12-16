@@ -379,7 +379,7 @@
                                            VerticalAlignment="Center" />
 
                                 <!-- TextBox para Cliente -->
-                                <TextBox Text="{Binding ClienteStr}"
+                                <TextBox Text="{Binding Cliente.Nombre}"
                                          Grid.Row="0"
                                          Grid.Column="1"                                       
                                          x:Name="textCliente"
@@ -424,7 +424,7 @@
                                            VerticalAlignment="Center" />
 
                                 <!-- TextBox para Dirección -->
-                                <TextBox Text="{Binding CliDirec}"
+                                <TextBox Text="{Binding Cliente.Direccion}"
                                          Grid.Row="4"
                                          Grid.Column="1"
                                          Grid.ColumnSpan="2"
@@ -447,7 +447,7 @@
                                            VerticalAlignment="Center" />
 
                                 <!-- TextBox para DNI -->
-                                <TextBox Text="{Binding CliDni}"
+                                <TextBox Text="{Binding Cliente.Dni}"
                                          Grid.Row="6"
                                          Grid.Column="1"
                                          Grid.ColumnSpan="2"
@@ -504,7 +504,7 @@
                                            Grid.Row="2"
                                            FontWeight="Bold" />
 
-                                <DatePicker SelectedDate="{Binding FechaComp}"
+                                <DatePicker SelectedDate="{Binding Fecha_comp}"
                                             Grid.Column="1"
                                             FontSize="{DynamicResource BaseFontSize}"
                                             Grid.Row="2" />

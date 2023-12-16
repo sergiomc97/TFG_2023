@@ -33,7 +33,7 @@ namespace mainWin.Vistas {
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e) {
             Configuracion? configuracionUsuario = UsuarioAutenticado?.Configuracions.FirstOrDefault();
             if (configuracionUsuario != null) {
-                txtRutaArchivo.Text = configuracionUsuario.RutaFs;
+                txtRutaArchivo.Text = configuracionUsuario.RutaFS;
             }
             LlenarComboBoxUsuarios();
             LlenarComboBoxEmpleados();
@@ -66,18 +66,18 @@ namespace mainWin.Vistas {
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e) {
-            Configuracion? existingConfig = _context.Configuracions.FirstOrDefault(c => c.UsuarioId == UsuarioAutenticado.Iduser);
+            Configuracion? existingConfig = _context.configuracions.FirstOrDefault(c => c.Usuario_id == UsuarioAutenticado.Iduser);
 
             if (existingConfig == null) {
                 config = new Configuracion {
-                    RutaFs = rutaConexion,
-                    UsuarioId = UsuarioAutenticado.Iduser
+                    RutaFS = rutaConexion,
+                    Usuario_id = UsuarioAutenticado.Iduser
                 };
 
                 _context.Add(config);
             }
             else {
-                existingConfig.RutaFs = rutaConexion;
+                existingConfig.RutaFS = rutaConexion;
                 _context.Entry(existingConfig).State = EntityState.Modified;
             }
 
@@ -98,7 +98,7 @@ namespace mainWin.Vistas {
         }
         private void LlenarComboBoxUsuarios() {
 
-            List<Usuario> usuarios = _context.Usuarios.ToList();
+            List<Usuario> usuarios = _context.usuarios.ToList();
             combo.ItemsSource = usuarios;
             combo.DisplayMemberPath = "Nick";
             combo.SelectedValuePath = "Iduser";
@@ -106,7 +106,7 @@ namespace mainWin.Vistas {
 
         private void LlenarComboBoxEmpleados() {
 
-            List<Empleado> empleados = _context.Empleados.ToList();
+            List<Empleado> empleados = _context.empleados.ToList();
             combo2.ItemsSource = empleados;
             combo2.DisplayMemberPath = "Nombre";
             combo2.SelectedValuePath = "IdEmpleado";

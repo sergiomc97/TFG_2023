@@ -14,12 +14,12 @@ namespace mainWin.Controladores {
         }
 
         public void Create(Categoria categoria) {
-            _context.Categorias.Add(categoria);
+            _context.categorias.Add(categoria);
             _context.SaveChanges();
         }
 
         public List<Categoria> GetAll() {
-            return _context.Categorias.ToList();
+            return _context.categorias.ToList();
         }
         
 

@@ -92,20 +92,23 @@ namespace mainWin.Vistas {
                 Ordene orden = new Ordene {
                     IdOrden = idOrden,
                     Fecha = DateTime.Now,
-                    FechaComp = DateTime.Now.AddDays(5),
-                    EstadoId= idEstado,
-                    AsignadoId = idEmpleado,
+                    Fecha_comp = DateTime.Now.AddDays(5),
+                    Estado_id= idEstado,
+                    Asignado_id = idEmpleado,
                     Modelo = textModelo.Text,
-                    CliDni = textdni.Text,
-                    CliDirec = textDirec.Text,
+                    Cliente = new Cliente {
+                        Nombre = textCliente.Text,
+                        Telefono = textTelefono.Text,
+                        Dni = textdni.Text,
+                        Direccion = textDirec.Text
+                    },
+
                     Averia = textAveria.Text,
                     Solucion = textSolucion.Text,
                     Telefono = textTelefono.Text,
                     Prioridad = "Alta",
-                    ClienteId = 1,
-                    ClienteStr = textCliente.Text,
-                    ProductoId = 47134,
-                    ServicioId = 1,
+                    Producto_id = 47134,
+                    Servicio_id = 1,
                     Observaciones = textobs.Text
 
                 };
@@ -113,8 +116,8 @@ namespace mainWin.Vistas {
                 ordenesController.NewOrden(orden);
             }
             else if(CamposValidos()) {
-                or.EstadoId = idEstado;
-                or.AsignadoId = idEmpleado;
+                or.Estado_id = idEstado;
+                or.Asignado_id = idEmpleado;
                 or.Prioridad = prioridad;
                 ordenesController.UpdateOrden(or);
             }
@@ -150,8 +153,8 @@ namespace mainWin.Vistas {
             }
             else {
 
-                if (or.EstadoId != null) {
-                    int estado = (int)or.EstadoId;
+                if (or.Estado_id != null) {
+                    int estado = (int)or.Estado_id;
                     SetBorder(estado);
                 }
                 

@@ -16,9 +16,9 @@ namespace mainWin.Controladores {
 
 
         public ObservableCollection<Cliente> GetClientes() {
-
-            List<Cliente> listaDeClientes = _context.Clientes.ToList();
-            ObservableCollection<Cliente> ClientesFiltrados = new ObservableCollection<Cliente>(listaDeClientes.Take(150).ToList());
+            //.Take(150)
+            List<Cliente> listaDeClientes = _context.clientes.ToList();
+            ObservableCollection<Cliente> ClientesFiltrados = new ObservableCollection<Cliente>(listaDeClientes.OrderByDescending(c => c.IdCliente).ToList());
 
             return ClientesFiltrados;
         }

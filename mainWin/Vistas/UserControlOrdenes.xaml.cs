@@ -88,11 +88,11 @@ namespace mainWin.Vistas {
             if (button.DataContext is Ordene orden) {
                     try {
 
-                        Ordene ordenAEliminar = context.Ordenes.Find(orden.IdOrden);
+                        Ordene ordenAEliminar = context.ordenes.Find(orden.IdOrden);
 
                         if (ordenAEliminar != null) {
 
-                            context.Ordenes.Remove(ordenAEliminar);
+                            context.ordenes.Remove(ordenAEliminar);
                             context.SaveChanges();
 
                         Tarjetas.Remove(orden);

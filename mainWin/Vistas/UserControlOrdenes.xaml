@@ -155,7 +155,7 @@
                         </DataGridTemplateColumn.Header>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding ClienteStr}"
+                                <TextBlock Text="{Binding Cliente.Nombre}"
                                            FontSize="15"
                                            VerticalAlignment="Center"
                                            Margin="0,0,0,0"

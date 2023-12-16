@@ -13,6 +13,10 @@ public partial class Cliente
 
     public string? Telefono { get; set; }
 
+    public string? Dni { get; set; }
+
+    public string? Direccion { get; set; }
+
     public virtual ICollection<Cita> Cita { get; set; } = new List<Cita>();
 
     public virtual ICollection<Ordene> Ordenes { get; set; } = new List<Ordene>();

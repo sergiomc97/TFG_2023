@@ -15,12 +15,9 @@ namespace mainWin.Controladores {
             _context = bdContextSingleton.Instance;
         }
 
-        public CitasController(bdContext context) {
-            this.context = context;
-        }
 
         public ObservableCollection<Cita> GetCitas() {
-            ObservableCollection<Cita> listaDeOrdenes = new ObservableCollection<Cita>(_context.Citas.ToList<Cita>());
+            ObservableCollection<Cita> listaDeOrdenes = new ObservableCollection<Cita>(_context.citas.ToList<Cita>());
             return listaDeOrdenes;
         }
     }

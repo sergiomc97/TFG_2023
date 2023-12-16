@@ -51,7 +51,7 @@ namespace WpfApp1 {
                 Usuario? user = listaDeUsers.SingleOrDefault(u => u.Nick == usernameText);
                 if (user != null && usuariosController.VerifyPassword(user, passwordText, user.PasswordHash, user.Salt)) {
 
-                    Configuracion? configuracionUsuario = _context.Usuarios
+                    Configuracion? configuracionUsuario = _context.usuarios
                                     .Where(u => u.Iduser == user.Iduser)
                                     .Select(u => u.Configuracions.SingleOrDefault())
                                     .FirstOrDefault();
@@ -92,10 +92,12 @@ namespace WpfApp1 {
                 if (emp != null) {
 
                     usuariosController.RegisterUser(regUser.Text, regPass.Password, regmail.Text, emp);
+                    _ = new MainWindow();
 
                 }
                 else {
                     usuariosController.RegisterUserBasic(regUser.Text, regPass.Password, regmail.Text);
+                    _ = new MainWindow();
                 }
 
 

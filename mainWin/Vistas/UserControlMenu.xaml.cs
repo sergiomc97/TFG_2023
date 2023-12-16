@@ -94,7 +94,7 @@ namespace mainWin.Vistas {
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e) {
-            if (Window1.UsuarioAutenticado.RolId == 2) {
+            if (Window1.UsuarioAutenticado.Rol_id == 2) {
                 btn9.Visibility = Visibility.Visible;
 
             }

@@ -17,11 +17,24 @@ namespace mainWin.Controladores {
 
         public string er { get; set; }
 
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase FactusolController con una conexion específica a la base de datos.
+        /// </summary>
+        /// <param name="db">Ruta o nombre de la base de datos.</param>
+        /// <param name="conn">Cadena de conexión para la base de datos.</param>
+
+
         public FactusolController(string db, string conn) {
 
             connectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={db}";
             this.conn = conn;
         }
+        /// <summary>
+        /// Comprueba la existencia de entidades en la base de datos y las agrega o actualiza segun sea necesario.
+        /// </summary>
+        /// <typeparam name="T">Tipo de entidad a verificar.</typeparam>
+        /// <param name="entities">Lista de entidades a verificar.</param>
+        /// <exception cref="InvalidOperationException">Se lanza si la entidad no tiene una propiedad 'id' de tipo entero.</exception>
 
         public void CompExiste<T>(List<T> entities) where T : class {
 
@@ -57,6 +70,11 @@ namespace mainWin.Controladores {
         }
 
 
+        /// <summary>
+        /// Comprueba y actualiza la existencia de productos en la base de datos, asignando proveedores y categorias por defecto si es necesario.
+        /// </summary>
+        /// <param name="entities">Lista de productos a verificar.</param>
+        /// <exception cref="DbUpdateException">Se lanza si hay un error al actualizar la base de datos.</exception>
 
         public void CompExiste_long(List<Producto> entities) {
 
@@ -66,14 +84,14 @@ namespace mainWin.Controladores {
                 try {
                     foreach (var en in entities) {
 
-                        var existingProveedor = context.Set<Proveedore>().Any(p => p.IdProveedor == en.ProveedorId) ? en.ProveedorId : proveedorPorDefecto.IdProveedor;
-                        var existingCate = context.Set<Categoria>().Any(c => c.IdCategoria == en.CategoriaId) ? en.CategoriaId : categoriaPorDefecto.IdCategoria;
+                        var existingProveedor = context.Set<Proveedore>().Any(p => p.IdProveedor == en.Proveedor_id) ? en.Proveedor_id : proveedorPorDefecto.IdProveedor;
+                        var existingCate = context.Set<Categoria>().Any(c => c.IdCategoria == en.Categoria_id) ? en.Categoria_id : categoriaPorDefecto.IdCategoria;
 
                         var existingEntity = context.Set<Producto>().Find(en.IdProducto);
 
                         if (existingEntity == null) {
-                            en.ProveedorId = existingProveedor;
-                            en.CategoriaId = existingCate;
+                            en.Proveedor_id = existingProveedor;
+                            en.Categoria_id = existingCate;
                             context.Set<Producto>().Add(en);
 
                         }
@@ -96,6 +114,14 @@ namespace mainWin.Controladores {
                 }
             }
         }
+        /// <summary>
+        /// Comprueba y actualiza la existencia de ordenes en la base de datos. Si una orden no existe, la añade a la base de datos. 
+        /// Si la orden ya existe, actualiza sus datos si la version de la RowVersion de la orden entrante es mas reciente.
+        /// </summary>
+        /// <param name="entities">Lista de ordenes a verificar y actualizar.</param>
+        /// <exception cref="DbUpdateException">Se lanza si hay un error al intentar actualizar la base de datos, 
+        /// proporcionando detalles sobre la entidad y el estado en el que se encontro el error.</exception>
+
         public void CompExiste_Ordenes(List<Ordene> entities) {
             using (var context = new bdContext(conn)) {
                 try {
@@ -127,6 +153,10 @@ namespace mainWin.Controladores {
                 }
             }
         }
+        /// <summary>
+        /// Carga datos de diferentes entidades y verifica su existencia en la base de datos, actualizándolos si ha habido cambios.
+        /// </summary>
+        /// <exception cref="DbUpdateException">Se lanza si hay un error al actualizar la base de datos.</exception>
 
 
         public void CargarDatosSiModificado() {
@@ -143,8 +173,6 @@ namespace mainWin.Controladores {
             try {
                 CompExiste<Proveedore>(proveedores);
                 Debug.WriteLine("################### CompExiste proveedores ###################");
-                CompExiste<Cliente>(clientes);
-                Debug.WriteLine("################### CompExiste clientes ###################");
                 CompExiste<Categoria>(categorias);
                 Debug.WriteLine("################### CompExiste categorias ###################");
                 CompExiste_long(articulos);
@@ -155,7 +183,8 @@ namespace mainWin.Controladores {
                 Debug.WriteLine("################### CompExiste ordenes ###################");
                 CompExiste<Marca>(marcas);
                 Debug.WriteLine("################### CompExiste marcas ###################");
-
+                CompExiste<Cliente>(clientes);
+                Debug.WriteLine("################### CompExiste clientes ###################");
 
 
 
@@ -222,10 +251,10 @@ namespace mainWin.Controladores {
                             IdProducto = idproducto,
                             Producto1 = producto,
                             Precio = Precio,
-                            MarcaId = 1,
-                            CategoriaId = Categoria_id,
+                            Marca_id = 1,
+                            Categoria_id = Categoria_id,
                             Existencias = Existencias,
-                            ProveedorId = Proveedor_id,
+                            Proveedor_id = Proveedor_id,
                             Costo = 0
                         };
 
@@ -256,21 +285,25 @@ namespace mainWin.Controladores {
                         Ordene orden = new Ordene {
                             IdOrden = (int)reader["CODPAR"],
                             Fecha = (DateTime)reader["FENPAR"],
-                            FechaEnt = fecha_ent,
-                            FechaComp = fecha.AddDays(5),
-                            AsignadoId = 2,
+                            Fecha_ent = fecha_ent,
+                            Fecha_comp = fecha.AddDays(5),
+                            Asignado_id = 1,
                             Modelo = reader["MODPAR"].ToString(),
-                            CliDni = reader["CNIPAR"].ToString(),
-                            CliDirec = reader["CDOPAR"].ToString(),
+                            Cliente = new Cliente {
+                                Nombre= cli,
+                                Telefono= reader["TELPAR"].ToString(),
+                                Dni= reader["CNIPAR"].ToString(),
+                                Direccion= reader["CDOPAR"].ToString()
+                            },
+
                             Averia = reader["AVEPAR"].ToString(),
                             Solucion = reader["TRAPAR"].ToString(),
                             Telefono = reader["TELPAR"].ToString(),
-                            EstadoId = 1,
+                            Estado_id = 1,
                             Prioridad = "Alta",
-                            ClienteId = cli2,
-                            ClienteStr = cli,
-                            ProductoId = 47134,
-                            ServicioId = 1,
+                            Cliente_id = cli2,
+                            Producto_id = 1,
+                            Servicio_id = 1,
                             Observaciones = reader["OBSPAR"].ToString()
 
                         };
@@ -292,8 +325,7 @@ namespace mainWin.Controladores {
                         Empleado Empleado = new Empleado {
                             IdEmpleado = (int)reader["CODAGE"],
                             Nombre = reader["NOMAGE"].ToString(),
-                            Email = "",
-                            RolId = 1
+                            Email = ""
                         };
                         Empleados.Add(Empleado);
                     }

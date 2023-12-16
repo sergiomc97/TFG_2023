@@ -7,9 +7,9 @@ public partial class Configuracion
 {
     public int IdConfig { get; set; }
 
-    public int? UsuarioId { get; set; }
+    public int? Usuario_id { get; set; }
 
-    public string? RutaFs { get; set; }
+    public string? RutaFS { get; set; }
 
     public string? Opcion2 { get; set; }
 

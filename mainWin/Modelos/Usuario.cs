@@ -5,12 +5,11 @@ namespace mainWin.Modelos;
 
 public partial class Usuario
 {
-
     public int Iduser { get; set; }
 
     public string? Nick { get; set; }
 
-    public int? RolId { get; set; }
+    public int? Rol_id { get; set; }
 
     public string? Mail { get; set; }
 
@@ -18,7 +17,7 @@ public partial class Usuario
 
     public byte[]? Salt { get; set; }
 
-    public int? EmpleadoId { get; set; }
+    public int? Empleado_id { get; set; }
 
     public virtual ICollection<Configuracion> Configuracions { get; set; } = new List<Configuracion>();
 

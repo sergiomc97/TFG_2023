@@ -13,15 +13,7 @@ public partial class Empleado
 
     public string? Telefono { get; set; }
 
-    public int? RolId { get; set; }
-
     public virtual ICollection<Ordene> Ordenes { get; set; } = new List<Ordene>();
 
-    public virtual Role? Rol { get; set; }
-
     public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
-
-    public override string ToString() {
-        return Nombre;
-    }
 }

@@ -12,18 +12,24 @@ namespace mainWin.Controladores
 {
     public class PendientesController : Utilidades<Pendiente> {
         private readonly bdContext _context;
-
+        /// <summary>
+        /// Inicializa una nueva instancia de PendientesController utilizando una instancia singleton de bdContext.
+        /// </summary>
         public PendientesController() {
             _context = bdContextSingleton.Instance;
         }
 
+        /// <summary>
+        /// Añade las tarjetas de pendientes existentes en el contexto a una coleccion observable.
+        /// </summary>
+        /// <returns>Una ObservableCollection de objetos Pendiente.</returns>
 
         public ObservableCollection<Pendiente> AñadirTarjetas() {
 
             ObservableCollection<Pendiente> tarjetas = new ObservableCollection<Pendiente>();
 
             try {
-                foreach (Pendiente item in _context.Pendientes) {
+                foreach (Pendiente item in _context.pendientes) {
                     tarjetas.Add(item);
                 }
             }
@@ -34,9 +40,15 @@ namespace mainWin.Controladores
 
             return tarjetas;
         }
+        /// <summary>
+        /// Actualiza asincronicamente un pendiente especifico en la base de datos.
+        /// </summary>
+        /// <param name="pendiente">El pendiente a actualizar.</param>
+        /// <exception cref="DbUpdateConcurrencyException">Lanzada si hay un conflicto de concurrencia durante la actualizacion.</exception>
+
         public async Task ActualizarPendienteAsync(Pendiente pendiente) {
             try {
-                var pendienteExistente = await _context.Pendientes.FindAsync(pendiente.IdPendientes);
+                var pendienteExistente = await _context.pendientes.FindAsync(pendiente.IdPendientes);
 
                 if (pendienteExistente != null) {
                     pendienteExistente.Completado = pendiente.Completado;
@@ -60,9 +72,15 @@ namespace mainWin.Controladores
         }
 
         public int ContarPendientesIncompletos() {
-            return _context.Pendientes.Count(p => (bool)!p.Completado);
+            return _context.pendientes.Count(p => (bool)!p.Completado);
 
         }
+        /// <summary>
+        /// Agrega un nuevo pendiente al contexto y lo guarda en la base de datos.
+        /// </summary>
+        /// <param name="p">El pendiente a agregar.</param>
+        /// <exception cref="DbUpdateConcurrencyException">Lanzada si hay un conflicto de concurrencia durante la adicion.</exception>
+
         public void NewPendiente(Pendiente p) {
             try {
                 _context.Attach(p);
