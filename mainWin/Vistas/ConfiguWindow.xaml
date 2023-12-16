@@ -82,19 +82,25 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
 
                             </Grid.ColumnDefinitions>
-                            <TextBox x:Name="txtRutaArchivo"
-                                     Text="Seleccionar base de datos"
-                                     IsReadOnly="True"
+                            <TextBlock
+                                     Text="Seleccionar base de datos:"
                                      Grid.Column="0"
+                                     HorizontalAlignment="Left"
+                                     VerticalAlignment="Center" />
+                            <TextBox x:Name="txtRutaArchivo"
+                                     
+                                     IsReadOnly="True"
+                                     Grid.Column="1"
                                      Style="{StaticResource loginTextBox}"
                                      HorizontalAlignment="Left"
                                      VerticalAlignment="Center" />
 
                             <Button Content="Seleccionar Archivo"
                                     Height="40"
-                                    Grid.Column="1"
+                                    Grid.Column="2"
                                     Width="150"
                                     Click="SeleccionarArchivo_Click"
                                     HorizontalAlignment="Right"

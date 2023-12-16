@@ -12,8 +12,6 @@
       d:DesignWidth="1502"
       Title="MainWindow">
 
-
-
     <Grid Loaded="Grid_Loaded" >
 
         <Grid x:Name="principal">

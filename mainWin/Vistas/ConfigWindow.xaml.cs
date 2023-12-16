@@ -21,12 +21,12 @@ namespace WpfApp1 {
         public string username { get; set; }
         public string pass { get; set; }
         public string connString { get; set; }
-        private static string logFilePath = "C:\\Users\\carra\\Documents\\logs\\appLog.txt"; // Ajusta la ruta según tus necesidades
+        private static string logFilePath = "C:\\Users\\carra\\Documents\\logs\\appLog.txt";
 
         public ConfigWindow() {
             InitializeComponent();
             Loaded += MainWindow_Loaded;
-            
+
 
 
         }
@@ -35,15 +35,15 @@ namespace WpfApp1 {
 
 
         }
-       
+
 
         private void LogException(Exception ex) {
             try {
                 string message = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - Error: {ex}\n";
                 File.AppendAllText(logFilePath, message);
             }
-            catch (Exception e){
-               MessageBox.Show(e.ToString());
+            catch (Exception e) {
+                MessageBox.Show(e.ToString());
             }
         }
         public void saveParametros() {
@@ -88,7 +88,7 @@ namespace WpfApp1 {
                 return false;
             }
             finally {
-                
+
                 conn.Close();
             }
 
@@ -96,14 +96,17 @@ namespace WpfApp1 {
         private void generarbbdd() {
             try {
                 string script = LeerScriptDesdeArchivo(".\\GenerarBBDD.sql");
+                connString = $"server=localhost;" +
+                  $" user id=root;" +
+                  $" password=060989;" +
+                  $" port=3306;" +
+                  "Allow Zero Datetime=True;CHARSET=latin1";
+                conn = new MySqlConnection(connString);
 
-                using (MySqlConnection connection = new MySqlConnection(connString)) {
-                    connection.Open();
+                conn.Open();
 
-                    using (MySqlCommand command = new MySqlCommand(script, connection)) {
-                        command.ExecuteNonQuery();
-                    }
-                }
+                MySqlCommand command = new MySqlCommand(script, conn);
+                command.ExecuteNonQuery();
 
                 MessageBox.Show("Script SQL ejecutado exitosamente.");
             }
@@ -124,7 +127,7 @@ namespace WpfApp1 {
         private void borderProb_Click(object sender, RoutedEventArgs e) {
             if (conectar()) {
                 MessageBox.Show("La conexión a MySQL es exitosa.");
-                
+
             }
             else {
                 MessageBox.Show("No se pudo establecer la conexión a MySQL.");
@@ -135,15 +138,15 @@ namespace WpfApp1 {
             MessageBoxResult resultado = MessageBox.Show("Los datos ya existentes van a eliminarse, ¿Estas segur@?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             if (resultado == MessageBoxResult.Yes) {
-                
+
                 MessageBoxResult resultado2 = MessageBox.Show("¿Seguro?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                 if (resultado2 == MessageBoxResult.Yes) {
                     generarbbdd();
                 }
             }
-           
-           
+
+
         }
 
         private void borderInstall_Click(object sender, RoutedEventArgs e) {

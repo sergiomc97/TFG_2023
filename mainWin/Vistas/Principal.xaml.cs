@@ -18,6 +18,7 @@ using K4os.Compression.LZ4.Streams;
 using System.Windows.Media.Animation;
 using System.ComponentModel;
 using WpfApp1;
+using System.Windows.Media.Effects;
 
 namespace mainWin {
     /// <summary>
@@ -182,11 +183,16 @@ namespace mainWin {
         }
 
         private void newCita_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
-            MessageBox.Show("añadiendo cita....");
+            NewCitaWindow n = new NewCitaWindow(c);
+            n.ShowDialog();
+            ucCitas = new UserControlCitas(new ObservableCollection<Cita>(c.GetCitas()));
+            contenedorCitas.Children.Add(ucCitas);
         }
 
         private void Border_MouseLeave(object sender, MouseEventArgs e) {
             newCita.Foreground = new BrushConverter().ConvertFrom("#ff2f4f4f") as Brush;
         }
+
+
     }
 }

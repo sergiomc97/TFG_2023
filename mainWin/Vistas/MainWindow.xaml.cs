@@ -1,6 +1,7 @@
 ﻿using mainWin.Controladores;
 using mainWin.Modelos;
 using mainWin.Vistas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -17,6 +18,7 @@ namespace WpfApp1 {
         EmpleadosController empleadosController;
         UsuariosController usuariosController;
         List<Usuario> listaDeUsers;
+        bool existeConexion = false;
         public string connString { get; set; }
 
 
@@ -28,80 +30,111 @@ namespace WpfApp1 {
                   $" port=3306;" +
                   "database = app1;" +
                   "Allow Zero Datetime=True;CHARSET=latin1";
-            Loaded += MainWindow_Loaded;
-          
-        }
-        private async void MainWindow_Loaded(object sender, RoutedEventArgs e) {
-            t = new bdContextSingleton(connString);
-            _context = bdContextSingleton.Instance;
-            usuariosController = new UsuariosController();
-            empleadosController = new EmpleadosController();
-            listaDeUsers = await usuariosController.LoadUsers();
+            initCosas();
 
 
         }
+        private void initCosas() {
 
-            private void btnInicioSesion_Click(object sender, RoutedEventArgs e) {
+            try {
+                t = new bdContextSingleton(connString);
+                _context = bdContextSingleton.Instance;
+
+                if (_context.Database.CanConnect()) {
+                    existeConexion = true;
+                }
+
+                usuariosController = new UsuariosController();
+                empleadosController = new EmpleadosController();
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Base de datos no encontrada, vaya a configuración.\nDetalle del error: " + ex.Message);
+            }
+
+        }
+
+        private async void cargarUsers() {
 
 
-            string usernameText = textuserIni.Text;
-            string passwordText = textpassIni.Password;
+            listaDeUsers = usuariosController.getusers();
 
-            if (usernameText != string.Empty && passwordText != string.Empty) {
-                Usuario? user = listaDeUsers.SingleOrDefault(u => u.Nick == usernameText);
-                if (user != null && usuariosController.VerifyPassword(user, passwordText, user.PasswordHash, user.Salt)) {
+        }
 
-                    Configuracion? configuracionUsuario = _context.usuarios
-                                    .Where(u => u.Iduser == user.Iduser)
-                                    .Select(u => u.Configuracions.SingleOrDefault())
-                                    .FirstOrDefault();
+        private void btnInicioSesion_Click(object sender, RoutedEventArgs e) {
+            initCosas();
+            if (existeConexion) {
+                cargarUsers();
+                string usernameText = textuserIni.Text;
+                string passwordText = textpassIni.Password;
+
+                if (usernameText != string.Empty && passwordText != string.Empty) {
+                    Usuario? user = usuariosController.getusers().SingleOrDefault(u => u.Nick == usernameText);
+                    if (user != null && usuariosController.VerifyPassword(user, passwordText, user.PasswordHash, user.Salt)) {
+
+                        Configuracion? configuracionUsuario = _context.usuarios
+                                        .Where(u => u.Iduser == user.Iduser)
+                                        .Select(u => u.Configuracions.SingleOrDefault())
+                                        .FirstOrDefault();
 
 
-                    Window1 window1 = new Window1(connString);
-                    Window1.UsuarioAutenticado = user;
+                        Window1 window1 = new Window1(connString);
+                        Window1.UsuarioAutenticado = user;
 
-                    if (configuracionUsuario != null) {
+                        if (configuracionUsuario != null) {
 
-                        
-                        Window1.ConfiguracionUsuario = configuracionUsuario;
-                        window1.Show();
-                        this.Close();
+
+                            Window1.ConfiguracionUsuario = configuracionUsuario;
+                            window1.Show();
+                            this.Close();
+                        }
+                        else {
+                            MessageBox.Show("Configuración no encontrada para el usuario. Establece un archivo valido y reinicia la aplicacion");
+                            window1.Show();
+                            this.Close();
+                        }
                     }
                     else {
-                        MessageBox.Show("Configuración no encontrada para el usuario. Establece un archivo valido y reinicia la aplicacion");
-                        window1.Show();
-                        this.Close();
+                        SolidColorBrush redTransparentBrush = new SolidColorBrush(Color.FromArgb(128, 255, 0, 0));
+                        textuserIni.Background = redTransparentBrush;
+                        textpassIni.Background = redTransparentBrush;
+                        textuserIni.Text = "Introduce usuario y contraseña";
                     }
                 }
-                else {
-                    SolidColorBrush redTransparentBrush = new SolidColorBrush(Color.FromArgb(128, 255, 0, 0));
-                    textuserIni.Background = redTransparentBrush;
-                    textpassIni.Background = redTransparentBrush;
-                    textuserIni.Text = "Introduce usuario y contraseña";
-                }
             }
+            else {
+
+                MessageBox.Show("No se ha podido conectar con la base de datos, puedes generarla en la configuracion");
+            }
+
         }
 
         private void registrar_Click(object sender, RoutedEventArgs e) {
-            Usuario? user = usuariosController.getusers().SingleOrDefault(u => u.Nick == regUser.Text);
+            initCosas();
+            if (existeConexion) {
+                cargarUsers();
+                Usuario? user = _context.usuarios.SingleOrDefault(u => u.Nick == regUser.Text);
 
-            if (user == null) {
+                if (user == null) {
 
-                Empleado? emp = empleadosController.getEmpleados().SingleOrDefault(u => u.Email == regmail.Text);
+                    Empleado? emp = empleadosController.getEmpleados().SingleOrDefault(u => u.Email == regmail.Text);
 
-                if (emp != null) {
+                    if (emp != null) {
 
-                    usuariosController.RegisterUser(regUser.Text, regPass.Password, regmail.Text, emp);
-                    _ = new MainWindow();
+                        usuariosController.RegisterUser(regUser.Text, regPass.Password, regmail.Text, emp);
+                        _ = new MainWindow();
+
+                    }
+                    else {
+                        usuariosController.RegisterUserBasic(regUser.Text, regPass.Password, regmail.Text);
+                        _ = new MainWindow();
+                    }
 
                 }
-                else {
-                    usuariosController.RegisterUserBasic(regUser.Text, regPass.Password, regmail.Text);
-                    _ = new MainWindow();
-                }
+            }
+            else {
 
-
-
+                MessageBox.Show("No se ha podido conectar con la base de datos, puedes generarla en la configuracion");
             }
 
 

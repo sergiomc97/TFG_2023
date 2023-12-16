@@ -1,8 +1,11 @@
 ﻿using mainWin.Controladores;
 using mainWin.Modelos;
 using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -20,6 +23,7 @@ namespace mainWin.Vistas {
         bdContext _context;
         UserControlMenu uc;
         string connString;
+        private static string logFilePath = "C:\\Users\\carra\\Documents\\logs\\appLog.txt";
 
         public ConfiguWindow(Usuario usuarioAutenticado, UserControlMenu uc, string connString) {
             InitializeComponent();
@@ -31,10 +35,21 @@ namespace mainWin.Vistas {
         }
 
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e) {
-            Configuracion? configuracionUsuario = UsuarioAutenticado?.Configuracions.FirstOrDefault();
-            if (configuracionUsuario != null) {
-                txtRutaArchivo.Text = configuracionUsuario.RutaFS;
+            try {
+                Configuracion? configuracionUsuario = UsuarioAutenticado?.Configuracions.FirstOrDefault();
+                if (configuracionUsuario != null) {
+                    txtRutaArchivo.Text = configuracionUsuario.RutaFS;
+                }
             }
+            catch (System.Exception ex) {
+                try {
+                    string message = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - Error: {ex}\n";
+                    File.AppendAllText(logFilePath, message);
+                }
+                catch { }
+
+            }
+
             LlenarComboBoxUsuarios();
             LlenarComboBoxEmpleados();
 
@@ -50,38 +65,48 @@ namespace mainWin.Vistas {
         private void SeleccionarArchivo_Click(object sender, RoutedEventArgs e) {
             // Crear el cuadro de diálogo para seleccionar archivo
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
+            openFileDialog.Filter = "Archivos de BBDD Factusol (*.mdb)|*.mdb";
 
-            // Mostrar el cuadro de diálogo y obtener el resultado
+
             bool? resultado = openFileDialog.ShowDialog();
 
-            // Procesar el resultado del cuadro de diálogo
             if (resultado == true) {
-                // Obtener la ruta del archivo seleccionado
+
                 rutaConexion = openFileDialog.FileName;
 
-                // Mostrar la ruta en el TextBox
+
                 txtRutaArchivo.Text = rutaConexion;
             }
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e) {
-            Configuracion? existingConfig = _context.configuracions.FirstOrDefault(c => c.Usuario_id == UsuarioAutenticado.Iduser);
+            if (txtRutaArchivo.Text != string.Empty) {
+                Configuracion c;
+                Configuracion? existingConfig = _context.configuracions.FirstOrDefault(c => c.Usuario_id == UsuarioAutenticado.Iduser);
 
-            if (existingConfig == null) {
-                config = new Configuracion {
-                    RutaFS = rutaConexion,
-                    Usuario_id = UsuarioAutenticado.Iduser
-                };
+                if (existingConfig == null) {
+                    config = new Configuracion {
+                        RutaFS = rutaConexion,
+                        Usuario_id = UsuarioAutenticado.Iduser
+                    };
 
-                _context.Add(config);
+                    _context.Add(config);
+                }
+                else {
+                    existingConfig.RutaFS = rutaConexion;
+                    _context.Entry(existingConfig).State = EntityState.Modified;
+                }
+                c = existingConfig ?? config;
+                _context.SaveChanges();
+                if (c != null) {
+                    DatabaseMonitor monitor = new DatabaseMonitor(c.RutaFS, connString);
+                    monitor.StartMonitoring();
+
+                }
             }
             else {
-                existingConfig.RutaFS = rutaConexion;
-                _context.Entry(existingConfig).State = EntityState.Modified;
+                MessageBox.Show("No se ha seleccionado ningun fichero");
             }
-
-            _context.SaveChanges();
         }
 
         private void backBtn_Click(object sender, RoutedEventArgs e) {
@@ -137,7 +162,7 @@ namespace mainWin.Vistas {
             FactusolController f = new FactusolController(txtRutaArchivo.Text, connString);
             f.CargarDatosSiModificado();
             MessageBox.Show("Se procede a cerrar la sesion para establecer los cambios");
-            
+
             MainWindow main = new MainWindow();
             main.Show();
             Window.GetWindow(this)?.Close();

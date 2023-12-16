@@ -13,6 +13,9 @@
     <Page Update="Vistas\CitasWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Vistas\NewCitaWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Vistas\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>

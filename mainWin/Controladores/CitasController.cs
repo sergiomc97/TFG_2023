@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,14 @@ namespace mainWin.Controladores {
         public ObservableCollection<Cita> GetCitas() {
             ObservableCollection<Cita> listaDeOrdenes = new ObservableCollection<Cita>(_context.citas.ToList<Cita>());
             return listaDeOrdenes;
+        }
+        public void NewPendiente(Cita p) {
+
+            _context.Attach(p);
+            _context.Entry(p).State = (Microsoft.EntityFrameworkCore.EntityState)EntityState.Added;
+            _context.SaveChanges();
+
+
         }
     }
 }

@@ -1,0 +1,103 @@
+﻿<Window x:Class="WpfApp1.NewCitaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="config"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Height="720"
+        Width="1080"
+        mc:Ignorable="d">
+    <Grid Background="Transparent">
+
+        <Border Padding="100">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="1"
+                                  Color="Black"
+                                  Opacity="1"
+                                  BlurRadius="50" />
+            </Border.Effect>
+            <Border Background="White"
+                    CornerRadius="10"
+                    Width="500"
+                    Height="500"
+                    Grid.Column="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Row="0"
+                                Orientation="Horizontal"
+                                Margin="10"
+                                HorizontalAlignment="Left">
+                        <TextBlock Text="Configuracion:"
+                                   FontSize="20" />
+                    </StackPanel>
+                    <StackPanel Grid.Row="0"
+                                Grid.Column="1"
+                                Margin="10"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Right">
+                        <Button Style="{StaticResource IconButtonStyle3}"
+                                Content="&#xE8BB;"
+                                Click="ClosePopup_Click"
+                                Margin="5" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" Grid.ColumnSpan="2"
+                                Margin="10">
+                        <TextBlock Text="Fecha:" />
+                        <DatePicker x:Name="fechaTextBox" />
+
+                        <TextBlock Text="Hora:"
+                                   Margin="0,10,0,0" />
+                        
+                        <TextBox x:Name="HoraTextBox"
+                                 Style="{StaticResource TextBoxStyle}" />
+
+                        <TextBlock Text="Cliente:"
+                                   Margin="0,10,0,0" />
+                        <ComboBox x:Name="comboCli"
+                                  Style="{StaticResource ComboBoxStyle1}" />
+                        <TextBlock Text="Descripcion:"
+                                   Margin="0,10,0,0" />
+
+                        <TextBox x:Name="descTextBox"
+                                 Style="{StaticResource TextBoxStyle}" />
+                    </StackPanel>
+
+                    <Button Content="Guardar"
+                            Grid.Row="3"
+                            Click="SaveButton_Click"
+                            Style="{StaticResource RoundButtonStyle2}"
+                            Margin="10" />
+                    <Button Content="Cancelar"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Style="{StaticResource RoundButtonStyle2}"
+                            Click="Cancelbutton_Click"
+                            Foreground="#fe6701"
+                            Margin="10" />
+
+                    
+                </Grid>
+            </Border>
+        </Border>
+
+
+    </Grid>
+</Window>

@@ -226,6 +226,10 @@ namespace mainWin.Vistas {
         private void Border_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e) {
             LoadPendientesAsync();
         }
+
+        private void BtnNuevo_Click(object sender, MouseButtonEventArgs e) {
+
+        }
     }
     public class BooleanToColorConverter : IValueConverter {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
