@@ -135,26 +135,7 @@ namespace mainWin {
             NavigationService.Navigate(o);
 
         }
-        private void menuList_MouseDoubleClick(object sender, MouseButtonEventArgs e) {
 
-
-        }
-
-        private void menuList_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
-           
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e) {
-           
-        }
-
-        private void Button_PreviewMouseDown(object sender, MouseButtonEventArgs e) {
-
-        }
-
-        private void Button_Click_4(object sender, RoutedEventArgs e) {
-
-        }
 
         private async void Grid_Loaded(object sender, RoutedEventArgs e) {
             if (uc.Parent != null) {

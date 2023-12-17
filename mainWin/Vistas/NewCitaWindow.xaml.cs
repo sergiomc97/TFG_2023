@@ -33,35 +33,32 @@ namespace WpfApp1 {
         }
 
         private Cita? CrearCitaSiEsValida() {
-            // Validar Fecha
+
             if (!fechaTextBox.SelectedDate.HasValue) {
                 MessageBox.Show("Por favor, selecciona una fecha.");
                 return null;
             }
             var fecha = DateOnly.FromDateTime(fechaTextBox.SelectedDate.Value);
 
-            // Validar Hora
             if (!TimeOnly.TryParse(HoraTextBox.Text, out TimeOnly hora)) {
                 MessageBox.Show("Por favor, introduce una hora válida.");
                 return null;
             }
 
-            // Validar Cliente
             if (comboCli.SelectedItem == null) {
                 MessageBox.Show("Por favor, selecciona un cliente.");
                 return null;
             }
-            // Suponiendo que el ComboBox contiene objetos Cliente y quieres el Id del cliente seleccionado
-            var cliente = comboCli.SelectedItem as Cliente;
 
-            // Validar Descripción
+            Cliente cliente = comboCli.SelectedItem as Cliente;
+
+
             if (string.IsNullOrWhiteSpace(descTextBox.Text)) {
                 MessageBox.Show("Por favor, introduce una descripción.");
                 return null;
             }
             var descripcion = descTextBox.Text;
 
-            // Crear y retornar el objeto Cita
             return new Cita {
                 Fecha = fecha,
                 Hora = hora,
@@ -81,8 +78,12 @@ namespace WpfApp1 {
 
 
         private void SaveButton_Click(object sender, RoutedEventArgs e) {
-            CitasController.NewPendiente(CrearCitaSiEsValida());
-            this.Close();
+            Cita c = CrearCitaSiEsValida();
+            if (c != null) {
+                CitasController.NewCita(c);
+                this.Close();
+            }
+
         }
         private void ClosePopup_Click(object sender, RoutedEventArgs e) {
 

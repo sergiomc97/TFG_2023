@@ -21,7 +21,7 @@ namespace mainWin.Controladores {
             ObservableCollection<Cita> listaDeOrdenes = new ObservableCollection<Cita>(_context.citas.ToList<Cita>());
             return listaDeOrdenes;
         }
-        public void NewPendiente(Cita p) {
+        public void NewCita(Cita p) {
 
             _context.Attach(p);
             _context.Entry(p).State = (Microsoft.EntityFrameworkCore.EntityState)EntityState.Added;

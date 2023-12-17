@@ -10,6 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media.Effects;
+using WpfApp1;
 
 namespace mainWin.Vistas {
     /// <summary>
@@ -63,7 +64,11 @@ namespace mainWin.Vistas {
         }
 
         private void BtnNuevo_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
-
+            CitasController controller = new CitasController();
+            NewCitaWindow n = new NewCitaWindow(controller);
+            n.ShowDialog();
+            uc = new UserControlCitas(new ObservableCollection<Cita>(controller.GetCitas()));
+            contenedor.Children.Add(uc);
         }
         private async void Grid_Loaded(object sender, RoutedEventArgs e) {
             if (uz.Parent != null) {

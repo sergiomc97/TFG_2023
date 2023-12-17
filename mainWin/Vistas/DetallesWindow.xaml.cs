@@ -128,11 +128,9 @@ namespace mainWin.Vistas {
         private bool CamposValidos() {
             // Verifica que todos los campos tengan contenido
             if (string.IsNullOrWhiteSpace(textModelo.Text) ||
-                string.IsNullOrWhiteSpace(textdni.Text) ||
-                string.IsNullOrWhiteSpace(textDirec.Text) ||
                 string.IsNullOrWhiteSpace(textAveria.Text) ||
-               string.IsNullOrWhiteSpace(textTelefono.Text) ||
-                string.IsNullOrWhiteSpace(textCliente.Text)) {
+                string.IsNullOrWhiteSpace(textTelefono.Text) ||
+                string.IsNullOrWhiteSpace(textCliente.Text)) { 
                 MessageBox.Show("Has dejado algun campo vacío", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
@@ -157,9 +155,8 @@ namespace mainWin.Vistas {
                     int estado = (int)or.Estado_id;
                     SetBorder(estado);
                 }
-                
                 comboAsig.SelectedItem = or.Asignado ?? ListaDeEmpleados.FirstOrDefault();
-                comboprio.SelectedItem = or.Prioridad ?? comboprio.Items[0];
+                comboprio.SelectedItem = comboprio.Items[0] ?? or.Prioridad;
 
             }
 
