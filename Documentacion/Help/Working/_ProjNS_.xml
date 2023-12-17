@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>_ProjNS_</name>
+  </assembly>
+  <members>
+    <member name="N:mainWin">
+      <summary />
+    </member>
+    <member name="N:mainWin.Controladores">
+      <summary />
+    </member>
+    <member name="N:mainWin.Modelos">
+      <summary />
+    </member>
+    <member name="N:mainWin.Vistas">
+      <summary />
+    </member>
+    <member name="N:WpfApp1">
+      <summary />
+    </member>
+  </members>
+</doc>

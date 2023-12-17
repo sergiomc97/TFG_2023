@@ -3,6 +3,7 @@ using mainWin.Modelos;
 using mainWin.Vistas;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media;
@@ -20,16 +21,13 @@ namespace WpfApp1 {
         List<Usuario> listaDeUsers;
         bool existeConexion = false;
         public string connString { get; set; }
+        private static string logDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "logs");
+        private static string logFilePath = Path.Combine(logDirectory, "appLog.txt");
 
 
         public MainWindow() {
             InitializeComponent();
-            connString = $"server=localhost;" +
-                  $" user id=root;" +
-                  $" password=060989;" +
-                  $" port=3306;" +
-                  "database = app1;" +
-                  "Allow Zero Datetime=True;CHARSET=latin1";
+            connString = $"Server=localhost; User ID=root; Password=060989; Database=app1";
             initCosas();
 
 
@@ -49,11 +47,23 @@ namespace WpfApp1 {
 
             }
             catch (Exception ex) {
-                MessageBox.Show("Base de datos no encontrada, vaya a configuración.\nDetalle del error: " + ex.Message);
+                LogException("Base de datos no encontrada, vaya a configuración.\nDetalle del error: " + ex.Message);
             }
 
         }
+        private void LogException(string ex) {
+            try {
+                if (!Directory.Exists(logDirectory)) {
+                    Directory.CreateDirectory(logDirectory);
+                }
 
+                string message = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - Error: {ex}\n";
+                File.AppendAllText(logFilePath, message);
+            }
+            catch (Exception e) {
+                MessageBox.Show(e.ToString());
+            }
+        }
         private async void cargarUsers() {
 
 

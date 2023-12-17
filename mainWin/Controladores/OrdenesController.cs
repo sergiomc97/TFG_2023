@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data.Entity;
 using System.Linq;
 using System.Windows;
 using EntityState = Microsoft.EntityFrameworkCore.EntityState;
@@ -86,7 +85,6 @@ namespace mainWin.Controladores {
                     return false;
                 }
                 else {
-                    // La entidad ha sido modificada en la base de datos
                     var databaseValues = (Ordene)databaseEntry.ToObject();
                     entry.OriginalValues.SetValues(databaseValues);
                     return false;
@@ -115,7 +113,6 @@ namespace mainWin.Controladores {
                     return false;
                 }
                 else {
-                    // La entidad ha sido modificada en la base de datos
                     var databaseValues = (Ordene)databaseEntry.ToObject();
                     entry.OriginalValues.SetValues(databaseValues);
                     return false;

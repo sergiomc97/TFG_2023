@@ -207,7 +207,7 @@ namespace mainWin.Vistas {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/mainWin;component/vistas/detalleswindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/mainWin;V1.0.0.0;component/vistas/detalleswindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Vistas\DetallesWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

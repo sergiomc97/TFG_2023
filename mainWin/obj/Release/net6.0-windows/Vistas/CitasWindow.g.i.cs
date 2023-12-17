@@ -111,7 +111,7 @@ namespace mainWin.Vistas {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/mainWin;V1.0.0.0;component/vistas/citaswindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/mainWin;component/vistas/citaswindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Vistas\CitasWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

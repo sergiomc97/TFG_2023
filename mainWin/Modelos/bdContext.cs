@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Common;
-using System.Diagnostics;
 using System.IO;
-using System.Threading.Tasks;
-using K4os.Compression.LZ4.Streams;
+using System.Windows;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.Extensions.Logging;
-using MySqlConnector.Logging;
 
 namespace mainWin.Modelos;
 
 public partial class bdContext : DbContext {
     string conn;
+
     public bdContext(string conn) {
         this.conn = conn;
     }
@@ -53,17 +48,23 @@ public partial class bdContext : DbContext {
 
     public virtual DbSet<Usuario> usuarios { get; set; }
 
-    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+        try {
 
-    //    optionsBuilder.UseMySql("server=localhost;user id=root;password=060989;database=app1",
-    //         Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.34-mysql"))
-    //        .LogTo(message => Debug.WriteLine(message)).EnableSensitiveDataLogging();
+            optionsBuilder.UseMySql(conn, ServerVersion.AutoDetect(conn));
+            //optionsBuilder.UseMySql(conn, ServerVersion.AutoDetect(conn));
+            //.LogTo(message => Debug.WriteLine(message)).EnableSensitiveDataLogging();
+        }
+        catch (Exception e) {
+            MessageBox.Show(e.ToString());
+        }
 
-    //}
+    }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-          => optionsBuilder.UseLazyLoadingProxies()
-                           .UseMySql(conn, Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.34-mysql"));
+
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //      => optionsBuilder.UseLazyLoadingProxies()
+    //                       .UseMySql(conn, ServerVersion.Parse("8.0.34-mysql"));
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder) {

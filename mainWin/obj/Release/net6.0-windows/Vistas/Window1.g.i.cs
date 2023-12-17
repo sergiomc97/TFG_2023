@@ -52,7 +52,7 @@ namespace mainWin.Vistas {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/mainWin;V1.0.0.0;component/vistas/window1.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/mainWin;component/vistas/window1.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Vistas\Window1.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

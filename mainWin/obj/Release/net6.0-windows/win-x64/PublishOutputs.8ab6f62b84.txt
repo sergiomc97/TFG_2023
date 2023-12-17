@@ -1,0 +1,10 @@
+C:\Users\carra\Desktop\NuevoDiseño\mainWin\bin\All\net6.0-windows\win-x64\app.publish\mainWin.pdb
+C:\Users\carra\Desktop\NuevoDiseño\mainWin\bin\All\net6.0-windows\win-x64\app.publish\Resources\icono.ico
+C:\Users\carra\Desktop\NuevoDiseño\mainWin\bin\All\net6.0-windows\win-x64\app.publish\Resource1.resx
+C:\Users\carra\Desktop\NuevoDiseño\mainWin\bin\All\net6.0-windows\win-x64\app.publish\GenerarBBDD.sql
+C:\Users\carra\Desktop\NuevoDiseño\mainWin\bin\All\net6.0-windows\win-x64\app.publish\comerr64.dll
+C:\Users\carra\Desktop\NuevoDiseño\mainWin\bin\All\net6.0-windows\win-x64\app.publish\gssapi64.dll
+C:\Users\carra\Desktop\NuevoDiseño\mainWin\bin\All\net6.0-windows\win-x64\app.publish\k5sprt64.dll
+C:\Users\carra\Desktop\NuevoDiseño\mainWin\bin\All\net6.0-windows\win-x64\app.publish\krb5_64.dll
+C:\Users\carra\Desktop\NuevoDiseño\mainWin\bin\All\net6.0-windows\win-x64\app.publish\krbcc64.dll
+C:\Users\carra\Desktop\NuevoDiseño\mainWin\bin\All\net6.0-windows\win-x64\app.publish\mainWin.exe

@@ -215,7 +215,7 @@ namespace mainWin.Vistas {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/mainWin;V1.0.0.0;component/vistas/pendienteswindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/mainWin;component/vistas/pendienteswindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Vistas\PendientesWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

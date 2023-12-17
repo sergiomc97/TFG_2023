@@ -103,6 +103,7 @@ namespace mainWin.Vistas {
                     monitor.StartMonitoring();
 
                 }
+                MessageBox.Show("Se han guardado las preferencias, iniciando monitorizacion de la BBDD");
             }
             else {
                 MessageBox.Show("No se ha seleccionado ningun fichero");
@@ -159,13 +160,18 @@ namespace mainWin.Vistas {
         }
 
         private void cargar_Click(object sender, RoutedEventArgs e) {
-            FactusolController f = new FactusolController(txtRutaArchivo.Text, connString);
-            f.CargarDatosSiModificado();
-            MessageBox.Show("Se procede a cerrar la sesion para establecer los cambios");
+            if (txtRutaArchivo.Text != string.Empty) {
+                FactusolController f = new FactusolController(txtRutaArchivo.Text, connString);
+                f.CargarDatosSiModificado();
+                MessageBox.Show("Se procede a cerrar la sesion para establecer los cambios");
 
-            MainWindow main = new MainWindow();
-            main.Show();
-            Window.GetWindow(this)?.Close();
+                MainWindow main = new MainWindow();
+                main.Show();
+                Window.GetWindow(this)?.Close();
+            }
+            else {
+                MessageBox.Show("No has seleccionado el fichero de la BBDD");
+            }
         }
     }
 }

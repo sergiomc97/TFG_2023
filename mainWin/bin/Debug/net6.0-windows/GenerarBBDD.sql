@@ -429,7 +429,7 @@ CREATE TABLE `servicios` (
 
 LOCK TABLES `servicios` WRITE;
 /*!40000 ALTER TABLE `servicios` DISABLE KEYS */;
-INSERT INTO `servicios` VALUES (1,'Mantenimiento'),(2,'Reparación'),(3,'Instalación'),(4,'Consultoría');
+INSERT INTO `servicios` VALUES (1,'Mantenimiento'),(2,'Reparacion'),(3,'Instalacion'),(4,'Consultoria');
 /*!40000 ALTER TABLE `servicios` ENABLE KEYS */;
 UNLOCK TABLES;
 

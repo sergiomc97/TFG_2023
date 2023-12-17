@@ -1,8 +1,8 @@
 ﻿using mainWin.Modelos;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +24,7 @@ namespace mainWin.Controladores {
         public void NewCita(Cita p) {
 
             _context.Attach(p);
-            _context.Entry(p).State = (Microsoft.EntityFrameworkCore.EntityState)EntityState.Added;
+            _context.Entry(p).State = EntityState.Added;
             _context.SaveChanges();
 
 

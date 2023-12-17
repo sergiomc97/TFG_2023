@@ -3,17 +3,21 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data.OleDb;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
+
+using System.Windows;
+using Path = System.IO.Path;
 
 namespace mainWin.Controladores {
 
     public class FactusolController {
         private string connectionString;
         string conn;
+        private static string logDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "logs");
+        private static string logFilePath = Path.Combine(logDirectory, "appLog.txt");
+
 
         public string er { get; set; }
 
@@ -25,10 +29,29 @@ namespace mainWin.Controladores {
 
 
         public FactusolController(string db, string conn) {
-
-            connectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={db}";
+            //connectionString = "Driver={Microsoft Access Driver (*.mdb, *.accdb)};" + $"Dbq = {db};" ;
+            connectionString = $"Provider = Microsoft.ACE.OLEDB.12.0; Data Source={db};";
+            MessageBox.Show(connectionString);
+            //connectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={db}";
             this.conn = conn;
         }
+
+
+        private void LogException(string ex) {
+            try {
+                if (!Directory.Exists(logDirectory)) {
+                    Directory.CreateDirectory(logDirectory);
+                }
+
+                string message = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - Error: {ex}\n";
+                File.AppendAllText(logFilePath, message);
+            }
+            catch (Exception e) {
+                MessageBox.Show(e.ToString());
+            }
+        }
+
+
         /// <summary>
         /// Comprueba la existencia de entidades en la base de datos y las agrega o actualiza segun sea necesario.
         /// </summary>
@@ -59,7 +82,7 @@ namespace mainWin.Controladores {
                     if (!existingIds.Contains(idValue)) {
 
                         entitiesToAddOrUpdate.Add(en);
-                        Debug.WriteLine("################### se ha añadido una entidad:" + idPropertyName + "###################");
+                        LogException("################### se ha añadido una entidad:" + idPropertyName + "###################");
                     }
                 }
 
@@ -102,14 +125,15 @@ namespace mainWin.Controladores {
 
                 }
                 catch (DbUpdateException ex) {
-                    Debug.WriteLine("################### DbUpdateException ###################");
+                    LogException(ex.ToString());
+                    LogException("################### DbUpdateException ###################");
 
-                    Debug.WriteLine("StackTrace: " + ex.StackTrace);
+                    LogException("StackTrace: " + ex.StackTrace);
 
-                    Debug.WriteLine("InnerException: " + ex.InnerException.Message);
+                    LogException("InnerException: " + ex.InnerException.Message);
 
                     foreach (var entry in ex.Entries) {
-                        Debug.WriteLine($"Entity of type {entry.Entity.GetType().FullName} in state {entry.State} could not be updated");
+                        LogException($"Entity of type {entry.Entity.GetType().FullName} in state {entry.State} could not be updated");
                     }
                 }
             }
@@ -141,14 +165,15 @@ namespace mainWin.Controladores {
                     context.SaveChanges();
                 }
                 catch (DbUpdateException ex) {
-                    Debug.WriteLine("################### DbUpdateException ###################");
+                    LogException(ex.ToString());
+                    LogException("################### DbUpdateException ###################");
 
-                    Debug.WriteLine("StackTrace: " + ex.StackTrace);
+                    LogException("StackTrace: " + ex.StackTrace);
 
-                    Debug.WriteLine("InnerException: " + ex.InnerException.Message);
+                    LogException("InnerException: " + ex.InnerException.Message);
 
                     foreach (var entry in ex.Entries) {
-                        Debug.WriteLine($"Entity of type {entry.Entity.GetType().FullName} in state {entry.State} could not be updated");
+                        LogException($"Entity of type {entry.Entity.GetType().FullName} in state {entry.State} could not be updated");
                     }
                 }
             }
@@ -171,34 +196,51 @@ namespace mainWin.Controladores {
 
 
             try {
-                CompExiste<Proveedore>(proveedores);
-                Debug.WriteLine("################### CompExiste proveedores ###################");
-                CompExiste<Categoria>(categorias);
-                Debug.WriteLine("################### CompExiste categorias ###################");
-                CompExiste_long(articulos);
-                Debug.WriteLine("################### CompExiste articulos ###################");
-                CompExiste<Empleado>(empleados);
-                Debug.WriteLine("################### CompExiste empleados ###################");
-                CompExiste_Ordenes(ordenes);
-                Debug.WriteLine("################### CompExiste ordenes ###################");
-                CompExiste<Marca>(marcas);
-                Debug.WriteLine("################### CompExiste marcas ###################");
-                CompExiste<Cliente>(clientes);
-                Debug.WriteLine("################### CompExiste clientes ###################");
-
-
+                if (proveedores != null) {
+                    CompExiste<Proveedore>(proveedores);
+                    LogException("################### CompExiste proveedores ###################");
+                }
+                if (categorias != null) {
+                    CompExiste<Categoria>(categorias);
+                    LogException("################### CompExiste categorias ###################");
+                }
+                if (articulos != null) {
+                    CompExiste_long(articulos);
+                    LogException("################### CompExiste articulos ###################");
+                }
+                if (empleados != null) {
+                    CompExiste<Empleado>(empleados);
+                    LogException("################### CompExiste empleados ###################");
+                }
+                if (ordenes != null) {
+                    CompExiste_Ordenes(ordenes);
+                    LogException("################### CompExiste ordenes ###################");
+                }
+                if (marcas != null) {
+                    CompExiste<Marca>(marcas);
+                    LogException("################### CompExiste marcas ###################");
+                }
+                if (clientes != null) {
+                    CompExiste<Cliente>(clientes);
+                    LogException("################### CompExiste clientes ###################");
+                }
 
             }
             catch (DbUpdateException ex) {
-                Debug.WriteLine("################### DbUpdateException ###################");
+                LogException("CargarDatosSiModificado DbUpdateException " + ex.ToString());
+                LogException("################### DbUpdateException ###################");
 
-                Debug.WriteLine("StackTrace: " + ex.StackTrace);
+                LogException("StackTrace: " + ex.StackTrace);
 
-                Debug.WriteLine("InnerException: " + ex.InnerException.Message);
+                LogException("InnerException: " + ex.InnerException.Message);
 
                 foreach (var entry in ex.Entries) {
-                    Debug.WriteLine($"Entity of type {entry.Entity.GetType().FullName} in state {entry.State} could not be updated");
+                    LogException($"Entity of type {entry.Entity.GetType().FullName} in state {entry.State} could not be updated");
                 }
+            }
+            catch (Exception e) {
+                LogException("CargarDatosSiModificado " + e.ToString());
+
             }
 
 
@@ -206,199 +248,250 @@ namespace mainWin.Controladores {
 
 
         public List<Cliente> CargarClientes() {
+            try {
+                List<Cliente> clientes = new List<Cliente>();
 
-            List<Cliente> clientes = new List<Cliente>();
+                using (OleDbConnection connection = new OleDbConnection(connectionString)) {
+                    connection.Open();
 
-            using (OleDbConnection connection = new OleDbConnection(connectionString)) {
-                connection.Open();
-
-                using (OleDbCommand command = new OleDbCommand("SELECT CODCLI, NOFCLI, DOMCLI, TELCLI FROM F_cli", connection))
-                using (OleDbDataReader reader = command.ExecuteReader()) {
-                    while (reader.Read()) {
-                        Cliente cliente = new Cliente {
-                            IdCliente = (int)reader["CODCLI"],
-                            Nombre = reader["NOFCLI"].ToString(),
-                            Email = reader["DOMCLI"].ToString(),
-                            Telefono = reader["TELCLI"].ToString()
-                        };
-                        clientes.Add(cliente);
+                    using (OleDbCommand command = new OleDbCommand("SELECT CODCLI, NOFCLI, DOMCLI, TELCLI FROM F_cli", connection))
+                    using (OleDbDataReader reader = command.ExecuteReader()) {
+                        while (reader.Read()) {
+                            Cliente cliente = new Cliente {
+                                IdCliente = (int)reader["CODCLI"],
+                                Nombre = reader["NOFCLI"].ToString(),
+                                Email = reader["DOMCLI"].ToString(),
+                                Telefono = reader["TELCLI"].ToString()
+                            };
+                            clientes.Add(cliente);
+                        }
                     }
+                    LogException("################### CargarClientes() ###################");
+                    return clientes;
                 }
-                Debug.WriteLine("################### CargarClientes() ###################");
-                return clientes;
+            }
+            catch (Exception e) {
+
+                LogException(e.ToString());
+                return null;
+
             }
         }
 
         public List<Producto> CargarArticulos() {
-            using (OleDbConnection connection = new OleDbConnection(connectionString)) {
-                connection.Open();
-                List<Producto> articulos = new List<Producto>();
-                using (OleDbCommand command = new OleDbCommand("SELECT CCOART, DESART, PCOART, FAMART, STOART, PHAART FROM F_art", connection))
-                using (OleDbDataReader reader = command.ExecuteReader()) {
+            try {
+                using (OleDbConnection connection = new OleDbConnection(connectionString)) {
+                    connection.Open();
+                    List<Producto> articulos = new List<Producto>();
+                    using (OleDbCommand command = new OleDbCommand("SELECT CCOART, DESART, PCOART, FAMART, STOART, PHAART FROM F_art", connection))
+                    using (OleDbDataReader reader = command.ExecuteReader()) {
 
-                    while (reader.Read()) {
-                        long idproducto = Convert.ToInt64(reader["CCOART"]);
-                        string producto = reader["DESART"].ToString();
-                        decimal Precio = (decimal)reader["PCOART"];
-                        Int16 Existencias = (Int16)reader["STOART"];
-                        int.TryParse(reader["FAMART"].ToString(), out int Categoria_id);
-                        int.TryParse(reader["PHAART"].ToString(), out int Proveedor_id);
+                        while (reader.Read()) {
+                            long idproducto = Convert.ToInt64(reader["CCOART"]);
+                            string producto = reader["DESART"].ToString();
+                            decimal Precio = (decimal)reader["PCOART"];
+                            Int16 Existencias = (Int16)reader["STOART"];
+                            int.TryParse(reader["FAMART"].ToString(), out int Categoria_id);
+                            int.TryParse(reader["PHAART"].ToString(), out int Proveedor_id);
 
-                        if (Proveedor_id == 0) {
-                            Proveedor_id++;
+                            if (Proveedor_id == 0) {
+                                Proveedor_id++;
+                            }
+                            Producto articulo = new Producto {
+                                IdProducto = idproducto,
+                                Producto1 = producto,
+                                Precio = Precio,
+                                Marca_id = 1,
+                                Categoria_id = Categoria_id,
+                                Existencias = Existencias,
+                                Proveedor_id = Proveedor_id,
+                                Costo = 0
+                            };
+
+                            articulos.Add(articulo);
                         }
-                        Producto articulo = new Producto {
-                            IdProducto = idproducto,
-                            Producto1 = producto,
-                            Precio = Precio,
-                            Marca_id = 1,
-                            Categoria_id = Categoria_id,
-                            Existencias = Existencias,
-                            Proveedor_id = Proveedor_id,
-                            Costo = 0
-                        };
-
-                        articulos.Add(articulo);
                     }
+                    LogException("################### CargarArticulos() ###################");
+                    return articulos;
                 }
-                Debug.WriteLine("################### CargarArticulos() ###################");
-                return articulos;
+            }
+            catch (Exception e) {
+                LogException(e.ToString());
+                return null;
+
             }
         }
         public List<Ordene> CargarOrdenes() {
-            using (OleDbConnection connection = new OleDbConnection(connectionString)) {
-                connection.Open();
-                string cli;
-                int cli2;
+            try {
+                using (OleDbConnection connection = new OleDbConnection(connectionString)) {
+                    connection.Open();
+                    string cli;
+                    int cli2;
 
-                List<Ordene> ordenes = new List<Ordene>();
-                using (OleDbCommand command = new OleDbCommand("SELECT CODPAR,TRAPAR, CLIPAR, CNOPAR, CNIPAR, CDOPAR, FENPAR, " +
-                    "TELPAR, AVEPAR, FSAPAR, TECPAR, OBSPAR, MODPAR FROM R_PAR", connection))
-                using (OleDbDataReader reader = command.ExecuteReader()) {
+                    List<Ordene> ordenes = new List<Ordene>();
+                    using (OleDbCommand command = new OleDbCommand("SELECT CODPAR,TRAPAR, CLIPAR, CNOPAR, CNIPAR, CDOPAR, FENPAR, " +
+                        "TELPAR, AVEPAR, FSAPAR, OBSPAR, MODPAR FROM R_PAR", connection))
+                    using (OleDbDataReader reader = command.ExecuteReader()) {
 
-                    while (reader.Read()) {
-                        cli = reader["CNOPAR"].ToString();
-                        cli2 = (int)reader["CLIPAR"];
-                        DateTime fecha_ent = (DateTime)reader["FSAPAR"];
-                        DateTime fecha = (DateTime)reader["FENPAR"];
-                        if (cli2 == 0) cli2 = 12;
-                        Ordene orden = new Ordene {
-                            IdOrden = (int)reader["CODPAR"],
-                            Fecha = (DateTime)reader["FENPAR"],
-                            Fecha_ent = fecha_ent,
-                            Fecha_comp = fecha.AddDays(5),
-                            Asignado_id = 1,
-                            Modelo = reader["MODPAR"].ToString(),
-                            Cliente = new Cliente {
-                                Nombre= cli,
-                                Telefono= reader["TELPAR"].ToString(),
-                                Dni= reader["CNIPAR"].ToString(),
-                                Direccion= reader["CDOPAR"].ToString()
-                            },
+                        while (reader.Read()) {
+                            cli = reader["CNOPAR"].ToString();
+                            cli2 = (int)reader["CLIPAR"];
+                            DateTime fecha_ent = (DateTime)reader["FSAPAR"];
+                            DateTime fecha = (DateTime)reader["FENPAR"];
+                            if (cli2 == 0) cli2 = 12;
+                            Ordene orden = new Ordene {
+                                IdOrden = (int)reader["CODPAR"],
+                                Fecha = (DateTime)reader["FENPAR"],
+                                Fecha_ent = fecha_ent,
+                                Fecha_comp = fecha.AddDays(5),
+                                //Asignado_id = 1,
+                                Modelo = reader["MODPAR"].ToString(),
+                                Cliente = new Cliente {
+                                    Nombre = cli,
+                                    Telefono = reader["TELPAR"].ToString(),
+                                    Dni = reader["CNIPAR"].ToString(),
+                                    Direccion = reader["CDOPAR"].ToString()
+                                },
 
-                            Averia = reader["AVEPAR"].ToString(),
-                            Solucion = reader["TRAPAR"].ToString(),
-                            Telefono = reader["TELPAR"].ToString(),
-                            Estado_id = 1,
-                            Prioridad = "Alta",
-                            Cliente_id = cli2,
-                            Producto_id = 1,
-                            Servicio_id = 1,
-                            Observaciones = reader["OBSPAR"].ToString()
+                                Averia = reader["AVEPAR"].ToString(),
+                                Solucion = reader["TRAPAR"].ToString(),
+                                Telefono = reader["TELPAR"].ToString(),
+                                Estado_id = 1,
+                                Prioridad = "Alta",
+                                Cliente_id = cli2,
+                                Producto_id = 1,
+                                Servicio_id = 1,
+                                Observaciones = reader["OBSPAR"].ToString()
 
-                        };
-                        ordenes.Add(orden);
+                            };
+                            ordenes.Add(orden);
+                        }
                     }
+                    LogException("################### CargarOrdenes() ###################");
+                    return ordenes;
                 }
-                Debug.WriteLine("################### CargarOrdenes() ###################");
-                return ordenes;
+            }
+            catch (Exception e) {
+                LogException(e.ToString());
+                return null;
+
             }
         }
 
         public List<Empleado> CargarEmpleados() {
-            using (OleDbConnection connection = new OleDbConnection(connectionString)) {
-                connection.Open();
-                List<Empleado> Empleados = new List<Empleado>();
-                using (OleDbCommand command = new OleDbCommand("SELECT CODAGE, NOMAGE FROM F_AGE", connection))
-                using (OleDbDataReader reader = command.ExecuteReader()) {
-                    while (reader.Read()) {
-                        Empleado Empleado = new Empleado {
-                            IdEmpleado = (int)reader["CODAGE"],
-                            Nombre = reader["NOMAGE"].ToString(),
-                            Email = ""
-                        };
-                        Empleados.Add(Empleado);
+            try {
+                using (OleDbConnection connection = new OleDbConnection(connectionString)) {
+                    connection.Open();
+                    List<Empleado> Empleados = new List<Empleado>();
+                    using (OleDbCommand command = new OleDbCommand("SELECT CODAGE, NOMAGE, EMAAGE, TEPAGE FROM F_AGE", connection))
+                    using (OleDbDataReader reader = command.ExecuteReader()) {
+                        while (reader.Read()) {
+                            Empleado Empleado = new Empleado {
+                                //IdEmpleado = (int)reader["CODAGE"],
+                                Nombre = reader["NOMAGE"].ToString(),
+                                Email = reader["EMAAGE"].ToString(),
+                                Telefono = reader["TEPAGE"].ToString()
+                            };
+                            Empleados.Add(Empleado);
+                        }
                     }
+                    LogException("################### CargarEmpleados() ###################");
+                    return Empleados;
                 }
-                Debug.WriteLine("################### CargarEmpleados() ###################");
-                return Empleados;
+            }
+            catch (Exception e) {
+
+                LogException(e.ToString());
+                return null;
             }
         }
 
         public List<Categoria> CargarCategorias() {
-            using (OleDbConnection connection = new OleDbConnection(connectionString)) {
-                connection.Open();
-                List<Categoria> Categorias = new List<Categoria>();
-                using (OleDbCommand command = new OleDbCommand("SELECT CODFAM, DESFAM FROM F_FAM", connection))
-                using (OleDbDataReader reader = command.ExecuteReader()) {
-                    while (reader.Read()) {
-                        int.TryParse(reader["CODFAM"].ToString(), out int x);
-                        if (x == 0) x = 1;
-                        Categoria Categoria = new Categoria {
-                            IdCategoria = x,
-                            Categoria1 = reader["DESFAM"].ToString()
-                        };
+            try {
+                using (OleDbConnection connection = new OleDbConnection(connectionString)) {
+                    connection.Open();
+                    List<Categoria> Categorias = new List<Categoria>();
+                    using (OleDbCommand command = new OleDbCommand("SELECT CODFAM, DESFAM FROM F_FAM", connection))
+                    using (OleDbDataReader reader = command.ExecuteReader()) {
+                        while (reader.Read()) {
+                            int.TryParse(reader["CODFAM"].ToString(), out int x);
+                            if (x == 0) x = 1;
+                            Categoria Categoria = new Categoria {
+                                IdCategoria = x,
+                                Categoria1 = reader["DESFAM"].ToString()
+                            };
 
-                        Categorias.Add(Categoria);
+                            Categorias.Add(Categoria);
+                        }
                     }
+                    LogException("################### CargarCategorias() ###################");
+                    return Categorias;
                 }
-                Debug.WriteLine("################### CargarCategorias() ###################");
-                return Categorias;
+            }
+            catch (Exception e) {
+                LogException(e.ToString());
+                return null;
+
             }
         }
 
         public List<Proveedore> CargarProveedores() {
-            using (OleDbConnection connection = new OleDbConnection(connectionString)) {
-                connection.Open();
-                List<Proveedore> Proveedores = new List<Proveedore>();
-                using (OleDbCommand command = new OleDbCommand("SELECT CODPRO, NOFPRO, OBSPRO, EMAPRO, PCOPRO, CCOPRO, TELPRO, FCBPRO  FROM F_PRO", connection))
-                using (OleDbDataReader reader = command.ExecuteReader()) {
-                    while (reader.Read()) {
-                        Proveedore Proveedor = new Proveedore {
-                            IdProveedor = (int)reader["CODPRO"],
-                            Empresa = reader["NOFPRO"].ToString(),
-                            Desc = reader["OBSPRO"].ToString(),
-                            Email = reader["EMAPRO"].ToString(),
-                            PersonaCont = reader["PCOPRO"].ToString(),
-                            Telefono = reader["TELPRO"].ToString(),
-                            SitioWeb = reader["FCBPRO"].ToString()
-                        };
-                        Proveedores.Add(Proveedor);
+            try {
+                using (OleDbConnection connection = new OleDbConnection(connectionString)) {
+                    connection.Open();
+                    List<Proveedore> Proveedores = new List<Proveedore>();
+                    using (OleDbCommand command = new OleDbCommand("SELECT CODPRO, NOFPRO, OBSPRO, EMAPRO, PCOPRO, CCOPRO, TELPRO, FCBPRO  FROM F_PRO", connection))
+                    using (OleDbDataReader reader = command.ExecuteReader()) {
+                        while (reader.Read()) {
+                            Proveedore Proveedor = new Proveedore {
+                                IdProveedor = (int)reader["CODPRO"],
+                                Empresa = reader["NOFPRO"].ToString(),
+                                Desc = reader["OBSPRO"].ToString(),
+                                Email = reader["EMAPRO"].ToString(),
+                                PersonaCont = reader["PCOPRO"].ToString(),
+                                Telefono = reader["TELPRO"].ToString(),
+                                SitioWeb = reader["FCBPRO"].ToString()
+                            };
+                            Proveedores.Add(Proveedor);
+                        }
                     }
+                    LogException("################### CargarProveedores() ###################");
+                    return Proveedores;
                 }
-                Debug.WriteLine("################### CargarProveedores() ###################");
-                return Proveedores;
+            }
+            catch (Exception e) {
+                LogException(e.ToString());
+                return null;
+
             }
         }
 
         public List<Marca> CargarMarcas() {
-            using (OleDbConnection connection = new OleDbConnection(connectionString)) {
-                connection.Open();
-                List<Marca> Marcas = new List<Marca>();
-                using (OleDbCommand command = new OleDbCommand("SELECT CODMAR, DESMAR FROM R_MAR", connection))
-                using (OleDbDataReader reader = command.ExecuteReader()) {
-                    while (reader.Read()) {
-                        int.TryParse(reader["CODMAR"].ToString(), out int x);
-                        Marca Marca = new Marca {
-                            IdMarca = x,
-                            Nombre = reader["DESMAR"].ToString()
-                        };
-                        Marcas.Add(Marca);
+            try {
+                using (OleDbConnection connection = new OleDbConnection(connectionString)) {
+                    connection.Open();
+                    List<Marca> Marcas = new List<Marca>();
+                    using (OleDbCommand command = new OleDbCommand("SELECT CODMAR, DESMAR FROM R_MAR", connection))
+                    using (OleDbDataReader reader = command.ExecuteReader()) {
+                        while (reader.Read()) {
+                            int.TryParse(reader["CODMAR"].ToString(), out int x);
+                            Marca Marca = new Marca {
+                                IdMarca = x,
+                                Nombre = reader["DESMAR"].ToString()
+                            };
+                            Marcas.Add(Marca);
+                        }
                     }
+                    LogException("################### CargarMarcas() ###################");
+                    return Marcas;
                 }
-                Debug.WriteLine("################### CargarMarcas() ###################");
-                return Marcas;
+            }
+            catch (Exception e) {
+                LogException(e.ToString());
+                return null;
+
             }
         }
+
     }
 }
