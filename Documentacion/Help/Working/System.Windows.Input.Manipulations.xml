@@ -148,7 +148,7 @@
       <returns>The current velocities of the manipulation.</returns>
     </member>
     <member name="T:System.Windows.Input.Manipulations.Manipulation2DDeltaEventArgs">
-      <summary>Represents data that is sent with a <see cref="E:System.Windows.Input.Manipulations.ManipulationProcessor2D.Delta" /> event or an <see cref="E:System.Windows.Input.Manipulations.InertiaProcessor2D.Delta" /> event.</summary>
+      <summary>Represents data that is sent with a <see cref="E:System.Windows.Input.Manipulations.ManipulationProcessor2D.Delta" /> event or <see cref="E:System.Windows.Input.Manipulations.InertiaProcessor2D.Delta" /> event.</summary>
     </member>
     <member name="P:System.Windows.Input.Manipulations.Manipulation2DDeltaEventArgs.Cumulative">
       <summary>Gets the total amount of change since the manipulation started.</summary>

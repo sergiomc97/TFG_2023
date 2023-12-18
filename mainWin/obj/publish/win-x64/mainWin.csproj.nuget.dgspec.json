@@ -8,7 +8,7 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\carra\\Desktop\\NuevoDiseño\\mainWin\\mainWin.csproj",
-        "projectName": "mainWin",
+        "projectName": "RepairFlow System",
         "projectPath": "C:\\Users\\carra\\Desktop\\NuevoDiseño\\mainWin\\mainWin.csproj",
         "packagesPath": "C:\\Users\\carra\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\carra\\Desktop\\NuevoDiseño\\mainWin\\obj\\publish\\win-x64\\",
@@ -22,7 +22,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows"
+          "net7.0-windows7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -30,8 +30,8 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net6.0-windows7.0": {
-            "targetAlias": "net6.0-windows",
+          "net7.0-windows7.0": {
+            "targetAlias": "net7.0-windows7.0",
             "projectReferences": {}
           }
         },
@@ -42,8 +42,8 @@
         }
       },
       "frameworks": {
-        "net6.0-windows7.0": {
-          "targetAlias": "net6.0-windows",
+        "net7.0-windows7.0": {
+          "targetAlias": "net7.0-windows7.0",
           "dependencies": {
             "FontAwesome.WPF": {
               "target": "Package",

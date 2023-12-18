@@ -357,7 +357,7 @@
       <param name="perDomainCapacity">The number of <see cref="T:System.Net.Cookie" /> instances per domain.</param>
       <param name="maxCookieSize">The maximum size in bytes for any single <see cref="T:System.Net.Cookie" /> in a <see cref="T:System.Net.CookieContainer" />.</param>
       <exception cref="T:System.ArgumentOutOfRangeException">
-        <paramref name="perDomainCapacity" /> is not equal to <see cref="F:System.Int32.MaxValue" />.  
+        <paramref name="perDomainCapacity" /> is not equal to <see cref="F:System.Int32.MaxValue">Int32.MaxValue</see>.  
   
  and  
   
@@ -439,7 +439,7 @@
     <member name="P:System.Net.CookieContainer.Capacity">
       <summary>Gets or sets the number of <see cref="T:System.Net.Cookie" /> instances that a <see cref="T:System.Net.CookieContainer" /> can hold.</summary>
       <exception cref="T:System.ArgumentOutOfRangeException">
-        <paramref name="Capacity" /> is less than or equal to zero or (value is less than <see cref="P:System.Net.CookieContainer.PerDomainCapacity" /> and <see cref="P:System.Net.CookieContainer.PerDomainCapacity" /> is not equal to <see cref="F:System.Int32.MaxValue" />).</exception>
+        <paramref name="Capacity" /> is less than or equal to zero or (value is less than <see cref="P:System.Net.CookieContainer.PerDomainCapacity" /> and <see cref="P:System.Net.CookieContainer.PerDomainCapacity" /> is not equal to <see cref="F:System.Int32.MaxValue">Int32.MaxValue</see>).</exception>
       <returns>The number of <see cref="T:System.Net.Cookie" /> instances that a <see cref="T:System.Net.CookieContainer" /> can hold. This is a hard limit and cannot be exceeded by adding a <see cref="T:System.Net.Cookie" />.</returns>
     </member>
     <member name="P:System.Net.CookieContainer.Count">
@@ -459,7 +459,7 @@
   
  -or-  
   
- <paramref name="(PerDomainCapacity" /> is greater than the maximum allowable number of cookies instances, 300, and is not equal to <see cref="F:System.Int32.MaxValue" />).</exception>
+ <paramref name="(PerDomainCapacity" /> is greater than the maximum allowable number of cookies instances, 300, and is not equal to <see cref="F:System.Int32.MaxValue">Int32.MaxValue</see>).</exception>
       <returns>The number of <see cref="T:System.Net.Cookie" /> instances that are allowed per domain.</returns>
     </member>
     <member name="T:System.Net.CookieException">
@@ -672,7 +672,7 @@
       <returns>One of the <see cref="T:System.Net.Sockets.AddressFamily" /> values.</returns>
     </member>
     <member name="T:System.Net.HttpStatusCode">
-      <summary>Contains the values of status codes defined for HTTP.</summary>
+      <summary>Contains the values of status codes defined for HTTP defined in RFC 2616 for HTTP 1.1.</summary>
     </member>
     <member name="F:System.Net.HttpStatusCode.Accepted">
       <summary>Equivalent to HTTP status 202. <see cref="F:System.Net.HttpStatusCode.Accepted" /> indicates that the request has been accepted for further processing.</summary>
@@ -1259,12 +1259,12 @@
       <returns>An integer value in the range <see cref="F:System.Net.IPEndPoint.MinPort" /> to <see cref="F:System.Net.IPEndPoint.MaxPort" /> indicating the port number of the endpoint.</returns>
     </member>
     <member name="T:System.Net.IWebProxy">
-      <summary>Provides the base interface for implementation of proxy access for the <see cref="T:System.Net.WebRequest" /> class.</summary>
+      <summary>Provides the base interface for implementation of proxy access for the <see cref="T:System.Net.Http.HttpClient" /> class.</summary>
     </member>
     <member name="M:System.Net.IWebProxy.GetProxy(System.Uri)">
       <summary>Returns the URI of a proxy.</summary>
       <param name="destination">A <see cref="T:System.Uri" /> that specifies the requested Internet resource.</param>
-      <returns>A <see cref="T:System.Uri" /> instance that contains the URI of the proxy used to contact <paramref name="destination" />.</returns>
+      <returns>A <see cref="T:System.Uri" /> instance that contains the URI of the proxy used to contact <paramref name="destination" />; otherwise null or <paramref name="destination" /> itself.</returns>
     </member>
     <member name="M:System.Net.IWebProxy.IsBypassed(System.Uri)">
       <summary>Indicates that the proxy should not be used for the specified host.</summary>
@@ -1871,10 +1871,10 @@ The number of elements in this <see cref="T:System.Net.NetworkInformation.IPAddr
       <summary>Specifies the SSL 3.0 protocol. SSL 3.0 has been superseded by the TLS protocol and is provided for backward compatibility only.</summary>
     </member>
     <member name="F:System.Security.Authentication.SslProtocols.Tls">
-      <summary>Specifies the TLS 1.0 security protocol.  TLS 1.0 is provided for backward compatibility only. The TLS protocol is defined in IETF RFC 2246.</summary>
+      <summary>Specifies the TLS 1.0 security protocol. TLS 1.0 is provided for backward compatibility only. The TLS protocol is defined in IETF RFC 2246. This member is obsolete starting in .NET 7.</summary>
     </member>
     <member name="F:System.Security.Authentication.SslProtocols.Tls11">
-      <summary>Specifies the TLS 1.1 security protocol. The TLS protocol is defined in IETF RFC 4346.</summary>
+      <summary>Specifies the TLS 1.1 security protocol. The TLS protocol is defined in IETF RFC 4346. This member is obsolete starting in .NET 7.</summary>
     </member>
     <member name="F:System.Security.Authentication.SslProtocols.Tls12">
       <summary>Specifies the TLS 1.2 security protocol. The TLS protocol is defined in IETF RFC 5246.</summary>

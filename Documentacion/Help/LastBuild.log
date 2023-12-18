@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder and Tools" version="2023.7.8.0" projectFile="C:\Users\carra\Desktop\NuevoDiseño\Documentacion\Documentacion.shfbproj" started="17/12/2023 19:09:04">
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2023.7.8.0" projectFile="C:\Users\carra\Desktop\NuevoDiseño\Documentacion\Documentacion.shfbproj" started="18/12/2023 13:10:32">
 <buildStep step="Initializing">
 The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder&#39;
 Locating components in the following folder(s):
@@ -14,6 +14,9 @@ Loading and initializing plug-ins...
 Lightweight Website Style Version 2023.7.8.0
 Copyright &#169; 2006-2023, Eric Woodruff, All Rights Reserved
 Portions Copyright &#169; 2014, Sam Harwell, All Rights Reserved
+</buildStep>
+<buildStep step="ClearWorkFolder">
+Clearing working folder...
 -------------------------------
 Clearing any prior web/markdown output...
 </buildStep>
@@ -23,7 +26,7 @@ Source: C:\Users\carra\Desktop\NuevoDise&#241;o\mainWin.sln
     Found project &#39;C:\Users\carra\Desktop\NuevoDise&#241;o\mainWin\mainWin.csproj&#39;
 
 Parsing project files
-    Found assembly &#39;C:\Users\carra\Desktop\NuevoDise&#241;o\mainWin\bin\Release\net6.0-windows\mainWin.dll&#39; (.NETCoreApp 6.0)
+    Found assembly &#39;C:\Users\carra\Desktop\NuevoDise&#241;o\mainWin\bin\Release\net7.0-windows7.0\RepairFlow System.dll&#39; (.NETCoreApp 7.0)
 
 References to include:
     Accessibility
@@ -116,6 +119,7 @@ References to include:
     System.Drawing.Primitives
     System.Dynamic.Runtime
     System.Formats.Asn1
+    System.Formats.Tar
     System.Globalization
     System.Globalization.Calendars
     System.Globalization.Extensions
@@ -150,6 +154,7 @@ References to include:
     System.Net.NetworkInformation
     System.Net.Ping
     System.Net.Primitives
+    System.Net.Quic
     System.Net.Requests
     System.Net.Security
     System.Net.ServicePoint
@@ -182,6 +187,7 @@ References to include:
     System.Runtime.Extensions
     System.Runtime.Handles
     System.Runtime.InteropServices
+    System.Runtime.InteropServices.JavaScript
     System.Runtime.InteropServices.RuntimeInformation
     System.Runtime.Intrinsics
     System.Runtime.Loader
@@ -194,6 +200,7 @@ References to include:
     System.Security
     System.Security.AccessControl
     System.Security.Claims
+    System.Security.Cryptography
     System.Security.Cryptography.Algorithms
     System.Security.Cryptography.Cng
     System.Security.Cryptography.Csp
@@ -263,7 +270,7 @@ SHFB: Warning BE0062: No documentation source XML comments files found.  The hel
 <buildStep step="GenerateSharedContent">
 Generating shared content files (es-ES, Espa&#241;ol (Espa&#241;a))...
 <plugIn name="Lightweight Website Style" behavior="After" priority="1000">
-</plugIn>    Last step completed in 00:00:00,0095
+</plugIn>    Last step completed in 00:00:00,0090
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
@@ -271,44 +278,44 @@ Generating API filter for MRefBuilder...
 </buildStep>
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
-[C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\MSBuild.exe - GenerateRefInfo-79def84b-5c34-45a8-bd05-fe7cf0a793df.proj]
-Compilaci&#162;n iniciada a las 17/12/2023 19:09:06.
+[C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\MSBuild.exe - GenerateRefInfo-9416d405-66e2-470f-8e1c-b0967d89b676.proj]
+Compilaci&#162;n iniciada a las 18/12/2023 13:10:32.
 
-Proyecto &quot;C:\Users\carra\Desktop\NuevoDise&#164;o\Documentacion\Help\Working\GenerateRefInfo-79def84b-5c34-45a8-bd05-fe7cf0a793df.proj&quot; en nodo 1 (destinos predeterminados).
+Proyecto &quot;C:\Users\carra\Desktop\NuevoDise&#164;o\Documentacion\Help\Working\GenerateRefInfo-9416d405-66e2-470f-8e1c-b0967d89b676.proj&quot; en nodo 1 (destinos predeterminados).
 PrepareForBuild:
   Creando directorio &quot;obj\Debug\&quot;.
 GenerateRefInfo:
   Microsoft.Build (v17.8.3+195e7f5a3a8e51c37d83cd9e54cb99dc3fc69c22)
   &#184; Microsoft Corporation. All rights reserved.
   No source code context base path specified.  Source context information is unavailable.
-  Loaded 1 assemblies for reflection and 236 dependency assemblies.
+  Loaded 1 assemblies for reflection and 240 dependency assemblies.
   Wrote information on 5 namespaces, 58 types, and 300 members
   Merging duplicate type and member information
   Merged 0 duplicate type(s) and 0 duplicate member(s)
-Compilaci&#162;n del proyecto terminada &quot;C:\Users\carra\Desktop\NuevoDise&#164;o\Documentacion\Help\Working\GenerateRefInfo-79def84b-5c34-45a8-bd05-fe7cf0a793df.proj&quot; (destinos predeterminados).
-    Last step completed in 00:00:01,6813
+Compilaci&#162;n del proyecto terminada &quot;C:\Users\carra\Desktop\NuevoDise&#164;o\Documentacion\Help\Working\GenerateRefInfo-9416d405-66e2-470f-8e1c-b0967d89b676.proj&quot; (destinos predeterminados).
+    Last step completed in 00:00:01,4714
 </buildStep>
 <buildStep step="ApplyDocumentModel">
 Applying document model to reflection output...
-    Last step completed in 00:00:00,4877
+    Last step completed in 00:00:00,3880
 </buildStep>
 <buildStep step="AddApiTopicFilenames">
 Adding topic filenames to API members...
-    Last step completed in 00:00:00,2134
+    Last step completed in 00:00:00,2180
 </buildStep>
 <buildStep step="GenerateApiTopicManifest">
 Generating API topic manifest...
-    Last step completed in 00:00:00,1707
+    Last step completed in 00:00:00,0981
 </buildStep>
 <buildStep step="GenerateNamespaceSummaries">
 Generating namespace summary information...
-    Last step completed in 00:00:00,9999
+    Last step completed in 00:00:00,8808
 </buildStep>
 <buildStep step="GenerateInheritedDocumentation">
 Generating inherited documentation...
 [C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\MSBuild.exe - GenerateInheritedDocs.proj]
 
-    Last step completed in 00:00:02,7352
+    Last step completed in 00:00:02,1569
 </buildStep>
 <buildStep step="CopyConceptualContent">
 Copying conceptual content...
@@ -322,21 +329,21 @@ Generating conceptual topic files
     C:\Users\carra\Desktop\NuevoDise&#241;o\Documentacion\Content\VersionHistory\VersionHistory.aml -&gt; C:\Users\carra\Desktop\NuevoDise&#241;o\Documentacion\Help\Working\ddueXml\418b1655-46ae-463c-ad3f-321bd3d47857.xml
     Parsing topic file &#39;C:\Users\carra\Desktop\NuevoDise&#241;o\Documentacion\Content\VersionHistory\v1.0.0.0.aml&#39;
     C:\Users\carra\Desktop\NuevoDise&#241;o\Documentacion\Content\VersionHistory\v1.0.0.0.aml -&gt; C:\Users\carra\Desktop\NuevoDise&#241;o\Documentacion\Help\Working\ddueXml\30d98b7e-f1ba-42c7-b8c7-fe364921e74c.xml
-    Last step completed in 00:00:00,0490
+    Last step completed in 00:00:00,0260
 </buildStep>
 <buildStep step="CreateConceptualTopicConfigs">
 Creating conceptual topic configuration files...
     Companion files
     _ContentMetadata_.xml
     Merging topic IDs into reference topic manifest file
-    Last step completed in 00:00:00,0140
+    Last step completed in 00:00:00,0100
 </buildStep>
 <buildStep step="CopyAdditionalContent">
 Copying additional content files...
 C:\Users\carra\Desktop\NuevoDise&#241;o\Documentacion\icons\Help.png -&gt; C:\Users\carra\Desktop\NuevoDise&#241;o\Documentacion\Help\Working\Output\HtmlHelp1\icons\Help.png
 C:\Users\carra\Desktop\NuevoDise&#241;o\Documentacion\icons\Help.png -&gt; C:\Users\carra\Desktop\NuevoDise&#241;o\Documentacion\Help\Working\Output\MSHelpViewer\icons\Help.png
 C:\Users\carra\Desktop\NuevoDise&#241;o\Documentacion\icons\Help.png -&gt; C:\Users\carra\Desktop\NuevoDise&#241;o\Documentacion\Help\Working\Output\Website\icons\Help.png
-    Last step completed in 00:00:00,0086
+    Last step completed in 00:00:00,0076
 </buildStep>
 <buildStep step="MergeTablesOfContents">
 Merging conceptual and additional tables of contents...
@@ -345,15 +352,15 @@ Merging conceptual and additional tables of contents...
 <buildStep step="GenerateIntermediateTableOfContents">
 Generating intermediate table of contents file for API content...
 Generating conceptual content intermediate TOC file...
-    Last step completed in 00:00:00,2208
+    Last step completed in 00:00:00,1642
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
-    Last step completed in 00:00:01,0031
+    Last step completed in 00:00:00,7845
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
-    Last step completed in 00:00:00,0130
+    Last step completed in 00:00:00,0156
 </buildStep>
 <buildStep step="MergeCustomConfigs">
 Merging custom build component configurations
@@ -361,12 +368,12 @@ C:\Users\carra\Desktop\NuevoDise&#241;o\Documentacion\Help\Working\BuildAssemble
   Updating reference topic configurations.
   Updating conceptual topic configurations.
     Removing unused ExampleComponent.
-    Last step completed in 00:00:00,0184
+    Last step completed in 00:00:00,0156
 </buildStep>
 <buildStep step="BuildTopics">
 Building help topics...
 Loading configuration...
-    Last step completed in 00:00:02,0920
+    Last step completed in 00:00:01,3436
 </buildStep>
 <buildStep step="Canceled">
 

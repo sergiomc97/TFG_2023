@@ -659,6 +659,9 @@ Using <see cref="P:System.ComponentModel.DataAnnotations.DisplayFormatAttribute.
       <returns>
         <see langword="true" /> if validation is successful; otherwise, <see langword="false" />.</returns>
     </member>
+    <member name="P:System.ComponentModel.DataAnnotations.RegularExpressionAttribute.MatchTimeout">
+      <summary>Gets the timeout to use when matching the regular expression pattern</summary>
+    </member>
     <member name="P:System.ComponentModel.DataAnnotations.RegularExpressionAttribute.MatchTimeoutInMilliseconds">
       <summary>Gets or sets the amount of time in milliseconds to execute a single matching operation before the operation times out.</summary>
       <returns>The amount of time in milliseconds to execute a single matching operation.</returns>

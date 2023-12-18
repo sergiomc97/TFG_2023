@@ -114,7 +114,7 @@
             </summary>
             <param name="contentType"></param>
         </member>
-        <member name="M:System.IO.Packaging.ContentType.ParseTypeAndSubType(System.String)">
+        <member name="M:System.IO.Packaging.ContentType.ParseTypeAndSubType(System.ReadOnlySpan{System.Char})">
             <summary>
             Parses the type and subType tokens from the string.
             Also verifies if the Tokens are valid as per the grammar.
@@ -122,7 +122,7 @@
             <param name="typeAndSubType">substring that has the type and subType of the content type</param>
             <exception cref="T:System.ArgumentException">If the typeAndSubType parameter does not have the "/" character</exception>
         </member>
-        <member name="M:System.IO.Packaging.ContentType.ParseParameterAndValue(System.String)">
+        <member name="M:System.IO.Packaging.ContentType.ParseParameterAndValue(System.ReadOnlySpan{System.Char})">
             <summary>
             Parse the individual parameter=value strings
             </summary>
@@ -130,7 +130,7 @@
             parameter=value</param>
             <exception cref="T:System.ArgumentException">If the string does not have the required "="</exception>
         </member>
-        <member name="M:System.IO.Packaging.ContentType.GetLengthOfParameterValue(System.String,System.Int32)">
+        <member name="M:System.IO.Packaging.ContentType.GetLengthOfParameterValue(System.ReadOnlySpan{System.Char},System.Int32)">
             <summary>
             This method returns the length of the first parameter value in the input string.
             </summary>
@@ -143,7 +143,7 @@
             Validating the given token
             The following checks are being made -
             1. If all the characters in the token are either ASCII letter or digit.
-            2. If all the characters in the token are either from the remaining allowed cha----ter set.
+            2. If all the characters in the token are either from the remaining allowed character set.
             </summary>
             <param name="token">string token</param>
             <returns>validated string token</returns>
@@ -158,7 +158,7 @@
             <returns>validate parameter value string</returns>
             <exception cref="T:System.ArgumentException">If the parameter value is empty</exception>
         </member>
-        <member name="M:System.IO.Packaging.ContentType.ValidateQuotedText(System.String)">
+        <member name="M:System.IO.Packaging.ContentType.ValidateQuotedText(System.ReadOnlySpan{System.Char})">
             <summary>
             This method validates if the text in the quoted string
             </summary>
@@ -167,7 +167,7 @@
         <member name="M:System.IO.Packaging.ContentType.IsAllowedCharacter(System.Char)">
             <summary>
             Returns true if the input character is an allowed character
-            Returns false if the input cha----ter is not an allowed character
+            Returns false if the input character is not an allowed character
             </summary>
             <param name="character">input character</param>
             <returns></returns>
@@ -180,14 +180,6 @@
             <param name="character">input character</param>
             <returns></returns>
         </member>
-        <member name="M:System.IO.Packaging.ContentType.IsAsciiLetter(System.Char)">
-            <summary>
-            Returns true if the input character is an ASCII letter
-            Returns false if the input character is not an ASCII letter
-            </summary>
-            <param name="character">input character</param>
-            <returns></returns>
-        </member>
         <member name="M:System.IO.Packaging.ContentType.IsLinearWhiteSpaceChar(System.Char)">
             <summary>
             Returns true if the input character is one of the Linear White Space characters -
@@ -196,11 +188,6 @@
             </summary>
             <param name="ch">input character</param>
             <returns></returns>
-        </member>
-        <member name="M:System.IO.Packaging.ContentType.EnsureParameterDictionary">
-            <summary>
-            Lazy initialization for the ParameterDictionary
-            </summary>
         </member>
         <member name="T:System.IO.Packaging.EncryptionOption">
             <summary>
@@ -2638,7 +2625,7 @@
             <summary>Invalid file format.</summary>
         </member>
         <member name="P:System.SR.FileFormatExceptionWithFileName">
-            <summary>Invalid file format.</summary>
+            <summary>File '{0}' has an invalid file format.</summary>
         </member>
         <member name="P:System.SR.GetContentTypeCoreNotImplemented">
             <summary>PackagePart subclass must implement GetContentTypeCore method if passing a null value for the content type when PackagePart object is constructed.</summary>

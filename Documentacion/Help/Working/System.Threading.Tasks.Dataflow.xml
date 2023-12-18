@@ -863,7 +863,7 @@
   
  -or-  
   
- <paramref name="timeout" /> is greater than <see cref="F:System.Int32.MaxValue" />.</exception>
+ <paramref name="timeout" /> is greater than <see cref="F:System.Int32.MaxValue">Int32.MaxValue</see>.</exception>
       <exception cref="T:System.ArgumentNullException">
         <paramref name="source" /> is <see langword="null" />.</exception>
       <exception cref="T:System.InvalidOperationException">No item could be received from the source.</exception>
@@ -882,7 +882,7 @@
   
  -or-  
   
- <paramref name="timeout" /> is greater than <see cref="F:System.Int32.MaxValue" />.</exception>
+ <paramref name="timeout" /> is greater than <see cref="F:System.Int32.MaxValue">Int32.MaxValue</see>.</exception>
       <exception cref="T:System.InvalidOperationException">No item could be received from the source.</exception>
       <exception cref="T:System.TimeoutException">The specified time-out expired before an item was received from the source.</exception>
       <exception cref="T:System.OperationCanceledException">The operation was canceled before an item was received from the source.</exception>
@@ -925,7 +925,7 @@
   
  -or-  
   
- <paramref name="timeout" /> is greater than <see cref="F:System.Int32.MaxValue" />.</exception>
+ <paramref name="timeout" /> is greater than <see cref="F:System.Int32.MaxValue">Int32.MaxValue</see>.</exception>
       <returns>A task that represents the asynchronous receive operation. When a value is successfully received from the source, the returned task is completed and its <see cref="P:System.Threading.Tasks.Task`1.Result" /> returns the value. If a value cannot be retrieved because the time-out expired, the returned task is canceled. If the value cannot be retrieved because the source is empty and completed , an <see cref="T:System.InvalidOperationException" /> exception is thrown in the returned task.</returns>
     </member>
     <member name="M:System.Threading.Tasks.Dataflow.DataflowBlock.ReceiveAsync``1(System.Threading.Tasks.Dataflow.ISourceBlock{``0},System.TimeSpan,System.Threading.CancellationToken)">
@@ -941,7 +941,7 @@
   
  -or-  
   
- <paramref name="timeout" /> is greater than <see cref="F:System.Int32.MaxValue" />.</exception>
+ <paramref name="timeout" /> is greater than <see cref="F:System.Int32.MaxValue">Int32.MaxValue</see>.</exception>
       <returns>A task that represents the asynchronous receive operation. When a value is successfully received from the source, the returned task is completed and its <see cref="P:System.Threading.Tasks.Task`1.Result" /> returns the value. If a value cannot be retrieved because the time-out expired or cancellation was requested, the returned task is canceled. If the value cannot be retrieved because the source is empty and completed, an <see cref="T:System.InvalidOperationException" /> exception is thrown in the returned task.</returns>
     </member>
     <member name="M:System.Threading.Tasks.Dataflow.DataflowBlock.SendAsync``1(System.Threading.Tasks.Dataflow.ITargetBlock{``0},``0)">
@@ -1537,6 +1537,17 @@
       <summary>Provides a dataflow block that invokes a provided <see cref="T:System.Func`2" /> delegate for every data element received.</summary>
       <typeparam name="TInput">Specifies the type of data received and operated on by this <see cref="T:System.Threading.Tasks.Dataflow.TransformManyBlock`2" />.</typeparam>
       <typeparam name="TOutput">Specifies the type of data output by this <see cref="T:System.Threading.Tasks.Dataflow.TransformManyBlock`2" />.</typeparam>
+    </member>
+    <member name="M:System.Threading.Tasks.Dataflow.TransformManyBlock`2.#ctor(System.Func{`0,System.Collections.Generic.IAsyncEnumerable{`1}})">
+      <summary>Initializes the <see cref="T:System.Threading.Tasks.Dataflow.TransformManyBlock`2" /> with the specified function.</summary>
+      <param name="transform">The function to invoke with each data element received.  All of the data from the returned <see cref="T:System.Collections.Generic.IAsyncEnumerable`1" /> will be made available as output from this <see cref="T:System.Threading.Tasks.Dataflow.TransformManyBlock`2" />.</param>
+      <exception cref="T:System.ArgumentNullException">The <paramref name="transform" /> is <see langword="null" />.</exception>
+    </member>
+    <member name="M:System.Threading.Tasks.Dataflow.TransformManyBlock`2.#ctor(System.Func{`0,System.Collections.Generic.IAsyncEnumerable{`1}},System.Threading.Tasks.Dataflow.ExecutionDataflowBlockOptions)">
+      <summary>Initializes the <see cref="T:System.Threading.Tasks.Dataflow.TransformManyBlock`2" /> with the specified function and <see cref="T:System.Threading.Tasks.Dataflow.ExecutionDataflowBlockOptions" />.</summary>
+      <param name="transform">The function to invoke with each data element received.  All of the data from the returned <see cref="T:System.Collections.Generic.IAsyncEnumerable`1" /> will be made available as output from this <see cref="T:System.Threading.Tasks.Dataflow.TransformManyBlock`2" />.</param>
+      <param name="dataflowBlockOptions">The options with which to configure this <see cref="T:System.Threading.Tasks.Dataflow.TransformManyBlock`2" />.</param>
+      <exception cref="T:System.ArgumentNullException">The <paramref name="transform" /> or <paramref name="dataflowBlockOptions" /> is <see langword="null" />.</exception>
     </member>
     <member name="M:System.Threading.Tasks.Dataflow.TransformManyBlock`2.#ctor(System.Func{`0,System.Collections.Generic.IEnumerable{`1}})">
       <summary>Initializes a new <see cref="T:System.Threading.Tasks.Dataflow.TransformManyBlock`2" /> with the specified function.</summary>

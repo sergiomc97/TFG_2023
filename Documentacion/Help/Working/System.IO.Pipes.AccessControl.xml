@@ -5,7 +5,7 @@
   </assembly>
   <members>
     <member name="T:System.IO.Pipes.AnonymousPipeServerStreamAcl">
-      <summary>Provides security related APIs for the <see. cref="T:System.IO.Pipes.AnonymousPipeServerStream" /> class.</summary>
+      <summary>Provides security related APIs for the <see cref="T:System.IO.Pipes.AnonymousPipeServerStream" /> class.</summary>
     </member>
     <member name="M:System.IO.Pipes.AnonymousPipeServerStreamAcl.Create(System.IO.Pipes.PipeDirection,System.IO.HandleInheritability,System.Int32,System.IO.Pipes.PipeSecurity)">
       <summary>Creates a new instance of the <see cref="T:System.IO.Pipes.AnonymousPipeServerStream" /> class with the specified pipe direction, inheritability mode, buffer size, and pipe security.</summary>

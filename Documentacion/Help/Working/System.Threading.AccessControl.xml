@@ -4,11 +4,6 @@
         <name>System.Threading.AccessControl</name>
     </assembly>
     <members>
-        <member name="M:Interop.Kernel32.GetMessage(System.Int32)">
-            <summary>
-                Returns a string message for the specified Win32 error code.
-            </summary>
-        </member>
         <member name="T:Interop.BOOL">
             <summary>
             Blittable version of Windows BOOL type. It is convenient in situations where
@@ -19,6 +14,11 @@
             as BOOL. It is best to never compare BOOL to TRUE. Always use bResult != BOOL.FALSE
             or bResult == BOOL.FALSE .
             </remarks>
+        </member>
+        <member name="M:Interop.Kernel32.GetMessage(System.Int32)">
+            <summary>
+                Returns a string message for the specified Win32 error code.
+            </summary>
         </member>
         <member name="T:System.IO.Win32Marshal">
             <summary>
@@ -46,11 +46,6 @@
             <summary>
             Returns a Win32 error code for the specified HRESULT if it came from FACILITY_WIN32
             If not, returns the HRESULT unchanged
-            </summary>
-        </member>
-        <member name="M:System.IO.Win32Marshal.GetMessage(System.Int32)">
-            <summary>
-            Returns a string message for the specified Win32 error code.
             </summary>
         </member>
         <member name="T:System.Threading.OpenExistingResult">
@@ -189,9 +184,6 @@
         </member>
         <member name="P:System.SR.ArgumentOutOfRange_NeedPosNum">
             <summary>Positive number required.</summary>
-        </member>
-        <member name="P:System.SR.Argument_CannotBeNullOrEmpty">
-            <summary>Argument cannot be null or empty.</summary>
         </member>
         <member name="P:System.SR.Argument_EmptyName">
             <summary>Empty name is not legal.</summary>

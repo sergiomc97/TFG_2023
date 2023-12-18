@@ -773,44 +773,44 @@
         <member name="M:System.DirectoryServices.ActiveDirectory.Domain.GetRoleOwner(System.DirectoryServices.ActiveDirectory.ActiveDirectoryRole)">
             <returns>Returns a DomainController object for the DC that holds the specified FSMO role</returns>
         </member>
-        <member name="T:System.DirectoryServices.Interop.AdsValueHelper">
+        <member name="T:System.DirectoryServices.AdsValueHelper">
             <summary>
             Helper class for dealing with struct AdsValue.
             </summary>
         </member>
-        <member name="M:System.DirectoryServices.Interop.SafeNativeMethods.EnumVariant.GetNext">
+        <member name="M:System.DirectoryServices.SafeNativeMethods.EnumVariant.GetNext">
             <devdoc>
             Moves the enumerator to the next value In the list.
             </devdoc>
         </member>
-        <member name="M:System.DirectoryServices.Interop.SafeNativeMethods.EnumVariant.GetValue">
+        <member name="M:System.DirectoryServices.SafeNativeMethods.EnumVariant.GetValue">
             <devdoc>
             Returns the current value of the enumerator. If GetNext() has never been called,
             or if it has been called but it returned false, will throw an exception.
             </devdoc>
         </member>
-        <member name="M:System.DirectoryServices.Interop.SafeNativeMethods.EnumVariant.Reset">
+        <member name="M:System.DirectoryServices.SafeNativeMethods.EnumVariant.Reset">
             <devdoc>
             Returns the enumerator to the start of the sequence.
             </devdoc>
         </member>
-        <member name="M:System.DirectoryServices.Interop.SafeNativeMethods.EnumVariant.Advance">
+        <member name="M:System.DirectoryServices.SafeNativeMethods.EnumVariant.Advance">
             <devdoc>
             Moves the pointer to the next value In the contained IEnumVariant, and
             stores the current value In currentValue.
             </devdoc>
         </member>
-        <member name="T:System.DirectoryServices.Interop.UnsafeNativeMethods.PropertyValue">
+        <member name="T:System.DirectoryServices.UnsafeNativeMethods.PropertyValue">
             <summary>
             PropertyValue as a co-class that implements the IAdsPropertyValue interface.
             </summary>
         </member>
-        <member name="T:System.DirectoryServices.Interop.UnsafeNativeMethods.PropertyEntry">
+        <member name="T:System.DirectoryServices.UnsafeNativeMethods.PropertyEntry">
             <summary>
              PropertyEntry as a co-class that implements the IAdsPropertyEntry interface.
             </summary>
         </member>
-        <member name="T:System.DirectoryServices.Interop.UnsafeNativeMethods.IAdsObjectOptions2">
+        <member name="T:System.DirectoryServices.UnsafeNativeMethods.IAdsObjectOptions2">
             <summary>
             For boolean type, the default marshaller does not work, so need to have specific marshaller. For other types, use the
             default marshaller which is more efficient. There is no such interface on the type library this is the same as IAdsObjectOptions
@@ -922,9 +922,6 @@
         <member name="P:System.SR.DSPropertyValueSupportOneOperation">
             <summary>Only one type of operation can be performed in a sequence.</summary>
         </member>
-        <member name="P:System.SR.ConfigSectionsUnique">
-            <summary>The '{0}' section can only appear once in a configuration file.</summary>
-        </member>
         <member name="P:System.SR.DSUnknownFailure">
             <summary>An unknown error occurred.</summary>
         </member>
@@ -1014,9 +1011,6 @@
         </member>
         <member name="P:System.SR.EmptyStringParameter">
             <summary>The specified string parameter is empty.</summary>
-        </member>
-        <member name="P:System.SR.SupportedPlatforms">
-            <summary>The System.DirectoryServices.ActiveDirectory namespace is only supported on computers running Windows 2000 and later operating systems.</summary>
         </member>
         <member name="P:System.SR.TargetShouldBeADAMServer">
             <summary>The name specified in the directory context must be an ADAM instance.</summary>
@@ -1168,9 +1162,6 @@
         <member name="P:System.SR.ComputerNotJoinedToDomain">
             <summary>The local computer is not joined to a domain or the domain cannot be contacted.</summary>
         </member>
-        <member name="P:System.SR.VersionFailure">
-            <summary>Failed to get the version of the operating system, error is "{0}".</summary>
-        </member>
         <member name="P:System.SR.NoHostName">
             <summary>Unable to obtain DNS hostname of Active Directory domain controller with ntdsa object name "{0}".</summary>
         </member>
@@ -1284,6 +1275,164 @@
         </member>
         <member name="P:System.SR.DirectoryServices_PlatformNotSupported">
             <summary>System.DirectoryServices is not supported on this platform.</summary>
+        </member>
+        <member name="T:Interop.BOOL">
+            <summary>
+            Blittable version of Windows BOOL type. It is convenient in situations where
+            manual marshalling is required, or to avoid overhead of regular bool marshalling.
+            </summary>
+            <remarks>
+            Some Windows APIs return arbitrary integer values although the return type is defined
+            as BOOL. It is best to never compare BOOL to TRUE. Always use bResult != BOOL.FALSE
+            or bResult == BOOL.FALSE .
+            </remarks>
+        </member>
+        <member name="T:Interop.BOOLEAN">
+            <summary>
+            Blittable version of Windows BOOLEAN type. It is convenient in situations where
+            manual marshalling is required, or to avoid overhead of regular bool marshalling.
+            </summary>
+            <remarks>
+            Some Windows APIs return arbitrary integer values although the return type is defined
+            as BOOLEAN. It is best to never compare BOOLEAN to TRUE. Always use bResult != BOOLEAN.FALSE
+            or bResult == BOOLEAN.FALSE .
+            </remarks>
+        </member>
+        <member name="T:Interop.OBJECT_ATTRIBUTES">
+            <summary>
+            <a href="https://msdn.microsoft.com/en-us/library/windows/hardware/ff557749.aspx">OBJECT_ATTRIBUTES</a> structure.
+            The OBJECT_ATTRIBUTES structure specifies attributes that can be applied to objects or object handles by routines
+            that create objects and/or return handles to objects.
+            </summary>
+        </member>
+        <member name="F:Interop.OBJECT_ATTRIBUTES.RootDirectory">
+            <summary>
+            Optional handle to root object directory for the given ObjectName.
+            Can be a file system directory or object manager directory.
+            </summary>
+        </member>
+        <member name="F:Interop.OBJECT_ATTRIBUTES.ObjectName">
+            <summary>
+            Name of the object. Must be fully qualified if RootDirectory isn't set.
+            Otherwise is relative to RootDirectory.
+            </summary>
+        </member>
+        <member name="F:Interop.OBJECT_ATTRIBUTES.SecurityDescriptor">
+            <summary>
+            If null, object will receive default security settings.
+            </summary>
+        </member>
+        <member name="F:Interop.OBJECT_ATTRIBUTES.SecurityQualityOfService">
+            <summary>
+            Optional quality of service to be applied to the object. Used to indicate
+            security impersonation level and context tracking mode (dynamic or static).
+            </summary>
+        </member>
+        <member name="M:Interop.OBJECT_ATTRIBUTES.#ctor(Interop.UNICODE_STRING*,Interop.ObjectAttributes,System.IntPtr,Interop.SECURITY_QUALITY_OF_SERVICE*)">
+            <summary>
+            Equivalent of InitializeObjectAttributes macro with the exception that you can directly set SQOS.
+            </summary>
+        </member>
+        <member name="F:Interop.ObjectAttributes.OBJ_INHERIT">
+            <summary>
+            This handle can be inherited by child processes of the current process.
+            </summary>
+        </member>
+        <member name="F:Interop.ObjectAttributes.OBJ_PERMANENT">
+            <summary>
+            This flag only applies to objects that are named within the object manager.
+            By default, such objects are deleted when all open handles to them are closed.
+            If this flag is specified, the object is not deleted when all open handles are closed.
+            </summary>
+        </member>
+        <member name="F:Interop.ObjectAttributes.OBJ_EXCLUSIVE">
+            <summary>
+            Only a single handle can be open for this object.
+            </summary>
+        </member>
+        <member name="F:Interop.ObjectAttributes.OBJ_CASE_INSENSITIVE">
+            <summary>
+            Lookups for this object should be case insensitive.
+            </summary>
+        </member>
+        <member name="F:Interop.ObjectAttributes.OBJ_OPENIF">
+            <summary>
+            Create on existing object should open, not fail with STATUS_OBJECT_NAME_COLLISION.
+            </summary>
+        </member>
+        <member name="F:Interop.ObjectAttributes.OBJ_OPENLINK">
+            <summary>
+            Open the symbolic link, not its target.
+            </summary>
+        </member>
+        <member name="T:Interop.SECURITY_QUALITY_OF_SERVICE">
+            <summary>
+            <a href="https://docs.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-security_quality_of_service">SECURITY_QUALITY_OF_SERVICE</a> structure.
+             Used to support client impersonation. Client specifies this to a server to allow
+             it to impersonate the client.
+            </summary>
+        </member>
+        <member name="T:Interop.ImpersonationLevel">
+            <summary>
+            <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa379572.aspx">SECURITY_IMPERSONATION_LEVEL</a> enumeration values.
+             [SECURITY_IMPERSONATION_LEVEL]
+            </summary>
+        </member>
+        <member name="F:Interop.ImpersonationLevel.Anonymous">
+            <summary>
+             The server process cannot obtain identification information about the client and cannot impersonate the client.
+             [SecurityAnonymous]
+            </summary>
+        </member>
+        <member name="F:Interop.ImpersonationLevel.Identification">
+            <summary>
+             The server process can obtain identification information about the client, but cannot impersonate the client.
+             [SecurityIdentification]
+            </summary>
+        </member>
+        <member name="F:Interop.ImpersonationLevel.Impersonation">
+            <summary>
+             The server process can impersonate the client's security context on it's local system.
+             [SecurityImpersonation]
+            </summary>
+        </member>
+        <member name="F:Interop.ImpersonationLevel.Delegation">
+            <summary>
+             The server process can impersonate the client's security context on remote systems.
+             [SecurityDelegation]
+            </summary>
+        </member>
+        <member name="T:Interop.ContextTrackingMode">
+            <summary>
+            <a href="https://msdn.microsoft.com/en-us/library/cc234317.aspx">SECURITY_CONTEXT_TRACKING_MODE</a>
+            </summary>
+        </member>
+        <member name="F:Interop.ContextTrackingMode.Static">
+            <summary>
+             The server is given a snapshot of the client's security context.
+             [SECURITY_STATIC_TRACKING]
+            </summary>
+        </member>
+        <member name="F:Interop.ContextTrackingMode.Dynamic">
+            <summary>
+             The server is continually updated with changes.
+             [SECURITY_DYNAMIC_TRACKING]
+            </summary>
+        </member>
+        <member name="F:Interop.UNICODE_STRING.Length">
+            <summary>
+            Length in bytes, not including the null terminator, if any.
+            </summary>
+        </member>
+        <member name="F:Interop.UNICODE_STRING.MaximumLength">
+            <summary>
+            Max size of the buffer in bytes
+            </summary>
+        </member>
+        <member name="T:Interop.Advapi32.TOKEN_INFORMATION_CLASS">
+            <summary>
+            <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa379626.aspx">TOKEN_INFORMATION_CLASS</a> enumeration.
+            </summary>
         </member>
     </members>
 </doc>

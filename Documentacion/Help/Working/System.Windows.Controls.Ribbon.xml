@@ -4388,7 +4388,7 @@
     </member>
     <member name="P:System.Windows.Controls.Ribbon.RibbonGallery.MaxColumnCount">
       <summary>Gets or sets a value that specifies the maximum number of columns used to layout items in a gallery <see cref="P:System.Windows.Controls.ItemsControl.ItemsPanel" />.</summary>
-      <returns>The maximum number of columns used to layout items in a gallery <see cref="P:System.Windows.Controls.ItemsControl.ItemsPanel" />. The registered default is <see cref="F:System.Int32.MaxValue" />. For more information about what can influence the value, see Dependency Property Value Precedence.</returns>
+      <returns>The maximum number of columns used to layout items in a gallery <see cref="P:System.Windows.Controls.ItemsControl.ItemsPanel" />. The registered default is <see cref="F:System.Int32.MaxValue">Int32.MaxValue</see>. For more information about what can influence the value, see Dependency Property Value Precedence.</returns>
     </member>
     <member name="P:System.Windows.Controls.Ribbon.RibbonGallery.MinColumnCount">
       <summary>Gets or sets a value that specifies the minimum number of columns used to layout items in a gallery <see cref="P:System.Windows.Controls.ItemsControl.ItemsPanel" />.</summary>
@@ -4531,7 +4531,7 @@
     </member>
     <member name="P:System.Windows.Controls.Ribbon.RibbonGalleryCategory.MaxColumnCount">
       <summary>Gets or sets a value that specifies the maximum number of columns used to lay out items in a gallery <see cref="P:System.Windows.Controls.ItemsControl.ItemsPanel" />.</summary>
-      <returns>The maximum number of columns used to lay out items in a gallery <see cref="P:System.Windows.Controls.ItemsControl.ItemsPanel" />. The registered default is <see cref="F:System.Int32.MaxValue" />. For more information about what can influence the value, see Dependency Property Value Precedence.</returns>
+      <returns>The maximum number of columns used to lay out items in a gallery <see cref="P:System.Windows.Controls.ItemsControl.ItemsPanel" />. The registered default is <see cref="F:System.Int32.MaxValue">Int32.MaxValue</see>. For more information about what can influence the value, see Dependency Property Value Precedence.</returns>
     </member>
     <member name="P:System.Windows.Controls.Ribbon.RibbonGalleryCategory.MinColumnCount">
       <summary>Gets or sets a value that specifies the minimum number of columns used to lay out items in a gallery <see cref="P:System.Windows.Controls.ItemsControl.ItemsPanel" />.</summary>
@@ -7130,6 +7130,8 @@
  -or-  
   
  <paramref name="destinationType" /> is <see langword="null" />.</exception>
+      <exception cref="T:System.NotSupportedException">A NotSupportedException is thrown if the example object is null
+            or if the destinationType isn't one of the valid destination types.</exception>
       <returns>The converted value.</returns>
     </member>
   </members>

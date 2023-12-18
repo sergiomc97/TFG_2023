@@ -677,7 +677,7 @@
       <param name="e">An <see cref="T:System.ComponentModel.AsyncCompletedEventArgs" /> containing event data.</param>
     </member>
     <member name="T:System.Net.Mail.SmtpClient">
-      <summary>Allows applications to send email by using the Simple Mail Transfer Protocol (SMTP). The <c>SmtpClient</c> type is now obsolete.</summary>
+      <summary>Allows applications to send email by using the Simple Mail Transfer Protocol (SMTP). The <see cref="T:System.Net.Mail.SmtpClient" /> type is obsolete on some platforms and not recommended on others; for more information, see the Remarks section.</summary>
     </member>
     <member name="E:System.Net.Mail.SmtpClient.SendCompleted">
       <summary>Occurs when an asynchronous email send operation completes.</summary>
@@ -1301,7 +1301,7 @@
     </member>
     <member name="P:System.Net.Mime.ContentDisposition.CreationDate">
       <summary>Gets or sets the creation date for a file attachment.</summary>
-      <returns>A <see cref="T:System.DateTime" /> value that indicates the file creation date; otherwise, <see cref="F:System.DateTime.MinValue" /> if no date was specified.</returns>
+      <returns>A <see cref="T:System.DateTime" /> value that indicates the file creation date; otherwise, <see cref="F:System.DateTime.MinValue">DateTime.MinValue</see> if no date was specified.</returns>
     </member>
     <member name="P:System.Net.Mime.ContentDisposition.DispositionType">
       <summary>Gets or sets the disposition type for an email attachment.</summary>
@@ -1320,7 +1320,7 @@
     </member>
     <member name="P:System.Net.Mime.ContentDisposition.ModificationDate">
       <summary>Gets or sets the modification date for a file attachment.</summary>
-      <returns>A <see cref="T:System.DateTime" /> value that indicates the file modification date; otherwise, <see cref="F:System.DateTime.MinValue" /> if no date was specified.</returns>
+      <returns>A <see cref="T:System.DateTime" /> value that indicates the file modification date; otherwise, <see cref="F:System.DateTime.MinValue">DateTime.MinValue</see> if no date was specified.</returns>
     </member>
     <member name="P:System.Net.Mime.ContentDisposition.Parameters">
       <summary>Gets the parameters included in the Content-Disposition header represented by this instance.</summary>
@@ -1328,7 +1328,7 @@
     </member>
     <member name="P:System.Net.Mime.ContentDisposition.ReadDate">
       <summary>Gets or sets the read date for a file attachment.</summary>
-      <returns>A <see cref="T:System.DateTime" /> value that indicates the file read date; otherwise, <see cref="F:System.DateTime.MinValue" /> if no date was specified.</returns>
+      <returns>A <see cref="T:System.DateTime" /> value that indicates the file read date; otherwise, <see cref="F:System.DateTime.MinValue">DateTime.MinValue</see> if no date was specified.</returns>
     </member>
     <member name="P:System.Net.Mime.ContentDisposition.Size">
       <summary>Gets or sets the size of a file attachment.</summary>

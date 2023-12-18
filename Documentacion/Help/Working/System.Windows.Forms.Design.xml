@@ -61,9 +61,9 @@
       <returns>The new value of the object. If the value of the object hasn't changed, this should return the same object it was passed.</returns>
     </member>
     <member name="M:System.ComponentModel.Design.BinaryEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
-      <summary>Gets the editor style used by the <see cref="M:System.ComponentModel.Design.BinaryEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)" /> method.</summary>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
-      <returns>An <see langword="enum" /> value indicating the provided editing style.</returns>
+      <summary>Gets the editor style used by the <xref data-throw-if-not-resolved="true" uid="System.ComponentModel.Design.BinaryEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)"></xref> method.</summary>
+      <param name="context">An <xref data-throw-if-not-resolved="true" uid="System.ComponentModel.ITypeDescriptorContext"></xref> that can be used to gain additional context information.</param>
+      <returns>An <code data-dev-comment-type="langword">enum</code> value indicating the provided editing style.</returns>
     </member>
     <member name="T:System.ComponentModel.Design.ByteViewer">
       <summary>Displays byte arrays in hexadecimal, ANSI, and Unicode formats.</summary>
@@ -190,9 +190,9 @@
       <returns>The display text for <paramref name="value" />.</returns>
     </member>
     <member name="M:System.ComponentModel.Design.CollectionEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
-      <summary>Gets the edit style used by the <see cref="M:System.ComponentModel.Design.CollectionEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)" /> method.</summary>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
-      <returns>A <see cref="T:System.Drawing.Design.UITypeEditorEditStyle" /> enumeration value indicating the provided editing style. If the method is not supported in the specified context, this method will return the <see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None" /> identifier.</returns>
+      <summary>Gets the edit style used by the <xref data-throw-if-not-resolved="true" uid="System.ComponentModel.Design.CollectionEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)"></xref> method.</summary>
+      <param name="context">An <xref data-throw-if-not-resolved="true" uid="System.ComponentModel.ITypeDescriptorContext"></xref> that can be used to gain additional context information.</param>
+      <returns>A <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.UITypeEditorEditStyle"></xref> enumeration value indicating the provided editing style. If the method is not supported in the specified context, this method will return the <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.UITypeEditorEditStyle.None"></xref> identifier.</returns>
     </member>
     <member name="M:System.ComponentModel.Design.CollectionEditor.GetItems(System.Object)">
       <summary>Gets an array of objects containing the specified collection.</summary>
@@ -479,9 +479,9 @@
       <returns>The new value of the object. If the value of the object hasn't changed, this should return the same object it was passed.</returns>
     </member>
     <member name="M:System.ComponentModel.Design.DateTimeEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
-      <summary>Retrieves the editing style of the <see cref="Overload:System.ComponentModel.Design.DateTimeEditor.EditValue" /> method. If the method is not supported, this will return None.</summary>
+      <summary>Retrieves the editing style of the <xref data-throw-if-not-resolved="true" uid="System.ComponentModel.Design.DateTimeEditor.EditValue*"></xref> method. If the method is not supported, this will return None.</summary>
       <param name="context">A type descriptor context that can be used to provide additional context information.</param>
-      <returns>An <see langword="enum" /> value indicating the provided editing style.</returns>
+      <returns>An <code data-dev-comment-type="langword">enum</code> value indicating the provided editing style.</returns>
     </member>
     <member name="T:System.ComponentModel.Design.DesignerActionHeaderItem">
       <summary>Represents a static header item on a smart tag panel. This class cannot be inherited.</summary>
@@ -1626,8 +1626,8 @@
       <summary>Initializes a new instance of the <see cref="T:System.ComponentModel.Design.MultilineStringEditor" /> class.</summary>
     </member>
     <member name="M:System.ComponentModel.Design.MultilineStringEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
-      <summary>Edits the specified object value using the edit style provided by <see cref="M:System.Drawing.Design.ImageEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)" />.</summary>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
+      <summary>Edits the specified object value using the edit style provided by <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.ImageEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)"></xref>.</summary>
+      <param name="context">An <xref data-throw-if-not-resolved="true" uid="System.ComponentModel.ITypeDescriptorContext"></xref> that can be used to gain additional context information.</param>
       <param name="provider">A service provider object through which editing services can be obtained.</param>
       <param name="value">An instance of the value being edited.</param>
       <returns>The new value of the object. If the value of the object has not changed, this method should return the same object passed to it.</returns>
@@ -1667,9 +1667,9 @@
       <param name="treeView">The tree view control to modify.</param>
     </member>
     <member name="M:System.ComponentModel.Design.ObjectSelectorEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
-      <summary>Edits the value of the specified object using the editor style indicated by <see cref="Overload:System.ComponentModel.Design.ObjectSelectorEditor.GetEditStyle" />.</summary>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
-      <param name="provider">An <see cref="T:System.IServiceProvider" /> that this editor can use to obtain services.</param>
+      <summary>Edits the value of the specified object using the editor style indicated by <xref data-throw-if-not-resolved="true" uid="System.ComponentModel.Design.ObjectSelectorEditor.GetEditStyle*"></xref>.</summary>
+      <param name="context">An <xref data-throw-if-not-resolved="true" uid="System.ComponentModel.ITypeDescriptorContext"></xref> that can be used to gain additional context information.</param>
+      <param name="provider">An <xref data-throw-if-not-resolved="true" uid="System.IServiceProvider"></xref> that this editor can use to obtain services.</param>
       <param name="value">The object to edit.</param>
       <returns>The new value of the object. If the value of the object has not changed, the method should return the same object it was passed.</returns>
     </member>
@@ -1691,7 +1691,7 @@
       <returns>A <see cref="T:System.Drawing.Design.UITypeEditorEditStyle" /> value that indicates the style of editor used by <see cref="Overload:System.ComponentModel.Design.ObjectSelectorEditor.EditValue" />.</returns>
     </member>
     <member name="M:System.ComponentModel.Design.ObjectSelectorEditor.SetValue(System.Object)">
-      <summary>Sets the current <see cref="T:System.ComponentModel.Design.ObjectSelectorEditor" /> to the specified value.</summary>
+      <summary>Sets the current <xref data-throw-if-not-resolved="true" uid="System.ComponentModel.Design.ObjectSelectorEditor"></xref> to the specified value.</summary>
       <param name="value">The specified value.</param>
     </member>
     <member name="T:System.ComponentModel.Design.ObjectSelectorEditor.Selector">
@@ -3084,15 +3084,15 @@
       <returns>The new value of the object. If the value of the object has not changed, this should return the same object it was passed.</returns>
     </member>
     <member name="M:System.Drawing.Design.ColorEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
-      <summary>Gets the editing style of the Edit method. If the method is not supported, this will return <see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None" />.</summary>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
+      <summary>Gets the editing style of the Edit method. If the method is not supported, this will return <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.UITypeEditorEditStyle.None"></xref>.</summary>
+      <param name="context">An <xref data-throw-if-not-resolved="true" uid="System.ComponentModel.ITypeDescriptorContext"></xref> that can be used to gain additional context information.</param>
       <returns>An enum value indicating the provided editing style.</returns>
     </member>
     <member name="M:System.Drawing.Design.ColorEditor.GetPaintValueSupported(System.ComponentModel.ITypeDescriptorContext)">
       <summary>Gets a value indicating if this editor supports the painting of a representation of an object's value.</summary>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
+      <param name="context">An <xref data-throw-if-not-resolved="true" uid="System.ComponentModel.ITypeDescriptorContext"></xref> that can be used to gain additional context information.</param>
       <returns>
-        <see langword="true" /> if <see cref="Overload:System.Drawing.Design.ColorEditor.PaintValue" /> is implemented; otherwise, <see langword="false" />.</returns>
+        <code data-dev-comment-type="langword">true</code> if <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.ColorEditor.PaintValue*"></xref> is implemented; otherwise, <code data-dev-comment-type="langword">false</code>.</returns>
     </member>
     <member name="M:System.Drawing.Design.ColorEditor.PaintValue(System.Drawing.Design.PaintValueEventArgs)">
       <summary>Paints a representative value of the given object to the provided canvas.</summary>
@@ -3112,9 +3112,9 @@
       <returns>The new value of the object. If the value of the object has not changed, this should return the same object it was passed.</returns>
     </member>
     <member name="M:System.Drawing.Design.ContentAlignmentEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
-      <summary>Gets the editing style of the <see cref="Overload:System.Drawing.Design.ContentAlignmentEditor.EditValue" /> method.</summary>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
-      <returns>A <see cref="T:System.Drawing.Design.UITypeEditorEditStyle" /> value indicating the provided editing style. If the method to retrieve the edit style is not supported, this will return <see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None" />.</returns>
+      <summary>Gets the editing style of the <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.ContentAlignmentEditor.EditValue*"></xref> method.</summary>
+      <param name="context">An <xref data-throw-if-not-resolved="true" uid="System.ComponentModel.ITypeDescriptorContext"></xref> that can be used to gain additional context information.</param>
+      <returns>A <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.UITypeEditorEditStyle"></xref> value indicating the provided editing style. If the method to retrieve the edit style is not supported, this will return <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.UITypeEditorEditStyle.None"></xref>.</returns>
     </member>
     <member name="T:System.Drawing.Design.CursorEditor">
       <summary>Provides a <see cref="T:System.Drawing.Design.UITypeEditor" /> that can perform default file searching for cursor (.cur) files.</summary>
@@ -3130,9 +3130,9 @@
       <returns>The new value of the object. If the value of the object has not changed, this should return the same object it was passed.</returns>
     </member>
     <member name="M:System.Drawing.Design.CursorEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
-      <summary>Retrieves the editing style of the <see cref="Overload:System.Drawing.Design.CursorEditor.EditValue" /> method.</summary>
+      <summary>Retrieves the editing style of the <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.CursorEditor.EditValue*"></xref> method.</summary>
       <param name="context">A type descriptor context that can be used to provide additional context information.</param>
-      <returns>An enum value indicating the provided editing style. If the method is not supported, this will return <see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None" />.</returns>
+      <returns>An enum value indicating the provided editing style. If the method is not supported, this will return <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.UITypeEditorEditStyle.None"></xref>.</returns>
     </member>
     <member name="P:System.Drawing.Design.CursorEditor.IsDropDownResizable">
       <summary>Gets a value indicating whether drop-down editors should be resizable by the user.</summary>
@@ -3153,9 +3153,9 @@
       <returns>The new value of the object. If the value of the object has not changed, this should return the same object that was passed to it.</returns>
     </member>
     <member name="M:System.Drawing.Design.FontEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
-      <summary>Gets the editor style used by the <see cref="M:System.Drawing.Design.FontEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)" /> method.</summary>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
-      <returns>A <see cref="T:System.Drawing.Design.UITypeEditorEditStyle" /> value that indicates the style of editor used by <see cref="M:System.Drawing.Design.FontEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)" />.</returns>
+      <summary>Gets the editor style used by the <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.FontEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)"></xref> method.</summary>
+      <param name="context">An <xref data-throw-if-not-resolved="true" uid="System.ComponentModel.ITypeDescriptorContext"></xref> that can be used to gain additional context information.</param>
+      <returns>A <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.UITypeEditorEditStyle"></xref> value that indicates the style of editor used by <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.FontEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)"></xref>.</returns>
     </member>
     <member name="T:System.Drawing.Design.FontNameEditor">
       <summary>Provides a <see cref="T:System.Drawing.Design.UITypeEditor" /> that paints a glyph for the font name.</summary>
@@ -3167,7 +3167,7 @@
       <summary>Determines if this editor supports the painting of a representation of an object's value.</summary>
       <param name="context">A type descriptor context that can be used to provide additional context information.</param>
       <returns>
-        <see langword="true" /> if <see cref="Overload:System.Drawing.Design.FontNameEditor.PaintValue" /> is implemented; otherwise, <see langword="false" />.</returns>
+        <code data-dev-comment-type="langword">true</code> if <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.FontNameEditor.PaintValue*"></xref> is implemented; otherwise, <code data-dev-comment-type="langword">false</code>.</returns>
     </member>
     <member name="M:System.Drawing.Design.FontNameEditor.PaintValue(System.Drawing.Design.PaintValueEventArgs)">
       <summary>Paints a representative value of the given object to the provided canvas. Painting should be done within the boundaries of the provided rectangle.</summary>
@@ -3214,7 +3214,7 @@
       <summary>Determines if this editor supports the painting of a representation of an object's value.</summary>
       <param name="context">A type descriptor context that can be used to provide additional context information.</param>
       <returns>
-        <see langword="true" /> if <see cref="Overload:System.Drawing.Design.UITypeEditor.PaintValue" /> is implemented; otherwise, <see langword="false" />.</returns>
+        <code data-dev-comment-type="langword">true</code> if <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.UITypeEditor.PaintValue*"></xref> is implemented; otherwise, <code data-dev-comment-type="langword">false</code>.</returns>
     </member>
     <member name="M:System.Drawing.Design.IconEditor.LoadFromStream(System.IO.Stream)">
       <summary>Creates a new <see cref="T:System.Drawing.Icon" /> from the given stream.</summary>
@@ -3250,9 +3250,9 @@
       <returns>An <see cref="T:System.Object" /> representing the new value. If the value of the object has not changed, <see cref="M:System.Drawing.Design.ImageEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)" /> returns the object that was passed to it.</returns>
     </member>
     <member name="M:System.Drawing.Design.ImageEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
-      <summary>Gets the editing style of the <see cref="M:System.Drawing.Design.ImageEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)" /> method.</summary>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
-      <returns>One of the <see cref="T:System.Drawing.Design.UITypeEditorEditStyle" /> values indicating the supported editing style.</returns>
+      <summary>Gets the editing style of the <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.ImageEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)"></xref> method.</summary>
+      <param name="context">An <xref data-throw-if-not-resolved="true" uid="System.ComponentModel.ITypeDescriptorContext"></xref> that can be used to gain additional context information.</param>
+      <returns>One of the <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.UITypeEditorEditStyle"></xref> values indicating the supported editing style.</returns>
     </member>
     <member name="M:System.Drawing.Design.ImageEditor.GetExtensions">
       <summary>Gets the extensions for the file-list filter that this editor initially uses to filter the file list.</summary>
@@ -3268,9 +3268,9 @@
     </member>
     <member name="M:System.Drawing.Design.ImageEditor.GetPaintValueSupported(System.ComponentModel.ITypeDescriptorContext)">
       <summary>Gets a value indicating whether this editor supports painting a representation of an object's value.</summary>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
+      <param name="context">An <xref data-throw-if-not-resolved="true" uid="System.ComponentModel.ITypeDescriptorContext"></xref> that can be used to gain additional context information.</param>
       <returns>
-        <see langword="true" /> if <see cref="M:System.Drawing.Design.ImageEditor.PaintValue(System.Drawing.Design.PaintValueEventArgs)" /> is implemented; otherwise, <see langword="false" />.</returns>
+        <code data-dev-comment-type="langword">true</code> if <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.ImageEditor.PaintValue(System.Drawing.Design.PaintValueEventArgs)"></xref> is implemented; otherwise, <code data-dev-comment-type="langword">false</code>.</returns>
     </member>
     <member name="M:System.Drawing.Design.ImageEditor.LoadFromStream(System.IO.Stream)">
       <summary>Loads an image from the specified stream.</summary>
@@ -3278,8 +3278,8 @@
       <returns>The <see cref="T:System.Drawing.Image" /> that has been loaded.</returns>
     </member>
     <member name="M:System.Drawing.Design.ImageEditor.PaintValue(System.Drawing.Design.PaintValueEventArgs)">
-      <summary>Paints a value indicated by the specified <see cref="T:System.Drawing.Design.PaintValueEventArgs" />.</summary>
-      <param name="e">A <see cref="T:System.Drawing.Design.PaintValueEventArgs" /> indicating what to paint and where to paint it.</param>
+      <summary>Paints a value indicated by the specified <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.PaintValueEventArgs"></xref>.</summary>
+      <param name="e">A <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.PaintValueEventArgs"></xref> indicating what to paint and where to paint it.</param>
     </member>
     <member name="T:System.Drawing.Design.IToolboxItemProvider">
       <summary>Exposes a collection of toolbox items.</summary>
@@ -3728,6 +3728,84 @@
       <param name="format">The name of the clipboard data format to create a <see cref="T:System.Drawing.Design.ToolboxItem" /> for.</param>
       <returns>The deserialized <see cref="T:System.Drawing.Design.ToolboxItem" /> object specified by <paramref name="serializedObject" />.</returns>
     </member>
+    <member name="T:System.Resources.Tools.ITargetAwareCodeDomProvider">
+      <summary>Defines an interface that enables the strongly typed resource builder (<see cref="T:System.Resources.Tools.StronglyTypedResourceBuilder" /> object) to determine which types and properties are available so it can emit the correct Code Document Object Model (CodeDOM) tree.</summary>
+    </member>
+    <member name="M:System.Resources.Tools.ITargetAwareCodeDomProvider.SupportsProperty(System.Type,System.String,System.Boolean)">
+      <summary>Indicates whether the specified type on the project target framework has a specified named property.</summary>
+      <param name="type">The type whose properties are to be queried.</param>
+      <param name="propertyName">The name of the property to find in <paramref name="type" />.</param>
+      <param name="isWritable">A flag that indicates whether the property must include a get accessor.</param>
+      <returns>
+        <see langword="true" /> if <paramref name="type" /> on the project target framework has a property named <paramref name="propertyname" />; otherwise, <see langword="false" />.</returns>
+    </member>
+    <member name="T:System.Resources.Tools.StronglyTypedResourceBuilder">
+      <summary>Provides support for strongly typed resources. This class cannot be inherited.</summary>
+    </member>
+    <member name="M:System.Resources.Tools.StronglyTypedResourceBuilder.Create(System.Collections.IDictionary,System.String,System.String,System.CodeDom.Compiler.CodeDomProvider,System.Boolean,System.String[]@)">
+      <summary>Generates a class file that contains strongly typed properties that match the resources referenced in the specified collection.</summary>
+      <param name="resourceList">An <see cref="T:System.Collections.IDictionary" /> collection where each dictionary entry key/value pair is the name of a resource and the value of the resource.</param>
+      <param name="baseName">The name of the class to be generated.</param>
+      <param name="generatedCodeNamespace">The namespace of the class to be generated.</param>
+      <param name="codeProvider">A <see cref="T:System.CodeDom.Compiler.CodeDomProvider" /> class that provides the language in which the class will be generated.</param>
+      <param name="internalClass">
+        <see langword="true" /> to generate an internal class; <see langword="false" /> to generate a public class.</param>
+      <param name="unmatchable">An array that contains each resource name for which a property cannot be generated. Typically, a property cannot be generated because the resource name is not a valid identifier.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="resourceList" />, <paramref name="basename" />, or <paramref name="codeProvider" /> is <see langword="null" />.</exception>
+      <exception cref="T:System.ArgumentException">A resource node name does not match its key in <paramref name="resourceList" />.</exception>
+      <returns>A <see cref="T:System.CodeDom.CodeCompileUnit" /> container.</returns>
+    </member>
+    <member name="M:System.Resources.Tools.StronglyTypedResourceBuilder.Create(System.Collections.IDictionary,System.String,System.String,System.String,System.CodeDom.Compiler.CodeDomProvider,System.Boolean,System.String[]@)">
+      <summary>Generates a class file that contains strongly typed properties that match the resources referenced in the specified collection.</summary>
+      <param name="resourceList">An <see cref="T:System.Collections.IDictionary" /> collection where each dictionary entry key/value pair is the name of a resource and the value of the resource.</param>
+      <param name="baseName">The name of the class to be generated.</param>
+      <param name="generatedCodeNamespace">The namespace of the class to be generated.</param>
+      <param name="resourcesNamespace">The namespace of the resource to be generated.</param>
+      <param name="codeProvider">A <see cref="T:System.CodeDom.Compiler.CodeDomProvider" /> object that provides the language in which the class will be generated.</param>
+      <param name="internalClass">
+        <see langword="true" /> to generate an internal class; <see langword="false" /> to generate a public class.</param>
+      <param name="unmatchable">A <see cref="T:System.String" /> array that contains each resource name for which a property cannot be generated. Typically, a property cannot be generated because the resource name is not a valid identifier.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="resourceList" />, <paramref name="basename" />, or <paramref name="codeProvider" /> is <see langword="null" />.</exception>
+      <exception cref="T:System.ArgumentException">A resource node name does not match its key in <paramref name="resourceList" />.</exception>
+      <returns>A <see cref="T:System.CodeDom.CodeCompileUnit" /> container.</returns>
+    </member>
+    <member name="M:System.Resources.Tools.StronglyTypedResourceBuilder.Create(System.String,System.String,System.String,System.CodeDom.Compiler.CodeDomProvider,System.Boolean,System.String[]@)">
+      <summary>Generates a class file that contains strongly typed properties that match the resources in the specified .resx file.</summary>
+      <param name="resxFile">The name of a .resx file used as input.</param>
+      <param name="baseName">The name of the class to be generated.</param>
+      <param name="generatedCodeNamespace">The namespace of the class to be generated.</param>
+      <param name="codeProvider">A <see cref="T:System.CodeDom.Compiler.CodeDomProvider" /> class that provides the language in which the class will be generated.</param>
+      <param name="internalClass">
+        <see langword="true" /> to generate an internal class; <see langword="false" /> to generate a public class.</param>
+      <param name="unmatchable">A <see cref="T:System.String" /> array that contains each resource name for which a property cannot be generated. Typically, a property cannot be generated because the resource name is not a valid identifier.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="basename" /> or <paramref name="codeProvider" /> is <see langword="null" />.</exception>
+      <returns>A <see cref="T:System.CodeDom.CodeCompileUnit" /> container.</returns>
+    </member>
+    <member name="M:System.Resources.Tools.StronglyTypedResourceBuilder.Create(System.String,System.String,System.String,System.String,System.CodeDom.Compiler.CodeDomProvider,System.Boolean,System.String[]@)">
+      <summary>Generates a class file that contains strongly typed properties that match the resources in the specified .resx file.</summary>
+      <param name="resxFile">The name of a .resx file used as input.</param>
+      <param name="baseName">The name of the class to be generated.</param>
+      <param name="generatedCodeNamespace">The namespace of the class to be generated.</param>
+      <param name="resourcesNamespace">The namespace of the resource to be generated.</param>
+      <param name="codeProvider">A <see cref="T:System.CodeDom.Compiler.CodeDomProvider" /> class that provides the language in which the class will be generated.</param>
+      <param name="internalClass">
+        <see langword="true" /> to generate an internal class; <see langword="false" /> to generate a public class.</param>
+      <param name="unmatchable">A <see cref="T:System.String" /> array that contains each resource name for which a property cannot be generated. Typically, a property cannot be generated because the resource name is not a valid identifier.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="basename" /> or <paramref name="codeProvider" /> is <see langword="null" />.</exception>
+      <returns>A <see cref="T:System.CodeDom.CodeCompileUnit" /> container.</returns>
+    </member>
+    <member name="M:System.Resources.Tools.StronglyTypedResourceBuilder.VerifyResourceName(System.String,System.CodeDom.Compiler.CodeDomProvider)">
+      <summary>Generates a valid resource string based on the specified input string and code provider.</summary>
+      <param name="key">The string to verify and, if necessary, convert to a valid resource name.</param>
+      <param name="provider">A <see cref="T:System.CodeDom.Compiler.CodeDomProvider" /> object that specifies the target language to use.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="key" /> or <paramref name="provider" /> is <see langword="null" />.</exception>
+      <returns>A valid resource name derived from the <paramref name="key" /> parameter. Any invalid tokens are replaced with the underscore (_) character, or <see langword="null" /> if the derived string still contains invalid characters according to the language specified by the <paramref name="provider" /> parameter.</returns>
+    </member>
     <member name="T:System.Runtime.InteropServices.UCOMITypeLib">
       <summary>Use <see cref="T:System.Runtime.InteropServices.ComTypes.ITypeLib" /> instead.</summary>
     </member>
@@ -3777,9 +3855,9 @@
       <returns>The new value of the object. If the value of the object hasn't changed, this should return the same object it was passed.</returns>
     </member>
     <member name="M:System.Windows.Forms.Design.AnchorEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
-      <summary>Gets the editor style used by the <see cref="M:System.Windows.Forms.Design.AnchorEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)" /> method.</summary>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
-      <returns>One of the <see cref="T:System.Drawing.Design.UITypeEditorEditStyle" /> values indicating the provided editing style. If the method is not supported, this method will return <see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None" />.</returns>
+      <summary>Gets the editor style used by the <xref data-throw-if-not-resolved="true" uid="System.Windows.Forms.Design.AnchorEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)"></xref> method.</summary>
+      <param name="context">An <xref data-throw-if-not-resolved="true" uid="System.ComponentModel.ITypeDescriptorContext"></xref> that can be used to gain additional context information.</param>
+      <returns>One of the <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.UITypeEditorEditStyle"></xref> values indicating the provided editing style. If the method is not supported, this method will return <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.UITypeEditorEditStyle.None"></xref>.</returns>
     </member>
     <member name="T:System.Windows.Forms.Design.AxImporter">
       <summary>Imports ActiveX controls and generates a wrapper that can be accessed by a designer.</summary>
@@ -4484,16 +4562,16 @@ The number of elements in the <see cref="T:System.Windows.Forms.Design.Behavior.
       <summary>Initializes a new instance of the <see cref="T:System.Windows.Forms.Design.BorderSidesEditor" /> class.</summary>
     </member>
     <member name="M:System.Windows.Forms.Design.BorderSidesEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
-      <summary>Edits the given object value using the editor style provided by <see cref="M:System.Windows.Forms.Design.BorderSidesEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)" />.</summary>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> providing information about the control or component.</param>
-      <param name="provider">An <see cref="T:System.IServiceProvider" /> providing custom support to other objects.</param>
+      <summary>Edits the given object value using the editor style provided by <xref data-throw-if-not-resolved="true" uid="System.Windows.Forms.Design.BorderSidesEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)"></xref>.</summary>
+      <param name="context">An <xref data-throw-if-not-resolved="true" uid="System.ComponentModel.ITypeDescriptorContext"></xref> providing information about the control or component.</param>
+      <param name="provider">An <xref data-throw-if-not-resolved="true" uid="System.IServiceProvider"></xref> providing custom support to other objects.</param>
       <param name="value">The object value to edit.</param>
       <returns>The edited object.</returns>
     </member>
     <member name="M:System.Windows.Forms.Design.BorderSidesEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
-      <summary>Retrieves the editing style of the <see langword="EditValue" /> method.</summary>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> providing information about the control or component.</param>
-      <returns>One of the <see cref="T:System.Drawing.Design.UITypeEditorEditStyle" /> values. If the method is not supported, this method returns <see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None" />.</returns>
+      <summary>Retrieves the editing style of the <code data-dev-comment-type="langword">EditValue</code> method.</summary>
+      <param name="context">An <xref data-throw-if-not-resolved="true" uid="System.ComponentModel.ITypeDescriptorContext"></xref> providing information about the control or component.</param>
+      <returns>One of the <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.UITypeEditorEditStyle"></xref> values. If the method is not supported, this method returns <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.UITypeEditorEditStyle.None"></xref>.</returns>
     </member>
     <member name="T:System.Windows.Forms.Design.ComponentActionsType">
       <summary>Designer action items that can be associated with a component.</summary>
@@ -5078,7 +5156,7 @@ The number of elements in the <see cref="T:System.Windows.Forms.Design.Behavior.
     </member>
     <member name="M:System.Windows.Forms.Design.DockEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
       <summary>Retrieves the editing style of the EditValue method. If the method is not supported, this will return None.</summary>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
+      <param name="context">An <xref data-throw-if-not-resolved="true" uid="System.ComponentModel.ITypeDescriptorContext"></xref> that can be used to gain additional context information.</param>
       <returns>An enum value indicating the provided editing style.</returns>
     </member>
     <member name="T:System.Windows.Forms.Design.DocumentDesigner">
@@ -5187,9 +5265,9 @@ The number of elements in the <see cref="T:System.Windows.Forms.Design.Behavior.
       <returns>The new value of the object. If the value of the object hasn't changed, this should return the same object it was passed.</returns>
     </member>
     <member name="M:System.Windows.Forms.Design.FileNameEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
-      <summary>Gets the editing style used by the <see cref="M:System.Windows.Forms.Design.FileNameEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)" /> method.</summary>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
-      <returns>One of the <see cref="T:System.Drawing.Design.UITypeEditorEditStyle" /> values indicating the provided editing style.</returns>
+      <summary>Gets the editing style used by the <xref data-throw-if-not-resolved="true" uid="System.Windows.Forms.Design.FileNameEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)"></xref> method.</summary>
+      <param name="context">An <xref data-throw-if-not-resolved="true" uid="System.ComponentModel.ITypeDescriptorContext"></xref> that can be used to gain additional context information.</param>
+      <returns>One of the <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.UITypeEditorEditStyle"></xref> values indicating the provided editing style.</returns>
     </member>
     <member name="M:System.Windows.Forms.Design.FileNameEditor.InitializeDialog(System.Windows.Forms.OpenFileDialog)">
       <summary>Initializes the open file dialog when it is created.</summary>
@@ -5209,9 +5287,9 @@ The number of elements in the <see cref="T:System.Windows.Forms.Design.Behavior.
       <returns>The new value of the object, or the old value if the object couldn't be updated.</returns>
     </member>
     <member name="M:System.Windows.Forms.Design.FolderNameEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
-      <summary>Gets the editing style used by the <see cref="M:System.Windows.Forms.Design.FolderNameEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)" /> method.</summary>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
-      <returns>A <see cref="T:System.Drawing.Design.UITypeEditorEditStyle" /> enumeration value indicating the provided editing style.</returns>
+      <summary>Gets the editing style used by the <xref data-throw-if-not-resolved="true" uid="System.Windows.Forms.Design.FolderNameEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)"></xref> method.</summary>
+      <param name="context">An <xref data-throw-if-not-resolved="true" uid="System.ComponentModel.ITypeDescriptorContext"></xref> that can be used to gain additional context information.</param>
+      <returns>A <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.UITypeEditorEditStyle"></xref> enumeration value indicating the provided editing style.</returns>
     </member>
     <member name="M:System.Windows.Forms.Design.FolderNameEditor.InitializeDialog(System.Windows.Forms.Design.FolderNameEditor.FolderBrowser)">
       <summary>Initializes the folder browser dialog.</summary>
@@ -5783,9 +5861,9 @@ The number of elements in the <see cref="T:System.Windows.Forms.Design.Behavior.
       <returns>The new value of the <see cref="T:System.Object" />.</returns>
     </member>
     <member name="M:System.Windows.Forms.Design.ShortcutKeysEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
-      <summary>Gets the editor style used by the <see cref="Overload:System.Windows.Forms.Design.ShortcutKeysEditor.EditValue" /> method.</summary>
-      <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
-      <returns>A <see cref="T:System.Drawing.Design.UITypeEditorEditStyle" /> value that indicates the style of editor used by the <see cref="Overload:System.Windows.Forms.Design.ShortcutKeysEditor.EditValue" /> method.</returns>
+      <summary>Gets the editor style used by the <xref data-throw-if-not-resolved="true" uid="System.Windows.Forms.Design.ShortcutKeysEditor.EditValue*"></xref> method.</summary>
+      <param name="context">An <xref data-throw-if-not-resolved="true" uid="System.ComponentModel.ITypeDescriptorContext"></xref> that can be used to gain additional context information.</param>
+      <returns>A <xref data-throw-if-not-resolved="true" uid="System.Drawing.Design.UITypeEditorEditStyle"></xref> value that indicates the style of editor used by the <xref data-throw-if-not-resolved="true" uid="System.Windows.Forms.Design.ShortcutKeysEditor.EditValue*"></xref> method.</returns>
     </member>
     <member name="T:System.Windows.Forms.Design.ThemedScrollbarMode">
       <summary>A value that indicates whether the scrollbars of a window and its children will be themed when displayed in the Visual Studio designer.</summary>

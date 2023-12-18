@@ -26,7 +26,7 @@
  An internal-only value returned.</returns>
     </member>
     <member name="T:System.Net.WebProxy">
-      <summary>Contains HTTP proxy settings for the <see cref="T:System.Net.WebRequest" /> class.</summary>
+      <summary>Contains HTTP proxy settings for the <see cref="T:System.Net.Http.HttpClient" /> class.</summary>
     </member>
     <member name="M:System.Net.WebProxy.#ctor">
       <summary>Initializes an empty instance of the <see cref="T:System.Net.WebProxy" /> class.</summary>

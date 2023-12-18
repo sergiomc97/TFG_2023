@@ -24,22 +24,22 @@
       <summary>Defines a named transient dynamic module in this assembly.</summary>
       <param name="name">The name of the dynamic module.</param>
       <exception cref="T:System.ArgumentException">
-        <paramref name="name" /> begins with white space.  
-  
- -or-  
-  
- The length of <paramref name="name" /> is zero.  
-  
- -or-  
-  
+        <paramref name="name" /> begins with white space.
+
+ -or-
+
+ The length of <paramref name="name" /> is zero.
+
+ -or-
+
  The length of <paramref name="name" /> is greater than the system-defined maximum length.</exception>
       <exception cref="T:System.ArgumentNullException">
         <paramref name="name" /> is <see langword="null" />.</exception>
       <exception cref="T:System.Security.SecurityException">The caller does not have the required permission.</exception>
-      <exception cref="T:System.ExecutionEngineException">The assembly for default symbol writer cannot be loaded.  
-  
- -or-  
-  
+      <exception cref="T:System.ExecutionEngineException">The assembly for default symbol writer cannot be loaded.
+
+ -or-
+
  The type that implements the default symbol writer interface cannot be found.</exception>
       <returns>A <see cref="T:System.Reflection.Emit.ModuleBuilder" /> representing the defined dynamic module.</returns>
     </member>

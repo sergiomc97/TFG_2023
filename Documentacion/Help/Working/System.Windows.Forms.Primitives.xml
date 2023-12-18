@@ -131,6 +131,12 @@
       <returns>
         <see langword="true" /> if the specified object is equal to the current object; otherwise, <see langword="false" />.</returns>
     </member>
+    <member name="M:System.Windows.Forms.Message.Equals(System.Windows.Forms.Message)">
+      <summary>Indicates whether the current object is equal to another object of the same type.</summary>
+      <param name="other">An object to compare with this object.</param>
+      <returns>
+        <see langword="true" /> if the current object is equal to the <paramref name="other" /> parameter; otherwise, <see langword="false" />.</returns>
+    </member>
     <member name="M:System.Windows.Forms.Message.GetHashCode">
       <summary>Returns the hash code for this instance.</summary>
       <returns>A 32-bit signed integer that is the hash code for this instance.</returns>
@@ -206,6 +212,12 @@
       <param name="other">The object to compare to the current <see cref="T:System.Windows.Forms.Padding" />.</param>
       <returns>
         <see langword="true" /> if the <see cref="T:System.Windows.Forms.Padding" /> objects are equivalent; otherwise, <see langword="false" />.</returns>
+    </member>
+    <member name="M:System.Windows.Forms.Padding.Equals(System.Windows.Forms.Padding)">
+      <summary>Indicates whether the current object is equal to another object of the same type.</summary>
+      <param name="other">An object to compare with this object.</param>
+      <returns>
+        <see langword="true" /> if the current object is equal to the <paramref name="other" /> parameter; otherwise, <see langword="false" />.</returns>
     </member>
     <member name="M:System.Windows.Forms.Padding.GetHashCode">
       <summary>Generates a hash code for the current <see cref="T:System.Windows.Forms.Padding" />.</summary>

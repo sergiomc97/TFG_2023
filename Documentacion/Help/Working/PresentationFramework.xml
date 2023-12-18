@@ -192,7 +192,7 @@
     </member>
     <member name="P:Microsoft.Win32.FileDialogCustomPlaces.Favorites">
       <summary>Gets the Favorites folder for the current user.</summary>
-      <returns>The  Favorites folder for the current user.</returns>
+      <returns>The Favorites folder for the current user.</returns>
     </member>
     <member name="P:Microsoft.Win32.FileDialogCustomPlaces.LocalApplicationData">
       <summary>Gets the folder for application-specific data that is used by the current, non-roaming user.</summary>
@@ -4170,7 +4170,7 @@
       <summary>Initializes a new instance of the <see cref="T:System.Windows.ComponentResourceKey" /> class.</summary>
     </member>
     <member name="M:System.Windows.ComponentResourceKey.#ctor(System.Type,System.Object)">
-      <summary>Initializes a new instance of a <see cref="T:System.Windows.ComponentResourceKey" /> , specifying the <see cref="T:System.Type" /> that defines the key, and an object to use as an additional resource identifier.</summary>
+      <summary>Initializes a new instance of the <see cref="T:System.Windows.ComponentResourceKey" /> class, specifying the <see cref="T:System.Type" /> that defines the key, and an object to use as an additional resource identifier.</summary>
       <param name="typeInTargetAssembly">The type that defines the resource key.</param>
       <param name="resourceId">A unique identifier to differentiate this <see cref="T:System.Windows.ComponentResourceKey" /> from others associated with the <paramref name="typeInTargetAssembly" /> type.</param>
     </member>
@@ -6055,7 +6055,7 @@
     </member>
     <member name="P:System.Windows.Controls.Control.TabIndex">
       <summary>Gets or sets a value that determines the order in which elements receive focus when the user navigates through controls by using the TAB key.</summary>
-      <returns>A value that determines the order of logical navigation for a device. The default value is <see cref="F:System.Int32.MaxValue" />.</returns>
+      <returns>A value that determines the order of logical navigation for a device. The default value is <see cref="F:System.Int32.MaxValue">Int32.MaxValue</see>.</returns>
     </member>
     <member name="P:System.Windows.Controls.Control.Template">
       <summary>Gets or sets a control template.</summary>
@@ -6779,8 +6779,8 @@
     </member>
     <member name="P:System.Windows.Controls.DataGrid.NewItemMargin">
       <summary>Gets or sets the margin for the new item row.</summary>
-      <returns>The margin for the new item row.  
-  
+      <returns>The margin for the new item row.
+
  The registered default is 0. For more information about what can influence the value, see Dependency Property Value Precedence.</returns>
     </member>
     <member name="P:System.Windows.Controls.DataGrid.NonFrozenColumnsViewportHorizontalOffset">
@@ -9036,7 +9036,7 @@
     </member>
     <member name="P:System.Windows.Controls.DocumentViewer.ViewportHeight">
       <summary>Gets the vertical size of the scrollable content area.</summary>
-      <returns>The vertical size of the scrollable content area  in device independent pixels.  The default is 0.0.</returns>
+      <returns>The vertical size of the scrollable content area in device independent pixels. The default is 0.0.</returns>
     </member>
     <member name="P:System.Windows.Controls.DocumentViewer.ViewportWidth">
       <summary>Gets the horizontal size of the scrollable content area.</summary>
@@ -13375,8 +13375,8 @@
     <member name="P:System.Windows.Controls.MenuItem.UsesItemContainerTemplate">
       <summary>Gets or sets a value that indicates whether the menu selects different item containers, depending on the type of the item in the underlying collection or some other heuristic.</summary>
       <returns>
-        <see langword="true" /> the menu selects different item containers; otherwise, <see langword="false" />.  
-  
+        <see langword="true" /> the menu selects different item containers; otherwise, <see langword="false" />.
+
  The registered default is <see langword="false" />. For more information about what can influence the value, see Dependency Property Value Precedence.</returns>
     </member>
     <member name="T:System.Windows.Controls.MenuItemRole">
@@ -17701,10 +17701,10 @@
       <summary>Scrolls vertically to the end of the <see cref="T:System.Windows.Controls.ScrollViewer" /> content.</summary>
     </member>
     <member name="M:System.Windows.Controls.ScrollViewer.ScrollToEnd">
-      <summary>Scrolls vertically to the end of the <see cref="T:System.Windows.Controls.ScrollViewer" /> content.</summary>
+      <summary>Scrolls to the end of the <see cref="T:System.Windows.Controls.ScrollViewer" /> content.</summary>
     </member>
     <member name="M:System.Windows.Controls.ScrollViewer.ScrollToHome">
-      <summary>Scrolls vertically to the beginning of the <see cref="T:System.Windows.Controls.ScrollViewer" /> content.</summary>
+      <summary>Scrolls to the beginning of the <see cref="T:System.Windows.Controls.ScrollViewer" /> content.</summary>
     </member>
     <member name="M:System.Windows.Controls.ScrollViewer.ScrollToHorizontalOffset(System.Double)">
       <summary>Scrolls the content within the <see cref="T:System.Windows.Controls.ScrollViewer" /> to the specified horizontal offset position.</summary>
@@ -18484,7 +18484,7 @@
       <summary>Provides a way to apply styles based on custom logic.</summary>
     </member>
     <member name="M:System.Windows.Controls.StyleSelector.#ctor">
-      <summary>Initializes a new instance of a <see cref="T:System.Windows.Controls.StyleSelector" />.</summary>
+      <summary>Initializes a new instance of the <see cref="T:System.Windows.Controls.StyleSelector" /> class.</summary>
     </member>
     <member name="M:System.Windows.Controls.StyleSelector.SelectStyle(System.Object,System.Windows.DependencyObject)">
       <summary>When overridden in a derived class, returns a <see cref="T:System.Windows.Style" /> based on custom logic.</summary>
@@ -19246,7 +19246,7 @@
       <summary>Gets or sets the maximum number of visible lines.</summary>
       <exception cref="T:System.Exception">
         <see cref="P:System.Windows.Controls.TextBox.MaxLines" /> is less than <see cref="P:System.Windows.Controls.TextBox.MinLines" />.</exception>
-      <returns>The maximum number of visible lines. The default is <see cref="F:System.Int32.MaxValue" />.</returns>
+      <returns>The maximum number of visible lines. The default is <see cref="F:System.Int32.MaxValue">Int32.MaxValue</see>.</returns>
     </member>
     <member name="P:System.Windows.Controls.TextBox.MinLines">
       <summary>Gets or sets the minimum number of visible lines.</summary>
@@ -21941,7 +21941,7 @@
     <member name="M:System.Windows.Data.BindingListCollectionView.MoveCurrentToPosition(System.Int32)">
       <summary>Sets the item at the specified index to be the <see cref="P:System.Windows.Data.CollectionView.CurrentItem" /> in the view.</summary>
       <param name="position">The index to set the <see cref="P:System.Windows.Data.CollectionView.CurrentItem" /> to.</param>
-      <exception cref="T:System.ArgumentOutOfRangeException">Thrown if the index is out of range.</exception>
+      <exception cref="T:System.ArgumentOutOfRangeException">The index is out of range.</exception>
       <returns>
         <see langword="true" /> if the resulting <see cref="P:System.Windows.Data.CollectionView.CurrentItem" /> is an item within the view; otherwise, <see langword="false" />.</returns>
     </member>
@@ -22295,7 +22295,7 @@
       <summary>Identifies the <see cref="P:System.Windows.Data.CollectionContainer.Collection" /> dependency property.</summary>
     </member>
     <member name="M:System.Windows.Data.CollectionContainer.#ctor">
-      <summary>Initializes a new instance of a <see cref="T:System.Windows.Data.CollectionContainer" /> class.</summary>
+      <summary>Initializes a new instance of the <see cref="T:System.Windows.Data.CollectionContainer" /> class.</summary>
     </member>
     <member name="M:System.Windows.Data.CollectionContainer.OnContainedCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
       <summary>Raises the <see cref="E:System.Windows.Data.CollectionContainer.CollectionChanged" /> event.</summary>
@@ -23157,7 +23157,7 @@
     <member name="M:System.Windows.Data.ListCollectionView.MoveCurrentToPosition(System.Int32)">
       <summary>Sets the item at the specified index to be the <see cref="P:System.Windows.Data.CollectionView.CurrentItem" /> in the view.</summary>
       <param name="position">The index to set the <see cref="P:System.Windows.Data.CollectionView.CurrentItem" /> to.</param>
-      <exception cref="T:System.ArgumentOutOfRangeException">Thrown if the index is out of range.</exception>
+      <exception cref="T:System.ArgumentOutOfRangeException">The index is out of range.</exception>
       <returns>
         <see langword="true" /> if the resulting <see cref="P:System.Windows.Data.CollectionView.CurrentItem" /> is an item within the view; otherwise, <see langword="false" />.</returns>
     </member>
@@ -26174,9 +26174,7 @@
     </member>
     <member name="P:System.Windows.Documents.Hyperlink.NavigateUri">
       <summary>Gets or sets a URI to navigate to when the <see cref="T:System.Windows.Documents.Hyperlink" /> is activated.</summary>
-      <returns>The URI to navigate to when the <see cref="T:System.Windows.Documents.Hyperlink" /> is activated. The default is <see langword="null" />.  
-  
-Note: <see cref="T:System.Windows.Documents.Hyperlink" /> can navigate to the value of the <see cref="P:System.Windows.Documents.Hyperlink.NavigateUri" /> property only if either the direct or indirect parent of a <see cref="T:System.Windows.Documents.Hyperlink" /> is a navigation host, including <see cref="T:System.Windows.Navigation.NavigationWindow" />, <see cref="T:System.Windows.Controls.Frame" />, or any browser that can host XBAPs (which includes Internet Explorer 6 and later versions, and Firefox 2.0+). For more information, see the Navigation Hosts section in Navigation Overview.</returns>
+      <returns>The URI to navigate to when the <see cref="T:System.Windows.Documents.Hyperlink" /> is activated. The default is <see langword="null" />.</returns>
     </member>
     <member name="P:System.Windows.Documents.Hyperlink.System#Windows#Markup#IUriContext#BaseUri">
       <summary>Gets or sets a base URI for the <see cref="T:System.Windows.Documents.Hyperlink" />.</summary>
@@ -30064,7 +30062,7 @@ Note: <see cref="T:System.Windows.Documents.Hyperlink" /> can navigate to the va
     <member name="M:System.Windows.FrameworkContentElement.BeginStoryboard(System.Windows.Media.Animation.Storyboard,System.Windows.Media.Animation.HandoffBehavior,System.Boolean)">
       <summary>Begins the sequence of actions that are contained in the provided storyboard, with specified state for control of the animation after it is started.</summary>
       <param name="storyboard">The storyboard to begin.</param>
-      <param name="handoffBehavior">A value of the enumeration that describes behavior to use if a  property described in the storyboard is already animated.</param>
+      <param name="handoffBehavior">A value of the enumeration that describes behavior to use if a property described in the storyboard is already animated.</param>
       <param name="isControllable">Declares whether the animation is controllable (can be paused) after it is started.</param>
     </member>
     <member name="M:System.Windows.FrameworkContentElement.BringIntoView">
@@ -33725,7 +33723,7 @@ Note: <see cref="T:System.Windows.Documents.Hyperlink" /> can navigate to the va
       <summary>Identifies the <see cref="P:System.Windows.Media.Animation.Storyboard.Target" /> attached property.</summary>
     </member>
     <member name="F:System.Windows.Media.Animation.Storyboard.TargetPropertyProperty">
-      <summary>Identifies the <see cref="P:System.Windows.Media.Animation.Storyboard.TargetProperty" /> attached property.</summary>
+      <summary>Identifies the <xref data-throw-if-not-resolved="true" uid="System.Windows.Media.Animation.Storyboard.TargetProperty_a"></xref> attached property.</summary>
     </member>
     <member name="M:System.Windows.Media.Animation.Storyboard.#ctor">
       <summary>Initializes a new instance of the <see cref="T:System.Windows.Media.Animation.Storyboard" /> class.</summary>
@@ -33913,8 +33911,8 @@ Note: <see cref="T:System.Windows.Documents.Hyperlink" /> can navigate to the va
       <returns>The name of the dependency object targeted by <paramref name="element" />.</returns>
     </member>
     <member name="M:System.Windows.Media.Animation.Storyboard.GetTargetProperty(System.Windows.DependencyObject)">
-      <summary>Retrieves the <see cref="F:System.Windows.Media.Animation.Storyboard.TargetProperty" /> value of the specified <see cref="T:System.Windows.Media.Animation.Timeline" />.</summary>
-      <param name="element">The dependency object from which to get the <see cref="F:System.Windows.Media.Animation.Storyboard.TargetProperty" />.</param>
+      <summary>Retrieves the <xref data-throw-if-not-resolved="true" uid="System.Windows.Media.Animation.Storyboard.TargetProperty_a"></xref> value of the specified <see cref="T:System.Windows.Media.Animation.Timeline" />.</summary>
+      <param name="element">The dependency object from which to get the <xref data-throw-if-not-resolved="true" uid="System.Windows.Media.Animation.Storyboard.TargetProperty_a"></xref>.</param>
       <returns>The property targeted by <paramref name="element" />.</returns>
     </member>
     <member name="M:System.Windows.Media.Animation.Storyboard.Pause">
@@ -34049,6 +34047,7 @@ Note: <see cref="T:System.Windows.Documents.Hyperlink" /> can navigate to the va
     <member name="P:System.Windows.Media.Animation.Storyboard.TargetName">
       <summary>Gets or sets the name of the object to animate. The object must be a <see cref="T:System.Windows.FrameworkElement" />, <see cref="T:System.Windows.FrameworkContentElement" />, or <see cref="T:System.Windows.Freezable" />.</summary>
     </member>
+    <member name="P:System.Windows.Media.Animation.Storyboard.TargetProperty_a" />
     <member name="T:System.Windows.Media.Animation.ThicknessAnimation">
       <summary>Animates the value of a  <see cref="T:System.Windows.Thickness" /> property between two target values using linear interpolation over a specified <see cref="P:System.Windows.Media.Animation.Timeline.Duration" />.</summary>
     </member>
@@ -37379,8 +37378,8 @@ The invalidations happen when an implicit data template resource changes.</summa
       <returns>A command that maximizes a window.</returns>
     </member>
     <member name="P:System.Windows.SystemCommands.MinimizeWindowCommand">
-      <summary>Gets a command that maximizes a window.</summary>
-      <returns>A command that maximizes a window.</returns>
+      <summary>Gets a command that minimizes a window.</summary>
+      <returns>A command that minimizes a window.</returns>
     </member>
     <member name="P:System.Windows.SystemCommands.RestoreWindowCommand">
       <summary>Gets a command that restores a window.</summary>
@@ -39643,10 +39642,10 @@ The invalidations happen when an implicit data template resource changes.</summa
     <member name="P:System.Windows.Window.DialogResult">
       <summary>Gets or sets the dialog result value, which is the value that is returned from the <see cref="M:System.Windows.Window.ShowDialog" /> method.</summary>
       <exception cref="T:System.InvalidOperationException">
-        <see cref="P:System.Windows.Window.DialogResult" /> is set before a window is opened by calling <see cref="M:System.Windows.Window.ShowDialog" />.  
-  
- -or-  
-  
+        <see cref="P:System.Windows.Window.DialogResult" /> is set before a window is opened by calling <see cref="M:System.Windows.Window.ShowDialog" />.
+
+ -or-
+
  <see cref="P:System.Windows.Window.DialogResult" /> is set on a window that is opened by calling <see cref="M:System.Windows.Window.Show" />.</exception>
       <returns>A <see cref="T:System.Nullable`1" /> value of type <see cref="T:System.Boolean" />. The default is <see langword="false" />.</returns>
     </member>
@@ -39673,15 +39672,15 @@ The invalidations happen when an implicit data template resource changes.</summa
     </member>
     <member name="P:System.Windows.Window.Owner">
       <summary>Gets or sets the <see cref="T:System.Windows.Window" /> that owns this <see cref="T:System.Windows.Window" />.</summary>
-      <exception cref="T:System.ArgumentException">A window tries to own itself  
-  
- -or-  
-  
+      <exception cref="T:System.ArgumentException">A window tries to own itself
+
+ -or-
+
  Two windows try to own each other.</exception>
-      <exception cref="T:System.InvalidOperationException">The <see cref="P:System.Windows.Window.Owner" /> property is set on a visible window shown using <see cref="M:System.Windows.Window.ShowDialog" />  
-  
- -or-  
-  
+      <exception cref="T:System.InvalidOperationException">The <see cref="P:System.Windows.Window.Owner" /> property is set on a visible window shown using <see cref="M:System.Windows.Window.ShowDialog" />
+
+ -or-
+
  The <see cref="P:System.Windows.Window.Owner" /> property is set with a window that has not been previously shown.</exception>
       <returns>A <see cref="T:System.Windows.Window" /> object that represents the owner of this <see cref="T:System.Windows.Window" />.</returns>
     </member>

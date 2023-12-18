@@ -282,7 +282,7 @@
       <summary>This level adds informational events or messages that are not errors. These events can help trace the progress or state of an application.</summary>
     </member>
     <member name="F:System.Diagnostics.Tracing.EventLevel.LogAlways">
-      <summary>No level filtering is done on the event.</summary>
+      <summary>No level filtering is done on the event. When used as a level filter for enabling events, for example in EventListener.EnableEvents(), events of all levels will be included.</summary>
     </member>
     <member name="F:System.Diagnostics.Tracing.EventLevel.Verbose">
       <summary>This level adds lengthy events or messages. It causes all events to be logged.</summary>
@@ -312,18 +312,18 @@
     <member name="M:System.Diagnostics.Tracing.EventListener.EnableEvents(System.Diagnostics.Tracing.EventSource,System.Diagnostics.Tracing.EventLevel)">
       <summary>Enables events for the specified event source that has the specified verbosity level or lower.</summary>
       <param name="eventSource">The event source to enable events for.</param>
-      <param name="level">The level of events to enable.</param>
+      <param name="level">The level of events to enable. Using EventLevel.LogAlways includes events of all levels.</param>
     </member>
     <member name="M:System.Diagnostics.Tracing.EventListener.EnableEvents(System.Diagnostics.Tracing.EventSource,System.Diagnostics.Tracing.EventLevel,System.Diagnostics.Tracing.EventKeywords)">
       <summary>Enables events for the specified event source that has the specified verbosity level or lower, and matching keyword flags.</summary>
       <param name="eventSource">The event source to enable events for.</param>
-      <param name="level">The level of events to enable.</param>
+      <param name="level">The level of events to enable. Using EventLevel.LogAlways includes events of all levels.</param>
       <param name="matchAnyKeyword">The keyword flags necessary to enable the events.</param>
     </member>
     <member name="M:System.Diagnostics.Tracing.EventListener.EnableEvents(System.Diagnostics.Tracing.EventSource,System.Diagnostics.Tracing.EventLevel,System.Diagnostics.Tracing.EventKeywords,System.Collections.Generic.IDictionary{System.String,System.String})">
       <summary>Enables events for the specified event source that has the specified verbosity level or lower, matching event keyword flag, and matching arguments.</summary>
       <param name="eventSource">The event source to enable events for.</param>
-      <param name="level">The level of events to enable.</param>
+      <param name="level">The level of events to enable. Using EventLevel.LogAlways includes events of all levels.</param>
       <param name="matchAnyKeyword">The keyword flags necessary to enable the events.</param>
       <param name="arguments">The arguments to be matched to enable the events.</param>
     </member>
@@ -451,7 +451,7 @@
         <see langword="true" /> to release both managed and unmanaged resources; <see langword="false" /> to release only unmanaged resources.</param>
     </member>
     <member name="M:System.Diagnostics.Tracing.EventSource.Finalize">
-      <summary>Allows the <see cref="T:System.Diagnostics.Tracing.EventSource" /> object to attempt to free resources and perform other cleanup operations before the  object is reclaimed by garbage collection.</summary>
+      <summary>Allows the <see cref="T:System.Diagnostics.Tracing.EventSource" /> object to attempt to free resources and perform other cleanup operations before the object is reclaimed by garbage collection.</summary>
     </member>
     <member name="M:System.Diagnostics.Tracing.EventSource.GenerateManifest(System.Type,System.String)">
       <summary>Returns a string of the XML manifest that is associated with the current event source.</summary>

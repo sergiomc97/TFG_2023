@@ -49,22 +49,11 @@ public partial class bdContext : DbContext {
     public virtual DbSet<Usuario> usuarios { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-        try {
 
-            optionsBuilder.UseMySql(conn, ServerVersion.AutoDetect(conn));
-            //optionsBuilder.UseMySql(conn, ServerVersion.AutoDetect(conn));
-            //.LogTo(message => Debug.WriteLine(message)).EnableSensitiveDataLogging();
-        }
-        catch (Exception e) {
-            MessageBox.Show(e.ToString());
-        }
+
+        optionsBuilder.UseLazyLoadingProxies().UseMySql(conn, ServerVersion.AutoDetect(conn));
 
     }
-
-
-    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    //      => optionsBuilder.UseLazyLoadingProxies()
-    //                       .UseMySql(conn, ServerVersion.Parse("8.0.34-mysql"));
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder) {

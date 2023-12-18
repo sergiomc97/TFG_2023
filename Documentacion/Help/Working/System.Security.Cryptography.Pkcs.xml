@@ -15,6 +15,31 @@
               The <paramref name="encodedMessage"/> parameter was not successfully decoded.
             </exception>
         </member>
+        <member name="P:System.Security.Cryptography.Pkcs.CmsSigner.SignaturePadding">
+            <summary>
+            Gets or sets the RSA signature padding to use.
+            </summary>
+            <value>The RSA signature padding to use.</value>
+        </member>
+        <member name="M:System.Security.Cryptography.Pkcs.CmsSigner.#ctor(System.Security.Cryptography.Pkcs.SubjectIdentifierType,System.Security.Cryptography.X509Certificates.X509Certificate2,System.Security.Cryptography.RSA,System.Security.Cryptography.RSASignaturePadding)">
+            <summary>
+            Initializes a new instance of the CmsSigner class with a specified signer
+            certificate, subject identifier type, private key object, and RSA signature padding.
+            </summary>
+            <param name="signerIdentifierType">
+            One of the enumeration values that specifies the scheme to use for identifying
+            which signing certificate was used.
+            </param>
+            <param name="certificate">
+            The certificate whose private key will be used to sign a message.
+            </param>
+            <param name="privateKey">
+            The private key object to use when signing the message.
+            </param>
+            <param name="signaturePadding">
+            The RSA signature padding to use.
+            </param>
+        </member>
         <member name="M:System.Security.Cryptography.Pkcs.Pkcs12CertBag.#ctor(System.Security.Cryptography.Oid,System.ReadOnlyMemory{System.Byte})">
             <summary>
             Create a CertBag for a specified certificate type and encoding.
@@ -196,7 +221,7 @@
             SafeHandle representing HCRYPTHASH handle
             </summary>
         </member>
-        <member name="T:System.Security.Cryptography.SafeKeyHandle">
+        <member name="T:System.Security.Cryptography.SafeCapiKeyHandle">
             <summary>
                 Safe handle representing a HCRYPTKEY
             </summary>
@@ -234,35 +259,20 @@
         <member name="P:System.SR.Argument_InvalidValue">
             <summary>Value was invalid.</summary>
         </member>
-        <member name="P:System.SR.ArgumentOutOfRange_Index">
+        <member name="P:System.SR.Argument_InvalidRsaSignaturePadding">
+            <summary>The RSA padding must be Pkcs1 or Pss.</summary>
+        </member>
+        <member name="P:System.SR.ArgumentOutOfRange_IndexMustBeLess">
             <summary>Index was out of range. Must be non-negative and less than the size of the collection.</summary>
+        </member>
+        <member name="P:System.SR.ArgumentOutOfRange_IndexMustBeLessOrEqual">
+            <summary>Index was out of range. Must be non-negative and less than or equal to the size of the collection.</summary>
         </member>
         <member name="P:System.SR.ArgumentOutOfRange_NeedPosNum">
             <summary>Positive number required.</summary>
         </member>
         <member name="P:System.SR.Cryptography_AlgKdfRequiresChars">
             <summary>The KDF for algorithm '{0}' requires a char-based password input.</summary>
-        </member>
-        <member name="P:System.SR.Cryptography_Asn_EnumeratedValueRequiresNonFlagsEnum">
-            <summary>ASN.1 Enumerated values only apply to enum types without the [Flags] attribute.</summary>
-        </member>
-        <member name="P:System.SR.Cryptography_Asn_NamedBitListRequiresFlagsEnum">
-            <summary>Named bit list operations require an enum with the [Flags] attribute.</summary>
-        </member>
-        <member name="P:System.SR.Cryptography_Asn_NamedBitListValueTooBig">
-            <summary>The encoded named bit list value is larger than the value size of the '{0}' enum.</summary>
-        </member>
-        <member name="P:System.SR.Cryptography_Asn_UniversalValueIsFixed">
-            <summary>Tags with TagClass Universal must have the appropriate TagValue value for the data type being read or written.</summary>
-        </member>
-        <member name="P:System.SR.Cryptography_Asn_UnusedBitCountRange">
-            <summary>Unused bit count must be between 0 and 7, inclusive.</summary>
-        </member>
-        <member name="P:System.SR.Cryptography_AsnWriter_EncodeUnbalancedStack">
-            <summary>Encode cannot be called while a Sequence or SetOf is still open.</summary>
-        </member>
-        <member name="P:System.SR.Cryptography_AsnWriter_PopWrongTag">
-            <summary>Cannot pop the requested tag as it is not currently in progress.</summary>
         </member>
         <member name="P:System.SR.Cryptography_BadHashValue">
             <summary>The hash value is not correct.</summary>
@@ -379,7 +389,7 @@
             <summary>This verification operation applies to 'Pkcs12IntegrityMode.{0}', but the target object is in 'Pkcs12IntegrityMode.{1}'.</summary>
         </member>
         <member name="P:System.SR.Cryptography_Pkcs_InvalidSignatureParameters">
-            <summary>Invalid signature paramters.</summary>
+            <summary>Invalid signature parameters.</summary>
         </member>
         <member name="P:System.SR.Cryptography_Pkcs8_EncryptedReadFailed">
             <summary>The EncryptedPrivateKeyInfo structure was decoded but was not successfully interpreted, the password may be incorrect.</summary>
@@ -444,9 +454,6 @@
         <member name="P:System.SR.Cryptography_UnknownHashAlgorithm">
             <summary>'{0}' is not a known hash algorithm.</summary>
         </member>
-        <member name="P:System.SR.Cryptography_WriteEncodedValue_OneValueAtATime">
-            <summary>The input to WriteEncodedValue must represent a single encoded value with no trailing data.</summary>
-        </member>
         <member name="P:System.SR.Cryptography_Cms_NoAttributeFound">
             <summary>Attribute not found.</summary>
         </member>
@@ -458,6 +465,9 @@
         </member>
         <member name="P:System.SR.Cryptography_Cms_InvalidSymmetricKey">
             <summary>The key in the enveloped message is not valid or could not be decoded.</summary>
+        </member>
+        <member name="P:System.SR.Cryptography_X509_PfxWithoutPassword">
+            <summary>PKCS12 (PFX) without a supplied password has exceeded maximum allowed iterations. See https://go.microsoft.com/fwlink/?linkid=2233907 for more information.</summary>
         </member>
         <member name="P:Internal.Cryptography.DecryptorPal.RecipientInfos">
              <summary>
@@ -511,7 +521,7 @@
             Asserts on bad input. Input must come from trusted sources.
             </summary>
         </member>
-        <member name="M:Internal.Cryptography.PkcsHelpers.CreateBestPkcs9AttributeObjectAvailable(System.Security.Cryptography.Oid,System.Byte[])">
+        <member name="M:Internal.Cryptography.PkcsHelpers.CreateBestPkcs9AttributeObjectAvailable(System.Security.Cryptography.Oid,System.ReadOnlySpan{System.Byte})">
             <summary>
             Useful helper for "upgrading" well-known CMS attributes to type-specific objects such as Pkcs9DocumentName, Pkcs9DocumentDescription, etc.
             </summary>

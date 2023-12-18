@@ -31,7 +31,6 @@ namespace mainWin.Controladores {
         public FactusolController(string db, string conn) {
             //connectionString = "Driver={Microsoft Access Driver (*.mdb, *.accdb)};" + $"Dbq = {db};" ;
             connectionString = $"Provider = Microsoft.ACE.OLEDB.12.0; Data Source={db};";
-            MessageBox.Show(connectionString);
             //connectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={db}";
             this.conn = conn;
         }
@@ -47,7 +46,7 @@ namespace mainWin.Controladores {
                 File.AppendAllText(logFilePath, message);
             }
             catch (Exception e) {
-                MessageBox.Show(e.ToString());
+                
             }
         }
 
